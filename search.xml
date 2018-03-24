@@ -4,13 +4,17 @@
     <title><![CDATA[The goals of 2018]]></title>
     <url>%2F2018%2F01%2F01%2FThe-goals-of-2018%2F</url>
     <content type="text"><![CDATA[前天在小姨家，小姨提议让我给自己制定一些2018年的目标，正好博客重开并且坚持写下去就是我的新一年的一个小目标，那索性就直接把2018年的目标写到博客里，等到这年结束时，再回头看看这一年的完成情况。 The goals既然写都要写了，那就分类写得稍微整洁点。 Learning 通过找一些有趣的idea来巩固自己对C++11之后的标准的理解。ps: 顺便在之后的博客中把先前欠下的《Modern Effective C++》的笔记给补上。具体的项目可以先从一些简单的轮子上手，比如一些 parser 和 CG demo，还能加深些编译原理和图形学的知识。 博客有关技术的内容要保持至少一周一更的更新频率。 完成初阶 Rust 的学习，并进行 Rust 官方文档里高阶部分的学习。 CG的学习，通读 Real-time Rendering 和 PBRT，分别对实时渲染和离线渲染的基础算法有一定的了解。 IT 技术书籍和金融理财相关书籍的阅读，一年的预计总数为 20 份（包含中英文和一些系统性的技术文档）。 英文听说和写能力的提高，因为我单词量还不错，所以今年内希望达到至少 English native speaker 简单日常使用的水平，具体的计划还需按阶段详细制定，比如阶段性的考核。 Life 健身的频率要从一周2-3次提高到3-4次，并且对每周每次的健身内容做好计划。脑子里现在暂时有一些想法，但具体的计划需要等我先进行一两周的试练再做调整。ps: 短期的目标是在过春节前减重5斤，也就是一个半月内。 再结交同学和同事之外的几位好友，可以是技术相关的，也可以是爱好相关的，当然两者都相关是最好不过的，不过我知道这很难。彼女的话我想在换工作环境前是没有任何可能（笑。 希望今年能用上一次我前年办的护照23333，顺便坐一下因为恐高而没尝试的飞机（其实是没机会。 Deposit 能达到 100K，换工作前和没搞副业前估计是没办法了（笑。 Work 为今年暑假的 leave 和 interview 做好准备，算法题是肯定要刷起来的，还要想好下一份工作的方向，不要盲目选择，对下一家公司也需要做详细的分析。 希望下一份工作能找到城西西溪附近的好公司和好岗位，因为还能省下一笔房租2333。 Fighting~ 后续若有详细计划会继续更新]]></content>
+      <tags>
+        <tag>plan</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Deploy gogs step by step]]></title>
     <url>%2F2018%2F01%2F01%2FDeploy-gogs-step-by-step%2F</url>
     <content type="text"><![CDATA[Gogs就像 Gogs 项目的README里所说，Gogs是一个简单的私人自助Git服务，由Golang编写，理论上来说支持所有Golang所支持的平台。 你可能要问不是有 Github 可以用么？Github 好是好，但毕竟私人仓库是要收费的，而且有些垃圾代码实在不适合放到 Github 上污染民那桑的眼睛，所以就用自己的服务器搭建一个私人 Git 托管服务。 Step1. Download Gogs from Github根据官方文档，下载分为二进制/源码/包管理，服务器我这里使用的是 Vultr 的 Cloud Instance，系统是 Ubuntu16.04。由于包管理只支持 Ubuntu12.04/14.04，而且包管理均为第三方提供，所以我就跳过源码编译直接用二进制安装（当然用 Archlinux 的也可以直接用 AUR 源进行安装），总之分系统类型进行，我个人比较推荐新手直接用部署更为方便的二进制，若之后想更新Gogs二进制，官方文档也提供了如何升级二进制的教程： 下载最新版的压缩包 删除当前的 templates 目录。 解压压缩包并将所有内容复制粘贴到相应（当前）的位置。 废话不多说，直接 wget 下载链接， 然后解压： 12wget https://dl.gogs.io/0.11.34/linux_amd64.zipunzip linux_amd64.zip 目录如下： 123456789101112root@Ubuntu16:~/gogs# ls -ltotal 31384drwxr-xr-x 3 root root 4096 Dec 23 15:30 customdrwx------ 4 root root 4096 Dec 23 15:59 data-rwxr-xr-x 1 root root 32091291 Nov 22 20:01 gogs-rw-r--r-- 1 root root 1054 Feb 11 2017 LICENSEdrwxr-xr-x 2 root root 4096 Jan 1 00:07 logdrwxr-xr-x 8 root root 4096 Nov 22 20:01 public-rw-r--r-- 1 root root 8032 Nov 22 20:01 README.md-rw-r--r-- 1 root root 5329 Nov 19 18:54 README_ZH.mddrwxr-xr-x 7 root root 4096 Nov 22 20:01 scriptsdrwxr-xr-x 11 root root 4096 Nov 22 20:01 templates Step2. Deploy Gogs直接后台运行gogs二进制： 1./gogs web &amp;&amp; 运行成功后，浏览器首次进入 localhost:3000/ 会跳转到 /install，进行首次部署基本配置，比如数据库的选择，账号注册等等，由于我是一个人用，数据库使用 sqlite 绰绰有余。 Step3. Configuration默认配置文件从v0.6.0开始就被嵌入了二进制中，若要进行自定义配置，只需要修改 custom/conf/app.ini，比如 Git仓库根目录、数据库配置或者是否支持注册等。 像我，则是在安装部署和注册账号完成后，禁止了其他人的注册，因为毕竟这只是我个人的 Git 托管服务。若是一个团队协同使用，就不需要关闭注册功能。 123456789101112131415161718192021222324252627282930313233343536373839404142root@Ubuntu16:~/gogs/custom/conf# cat app.iniAPP_NAME = GogsRUN_USER = rootRUN_MODE = prod[database]DB_TYPE = sqlite3#...[repository]ROOT = /root/gogs-repositories[server]DOMAIN = localhostHTTP_PORT = 3000ROOT_URL = http://localhost:3000/DISABLE_SSH = falseSSH_PORT = 22START_SSH_SERVER = falseOFFLINE_MODE = false[mailer]ENABLED = false[service]REGISTER_EMAIL_CONFIRM = falseENABLE_NOTIFY_MAIL = falseDISABLE_REGISTRATION = trueENABLE_CAPTCHA = trueREQUIRE_SIGNIN_VIEW = false[picture]DISABLE_GRAVATAR = falseENABLE_FEDERATED_AVATAR = true[session]PROVIDER = file[log]MODE = fileLEVEL = InfoROOT_PATH = /root/gogs/log Step4. Forward port在部署和配置完成后，其实就已经可以很好的使用Gogs的自助Git服务了，但是在浏览器敲ip地址和端口号太麻烦了，所以我就利用我现有的域名，在DNSPOD上再加了一条二级域名解析，直接取个好记的域名 git.koushiro.me。当然如果你是在狗爹上买的域名并且用得狗爹自己的域名解析，那添加二级域名就更简单了，而且也不需要自己配置端口转发，狗爹的域名解析和跳转支持二级域名直接转发到某个ip地址的端口，但如果你也是和我一样使用DNSPOD来进行域名解析的，那还得多做一步，就是用 nginx 进行 3000 端口的转发。 这一步实际也很简单： 通过包管理安装 Nginx： 12apt install nginx # Debian / Ubuntupacman -S nginx # Archlinux 安装完成后，nginx 的默认配置在 /etc/nginx/nginx.conf 里 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253http &#123; ## # Basic Settings ## sendfile on; tcp_nopush on; tcp_nodelay on; keepalive_timeout 65; types_hash_max_size 2048; # server_tokens off; # server_names_hash_bucket_size 64; # server_name_in_redirect off; include /etc/nginx/mime.types; default_type application/octet-stream; ## # SSL Settings ## ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # Dropping SSLv3, ref: POODLE ssl_prefer_server_ciphers on; ## # Logging Settings ## access_log /var/log/nginx/access.log; error_log /var/log/nginx/error.log; ## # Gzip Settings ## gzip on; gzip_disable &quot;msie6&quot;; # gzip_vary on; # gzip_proxied any; # gzip_comp_level 6; # gzip_buffers 16 8k; # gzip_http_version 1.1; # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript; ## # Virtual Host Configs ## include /etc/nginx/conf.d/*.conf; include /etc/nginx/sites-enabled/*;&#125; 可以看到最后的 Virtual Host Configs 里的 include， 显而易见，我们只需要在 /etc/nginx/conf.d 新建一个配置文件，然后 reload nginx 服务，就能完成端口转发。 这里我根据我的域名新建一个配置文件 git.koushiro.me.conf，内容如下： 12345678server &#123; server_name git.koushiro.me listen 80; location / &#123; proxy_pass http://localhost:3000; &#125;&#125; 这里我将 git.koushiro.me 的 80 端口请求转发到服务器本地的 3000 端口，也就是 Gogs 服务的默认端口。 OK~ DONE~ PS: 快一年多没写博客了，也正好趁 2018 年的到来，重拾博客，记录些学习和生活，本想继续写篇博客记录下自己一些 2018 年的目标，但时间也不早了，明天还得上班糊代码，那2018目标的那篇博客就放到明天写好了，顺便给自己多一天时间仔细想想，也希望新的一年我能好好完成自己将要定下的目标。]]></content>
       <tags>
-        <tag>config</tag>
+        <tag>tech</tag>
+        <tag>gogs</tag>
       </tags>
   </entry>
   <entry>
@@ -21,8 +25,8 @@
         <category>Effective Cpp Note</category>
       </categories>
       <tags>
+        <tag>tech</tag>
         <tag>cpp</tag>
-        <tag>note</tag>
       </tags>
   </entry>
   <entry>
@@ -33,8 +37,8 @@
         <category>Effective Cpp Note</category>
       </categories>
       <tags>
+        <tag>tech</tag>
         <tag>cpp</tag>
-        <tag>note</tag>
       </tags>
   </entry>
   <entry>
@@ -45,8 +49,8 @@
         <category>Effective Cpp Note</category>
       </categories>
       <tags>
+        <tag>tech</tag>
         <tag>cpp</tag>
-        <tag>note</tag>
       </tags>
   </entry>
   <entry>
@@ -57,8 +61,8 @@
         <category>Effective Cpp Note</category>
       </categories>
       <tags>
+        <tag>tech</tag>
         <tag>cpp</tag>
-        <tag>note</tag>
       </tags>
   </entry>
   <entry>
@@ -66,7 +70,7 @@
     <url>%2F2017%2F01%2F02%2FDeploy-hexo-blog-on-github-page%2F</url>
     <content type="text"><![CDATA[This is a simple tutorial to deploy your hexo blog on Github Page. Deploy Hexo blog on Github PageInstall Node.js and Git Node.js Git 具体情况可见 hexo official document. 之前我本来想配置在ubuntu的虚拟机上，后来发现直接在windows上配置也是行得通的。 Node.js 就直接用 windows 的 Latest LTS version. Git 就直接下个 Git bash. 打开 Git bash， 为本地 Git 配置全局 user 和 email 参数，当然你肯定要有 Github 账户. 12$ git config --global user.name "your github account name"$ git config --global user.email "your github account email" 然后在本地生成 SSH 私钥，并将公钥保存到你的 GitHub 账户中去。 1$ ssh-keygen -t rsa -C "your github account email" 生成过程会有提示要输入，直接一路enter. 进入Github 的 setting 界面，选择 SSH and GPG keys ，点击 New SSH key ，在展开的窗口中填写公钥信息。 title 可以随意起，key 那一栏则是把刚刚生成的 id_rsa.pub 的内容复制进去。最后点击按钮添加。 Install HexoNode.js 在 windows 上的安装默认会直接安装上 npm. 1$ npm install -g hexo-cli 创建并进入 Hexo 目录 1$ mkdir Hexo &amp;&amp; cd Hexo 使用 hexo 生成博客框架 12345$ hexo init blog$ cd blog$ npm install$ hexo generate (or hexo g)$ hexo server (or hexo s) hexo init blog 过程可能比较慢，因为过程中要远程从 github 上下载默认的主题。 通过 hexo server 运行起 hexo 内置的服务器。这时候就可以开始在本地访问了，默认地址为 localhost : 4000 . Hexo modules _config.yml ：站点配置文件，可以修改网站的主题、标题、作者等信息。 public ：由 hexo 根据 source 文件夹中的资源进行渲染生成的文件夹，里边存储着最终的静态网页文件。 scaffolds ：模板文件，当要给博客添加新文章的时候，可以根据对应的模板进行创建。 source ：用于存储用户资源，比如文章与新页面等。其中以 _ 开头的文件夹中除了 _posts 文件夹中的 markdown 或 HTML 文件会在执行 generate 操作的时候被渲染添加到 public 文件夹中之外，其他均被忽略。而且在初始化博客的过程中 _posts 目录底会自带一个 hello-world.md 的文件。 themes ：主题文件，自带默认主题 landscape 。 ThemeNexT 主题 下载你喜欢的版本并解压到 themes 目录下，将解压后的文件夹名称改名为 next. 打开 _config.yml （即站点配置文件），找到 theme 字段，将默认主题 landscape 改为 next，通过之前的两条命令重新生成网页文件： 12$ hexo g$ hexo s 应该就可以在本地浏览器看见新主题了。 主题更具体的配置请见 NexT 的官方文档，官方文档写得很有条理，而且里面还有各种第三方服务的配置。 Deploy to Github Page首先要创建一个 new repository，注意仓库名格式必须为 your_github_name.github.io ，这个仓库将作为你的静态博客文件的存放仓库。 12$ cd Hexo/blog$ git clone git@github.com:your_github_name/your_github_name.github.io.git 部署要做的事就是把 public 文件目录下的博客文件都复制到你的本地仓库中，并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。 12345$ cp -R public/ * your_github_name.github.io/$ cd your_github_name.github.io$ git add .$ git commit -m 'update blog'$ git push 你可以把上面的部署方法写成 shell 脚本一键部署或者 安装 hexo-deployer-git: 1$ npm install hexo-deployer-git --save 修改站点配置文件 _config.yml：123456# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:your_github_name/your_github_name.github.io.git branch: master 然后执行 1$ hexo deploy (or hexo d) Addtion：为 Github Page 绑定独立域名首先当然要有自己的域名，接着就是域名解析，这类教程网上一抓一大把，这里就不细讲了。 在本地博客的 source 目录下（例如：Hexo/blog/source）创建文件 CNAME （这个文件名一定要大写，并且没有文件后缀名），编辑内容为你的域名，比如我的域名为 koushiro.me ，那么 CNAME 中就填写这个。然后将这个 CNAME 文件 push 到 github 的主页仓库当中。 由于我的域名解析是在 DNSPOD 上解析的，所以只要在域名解析中加上一条记录类型是 CNAME，记录值为 your_github_name.github.io 的记录就可以了。]]></content>
       <tags>
-        <tag>config</tag>
+        <tag>tech</tag>
         <tag>hexo</tag>
       </tags>
   </entry>
