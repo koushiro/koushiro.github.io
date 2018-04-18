@@ -106,7 +106,7 @@
   <meta name="description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是特别了解。好吧，我其实就是图新鲜【逃">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Note4 of Effective C++">
-<meta property="og:url" content="http://yoursite.com/2017/02/20/Effective-Cpp-Note4/index.html">
+<meta property="og:url" content="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/index.html">
 <meta property="og:site_name" content="Koushiro's Blog">
 <meta property="og:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是特别了解。好吧，我其实就是图新鲜【逃">
 <meta property="og:updated_time" content="2018-04-15T13:33:20.388Z">
@@ -119,7 +119,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/20/Effective-Cpp-Note4/"/>
+  <link rel="canonical" href="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/"/>
 
 
 
@@ -371,7 +371,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/20/Effective-Cpp-Note4/">
+    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="koushiro">
@@ -554,7 +554,7 @@
 <span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span>;
 <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span>;
 </code></pre>
-<p>与析构函数类似，<code>operator delete</code> 也不允许抛出异常（<a href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/#more" target="_blank" rel="external">Item8</a>），<strong>重载运算符时必须使用 <code>noexcept</code> 异常说明符指定其不抛出异常</strong>。</p>
+<p>与析构函数类似，<code>operator delete</code> 也不允许抛出异常（<a href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/#more">Item8</a>），<strong>重载运算符时必须使用 <code>noexcept</code> 异常说明符指定其不抛出异常</strong>。</p>
 <p><a href="http://en.cppreference.com/w/cpp/memory/new/nothrow_t" target="_blank" rel="external"><code>nothrow_t</code></a> 是定义在 <code>new</code> 头文件中的一个 <code>struct</code>，<code>nothrow</code> 是一个类型为 <code>nothrow_t</code> 的 <code>const</code> 对象，用户可通过这个对象请求 <code>new</code> 的非抛出版本。 </p>
 <h3 id="最近有很多书要看-懒癌发作"><a href="#最近有很多书要看-懒癌发作" class="headerlink" title="最近有很多书要看 懒癌发作"></a>最近有很多书要看 懒癌发作</h3><p>话说剩下的部分不是很熟悉的就是完全没接触过，应该也不会接下去写了，碰到问题再说吧。</p>
 <p>最近也入了 Effective Modern C++11/14 和 C++ Template，接下去应该会整理这两本吧（笑）</p>
@@ -619,7 +619,7 @@
     <strong>Post author: </strong>koushiro</li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="http://yoursite.com/2017/02/20/Effective-Cpp-Note4/" title="The Note4 of Effective C++">http://yoursite.com/2017/02/20/Effective-Cpp-Note4/</a>
+    <a href="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/" title="The Note4 of Effective C++">https://koushiro.me/2017/02/20/Effective-Cpp-Note4/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
@@ -632,9 +632,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cpp/" rel="tag"># cpp</a>
-          
             <a href="/tags/tech/" rel="tag"># tech</a>
+          
+            <a href="/tags/cpp/" rel="tag"># cpp</a>
           
         </div>
       
