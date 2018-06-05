@@ -112,22 +112,23 @@
 
 
 
-  <meta name="description" content="你为什么这么熟练啊！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Koushiro's Blog">
-<meta property="og:url" content="https://koushiro.me/page/2/index.html">
+  <meta name="description" content="最近我在重看算法导论，所以为了更好地巩固算法，打算为每个重要部分都写一篇博客，其实在大学的时候我就干过类似的事情，只不过上次是在leanote上写的并且发布到了leanote的博客上，介于leanote的会员到期，因此决定重写编写之前关于算法导论部分的博客内容并放到github上来，但是这次重写将主要着重强调具体的编码实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Write a simple PriorityQueue">
+<meta property="og:url" content="https://koushiro.me/2018/05/28/Write-a-simple-PriorityQueue/index.html">
 <meta property="og:site_name" content="Koushiro's Blog">
-<meta property="og:description" content="你为什么这么熟练啊！">
+<meta property="og:description" content="最近我在重看算法导论，所以为了更好地巩固算法，打算为每个重要部分都写一篇博客，其实在大学的时候我就干过类似的事情，只不过上次是在leanote上写的并且发布到了leanote的博客上，介于leanote的会员到期，因此决定重写编写之前关于算法导论部分的博客内容并放到github上来，但是这次重写将主要着重强调具体的编码实现。">
+<meta property="og:updated_time" content="2018-06-05T15:09:27.462Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Koushiro's Blog">
-<meta name="twitter:description" content="你为什么这么熟练啊！">
+<meta name="twitter:title" content="Write a simple PriorityQueue">
+<meta name="twitter:description" content="最近我在重看算法导论，所以为了更好地巩固算法，打算为每个重要部分都写一篇博客，其实在大学的时候我就干过类似的事情，只不过上次是在leanote上写的并且发布到了leanote的博客上，介于leanote的会员到期，因此决定重写编写之前关于算法导论部分的博客内容并放到github上来，但是这次重写将主要着重强调具体的编码实现。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://koushiro.me/page/2/"/>
+  <link rel="canonical" href="https://koushiro.me/2018/05/28/Write-a-simple-PriorityQueue/"/>
 
 
 
@@ -137,7 +138,7 @@
   };
 </script>
 
-  <title>Koushiro's Blog</title>
+  <title>Write a simple PriorityQueue | Koushiro's Blog</title>
   
 
 
@@ -184,8 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -332,9 +332,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -342,6 +342,8 @@
   
   
 
+  
+    <div class="reading-progress-bar"></div>
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -349,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/02/11/Effective-Cpp-Note3/">
+    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2018/05/28/Write-a-simple-PriorityQueue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="koushiro">
@@ -366,11 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/11/Effective-Cpp-Note3/" itemprop="url">
-                  The Note3 of Effective C++
-                </a>
+          <h1 class="post-title" itemprop="name headline">Write a simple PriorityQueue
               
             
           </h1>
@@ -395,7 +393,7 @@
                 
               
 
-              <time title="创建时间：2017-02-11 14:27:39" itemprop="dateCreated datePublished" datetime="2017-02-11T14:27:39+08:00">2017-02-11</time>
+              <time title="创建时间：2018-05-28 15:30:20" itemprop="dateCreated datePublished" datetime="2018-05-28T15:30:20+08:00">2018-05-28</time>
             
 
             
@@ -412,41 +410,41 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-04-15 21:33:16" itemprop="dateModified" datetime="2018-04-15T21:33:16+08:00">2018-04-15</time>
+                <time title="修改时间：2018-06-05 23:09:27" itemprop="dateModified" datetime="2018-06-05T23:09:27+08:00">2018-06-05</time>
               
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
 
-                
-                
-              
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/28/Write-a-simple-PriorityQueue/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/05/28/Write-a-simple-PriorityQueue/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
           
-            
-          
-
-          
-          
-
-          
-
-          
             <div class="post-symbolscount">
               
 
@@ -457,779 +455,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">15k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">14 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>书中第三部分是讲资源管理（Resource Management），只有不足20页，尽管不是专门讲动态内存（dynamical memory）和智能指针（smart pointer），但还是占较大篇幅的，我会结合 C++11 新标准对其进行一些扩充。今日も顽张りましょう。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/11/Effective-Cpp-Note3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/02/03/Effective-Cpp-Note2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koushiro's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/02/03/Effective-Cpp-Note2/" itemprop="url">
-                  The Note2 of Effective C++
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-02-03 12:40:57" itemprop="dateCreated datePublished" datetime="2017-02-03T12:40:57+08:00">2017-02-03</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-04-15 21:33:11" itemprop="dateModified" datetime="2018-04-15T21:33:11+08:00">2018-04-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">15k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">14 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>过年好像并没有想象的这么闲，无聊又麻烦的事情比较多【这也是我过年期间中的daikirai】，所以第二部分的整理来的有些迟，这一部分的 Items 相比第一部分要短小简洁，而且这部分 Items 中对我来说绝大多数都是较熟悉的【毕竟构造和析构这种东西写的太多了】，除了 Item 8 ，可能是实际中异常我用的比较少。总之，Let’s do it !</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/03/Effective-Cpp-Note2/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/01/26/Effective-Cpp-Note1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koushiro's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/26/Effective-Cpp-Note1/" itemprop="url">
-                  The Note1 of Effective C++
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-01-26 15:24:56" itemprop="dateCreated datePublished" datetime="2017-01-26T15:24:56+08:00">2017-01-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-04-15 21:32:59" itemprop="dateModified" datetime="2018-04-15T21:32:59+08:00">2018-04-15</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">12k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">11 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>之前买了这本书后只是草草翻过，这半个多月以来，断断续续把这本书从头到尾看了一遍，虽然其中的一些条款内容早就熟记于心，但难免还有晦涩之处，所以打算在过年空闲期间把整本书的每个条款的重点进行系统的整理。<br>不得不说 C++ 是门不好学的语言，自认为也没那么聪明，整理总结对我来说不失为一个深入学习的好方法。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/26/Effective-Cpp-Note1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/01/02/Deploy-hexo-blog-on-github-page/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koushiro's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/01/02/Deploy-hexo-blog-on-github-page/" itemprop="url">
-                  Deploy Hexo blog on Github Page
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-01-02 22:56:05" itemprop="dateCreated datePublished" datetime="2017-01-02T22:56:05+08:00">2017-01-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-04-15 21:31:59" itemprop="dateModified" datetime="2018-04-15T21:31:59+08:00">2018-04-15</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">2.8k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">3 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>This is a simple tutorial to deploy your hexo blog on Github Page. </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/02/Deploy-hexo-blog-on-github-page/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2016/12/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Koushiro's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/12/29/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-12-29 16:48:28" itemprop="dateCreated datePublished" datetime="2016-12-29T16:48:28+08:00">2016-12-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-01-03 00:46:59" itemprop="dateModified" datetime="2017-01-03T00:46:59+08:00">2017-01-03</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">431</span>
+                <span title="本文字数">735</span>
               
 
               
@@ -1263,16 +489,17 @@
       
 
       
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/29/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>最近我在重看算法导论，所以为了更好地巩固算法，打算为每个重要部分都写一篇博客，其实在大学的时候我就干过类似的事情，<br>只不过上次是在leanote上写的并且发布到了leanote的博客上，介于leanote的会员到期，因此决定重写编写之前关于算法导论部分的博客内容并放到github上来，但是这次重写将主要着重强调具体的编码实现。</p>
+<a id="more"></a>
+<hr>
+<h1 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h1><p>PriorityQueue是二叉堆（Heap）的一个常见应用，所以想要写一个PriorityQueue之前肯定需要对堆有所了解。</p>
+<p>Heap与PriorityQueue一样都是一种抽象数据类型（Abstract Data Type，ADT），实际存储结构常常是一个数组，且将其看成一个近似的完全二叉树（最底层可能不是完全满的），如下图所示。</p>
+<p>二叉堆分为两种：</p>
+<ul>
+<li><strong>最大堆</strong>：除了根以外的所有结点i都要满足 结点i的父亲的值大于等于结点i的值，即<code>Heap[parent(i)] &gt;= Heap[i]</code></li>
+<li><strong>最小堆</strong>：除了根以外的所有结点i都要满足 结点i的父亲的值小于等于结点i的值，即<code>Heap[parent(i)] &lt;= Heap[i]</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T,</div><div class="line">         <span class="keyword">class</span> Container = <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt;,</div><div class="line">         <span class="keyword">class</span> Compare = <span class="built_in">std</span>::less&lt;<span class="keyword">typename</span> Container::value_type&gt;&gt;</div><div class="line"><span class="keyword">class</span> PriorityQueue</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Container container;</div><div class="line">    Compare comp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -1287,17 +514,61 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>koushiro</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://koushiro.me/2018/05/28/Write-a-simple-PriorityQueue/" title="Write a simple PriorityQueue">https://koushiro.me/2018/05/28/Write-a-simple-PriorityQueue/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/cpp/" rel="tag"># cpp</a>
+          
+            <a href="/tags/tech/" rel="tag"># tech</a>
+          
+            <a href="/tags/algorithm/" rel="tag"># algorithm</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/01/The-goals-of-2018/" rel="next" title="The goals of 2018">
+                <i class="fa fa-chevron-left"></i> The goals of 2018
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/05/Cpp中的字符串优化/" rel="prev" title="Cpp中的字符串优化">
+                Cpp中的字符串优化 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -1307,18 +578,26 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -1339,8 +618,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1460,6 +748,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Heap"><span class="nav-number">1.</span> <span class="nav-text">Heap</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1636,6 +940,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -1677,6 +985,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'koushiro',
+            repo: 'koushiro.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67b4ee22c6f0dc684b0d2c60847f6eb0a62da3de',
+            
+                client_id: '427e7235a71b33e01a0c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -2059,7 +1391,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#更多");
   
   </script>
 

@@ -112,23 +112,23 @@
 
 
 
-  <meta name="description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是特别了解。好吧，我其实就是图新鲜【逃">
+  <meta name="description" content="字符串是程序代码中使用最频繁的几种数据类型之一，在C++中基本是以std::string出现（当然还有C中的字符数组），尽管它被正确和频繁的使用，但多数coder仍然会忽略可以明显改善性能的地方。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Note4 of Effective C++">
-<meta property="og:url" content="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/index.html">
+<meta property="og:title" content="Cpp中的字符串优化">
+<meta property="og:url" content="https://koushiro.me/2018/06/05/Cpp中的字符串优化/index.html">
 <meta property="og:site_name" content="Koushiro's Blog">
-<meta property="og:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是特别了解。好吧，我其实就是图新鲜【逃">
-<meta property="og:updated_time" content="2018-04-15T13:33:20.388Z">
+<meta property="og:description" content="字符串是程序代码中使用最频繁的几种数据类型之一，在C++中基本是以std::string出现（当然还有C中的字符数组），尽管它被正确和频繁的使用，但多数coder仍然会忽略可以明显改善性能的地方。">
+<meta property="og:updated_time" content="2018-06-05T15:05:50.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Note4 of Effective C++">
-<meta name="twitter:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是特别了解。好吧，我其实就是图新鲜【逃">
+<meta name="twitter:title" content="Cpp中的字符串优化">
+<meta name="twitter:description" content="字符串是程序代码中使用最频繁的几种数据类型之一，在C++中基本是以std::string出现（当然还有C中的字符数组），尽管它被正确和频繁的使用，但多数coder仍然会忽略可以明显改善性能的地方。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/"/>
+  <link rel="canonical" href="https://koushiro.me/2018/06/05/Cpp中的字符串优化/"/>
 
 
 
@@ -138,7 +138,7 @@
   };
 </script>
 
-  <title>The Note4 of Effective C++ | Koushiro's Blog</title>
+  <title>Cpp中的字符串优化 | Koushiro's Blog</title>
   
 
 
@@ -351,7 +351,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/">
+    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2018/06/05/Cpp中的字符串优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="koushiro">
@@ -368,7 +368,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">The Note4 of Effective C++
+          <h1 class="post-title" itemprop="name headline">Cpp中的字符串优化
               
             
           </h1>
@@ -393,46 +393,16 @@
                 
               
 
-              <time title="创建时间：2017-02-20 14:00:07" itemprop="dateCreated datePublished" datetime="2017-02-20T14:00:07+08:00">2017-02-20</time>
+              <time title="创建时间：2018-06-05 15:52:21 / 修改时间：23:05:50" itemprop="dateCreated datePublished" datetime="2018-06-05T15:52:21+08:00">2018-06-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-04-15 21:33:20" itemprop="dateModified" datetime="2018-04-15T21:33:20+08:00">2018-04-15</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -442,8 +412,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/20/Effective-Cpp-Note4/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2017/02/20/Effective-Cpp-Note4/" itemprop="commentsCount"></span>
+                <a href="/2018/06/05/Cpp中的字符串优化/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/05/Cpp中的字符串优化/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -473,7 +443,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.3k</span>
+                <span title="本文字数">7.3k</span>
               
 
               
@@ -487,7 +457,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">7 分钟</span>
               
             </div>
           
@@ -507,88 +477,65 @@
       
 
       
-        <p>这部分主要涉及 <code>new</code> 和 <code>delete</code> 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是特别了解。好吧，我其实就是图新鲜【逃</p>
+        <p>字符串是程序代码中使用最频繁的几种数据类型之一，在C++中基本是以std::string出现（当然还有C中的字符数组），尽管它被正确和频繁的使用，但多数coder仍然会忽略可以明显改善性能的地方。</p>
 <a id="more"></a>
-<h1 id="Customizing-new-and-delete"><a href="#Customizing-new-and-delete" class="headerlink" title="Customizing new and delete"></a>Customizing new and delete</h1><p>本部分的两个主角是：<code>operator new</code> 和 <code>operator delete</code>，配角是 <code>new-handler</code>——这是当无法满足用户的内存需求时所调用的函数。</p>
-<p>注意：<code>operator new</code> 和 <code>operator delete</code> 只适用于分配单一对象， <code>Arrays</code> 所用的内存由 <code>operator new[]</code> 分配，并由 <code>operator delete[]</code> 归还。此外 <code>STL container</code> 所使用的 <code>heap</code> 内存是由容器所拥有的分配器对象（allocator object）管理，不是被 <code>new</code> 和 <code>delete</code> 直接管理的。【本部分不会太多地讨论 <code>STL allocator</code>】</p>
-<p>既然标题是 <code>Customizing new and delete</code>，那么定制 <code>new</code> 和 <code>delete</code>（或者说重载 <code>new</code> 和 <code>delete</code>）用在哪些时候呢？<br>某些应用程序对内存分配有特殊需求，因此无法将标准内存管理机制直接应用于此类程序，它们常常需要自定义内存分配的细节，比如使用关键字 <code>new</code> 将对象放置在特定的内存空间中。为此，应用程序需要重载 <code>new</code> 运算符和 <code>delete</code> 运算符以控制内存分配的过程。</p>
-<p>其实说成 “重载 <code>new</code> 和 <code>delete</code>” 并不太好（我认为“定制”这个词会好些），因为实际上重载这两个运算符与重载其他运算符的过程不同。<strong><code>new</code> 和 <code>delete</code> 的工作原理</strong>如下：</p>
+<hr>
+<h1 id="字符串的重要特性"><a href="#字符串的重要特性" class="headerlink" title="字符串的重要特性"></a>字符串的重要特性</h1><h2 id="动态分配"><a href="#动态分配" class="headerlink" title="动态分配"></a>动态分配</h2><p>C++中字符串的内容是自动增长的，相比C中固定长度的字符数组（需要手动分配和释放内存），拥有更好的便捷灵活性，但为了实现内容的自动增长，字符串被设计为动态分配，而动态分配内存相比一些操作更耗费资源。</p>
+<p>虽然C++中的字符串是动态分配的（字符串增长的情况），但实际上字符串内部的buffer的大小在一段时间内仍然是固定的。详细可以解释为字符串向内存管理器申请的buffer的大小并非与字符串所需存储的字符数完全一致，而是更大的空间（通常是现在所需的两倍大小）。这带来的好处就是随着字符串变得更长，在字符串后面再添加字符或是字符串的开销近似于一个常量（降低向内存管理器动态申请内存的次数），而代价则是字符串携带了一些未使用的内存空间。</p>
+<h2 id="大量复制"><a href="#大量复制" class="headerlink" title="大量复制"></a>大量复制</h2><p>字符串的行为与普通的整型值类似，即修改一个字符串不能改变其他字符串的值，表现得就像拥有自己的私人副本。</p>
+<p>实现这种行为的最简单的方式是当创建字符串、赋值或是将其作为参数传递给函数的时候就进行一次复制。如果字符串是以这种方式实现的，那么赋值和参数传递的开销将会变得很大，但是变值函数（mutating function）和非常量引用的开销却很小。</p>
+<p>另一种方式就是“写时复制”（copy on write），它可以让对象与值具有同样的表现，尽管写时复制的字符串在赋值和参数传递的开销很小，但是写时复制是不符合 C++11 标准的实现方式，而且写时复制（也就是变值函数（mutating function）和非常量引用）的开销同样大。</p>
+<p>针对字符串在程序中存在的大量复制问题，C++11及之后的版本推出了“右值引用”和“移动语义”的概念，可以而且特别是在一些赋值和参数传递情况下减轻复制字符串带来的负担，提高性能，但在这篇博客中并不重点叙述“右值引用”和“移动语义”的概念。</p>
+<hr>
+<h1 id="字符串的常用性能优化方法"><a href="#字符串的常用性能优化方法" class="headerlink" title="字符串的常用性能优化方法"></a>字符串的常用性能优化方法</h1><p>在介绍常用优化手段前，引入一个例子（之后的代码片段和性能数据都来自Optimized C++），这个函数的功能是从一个由 ASCII 字符组成的字符串中移除控制字符：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">remove_ctrl</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> result;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(s[i] &gt;= <span class="number">0x20</span>)</div><div class="line">            result = result + s[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用复合赋值操作避免临时字符串"><a href="#使用复合赋值操作避免临时字符串" class="headerlink" title="使用复合赋值操作避免临时字符串"></a>使用复合赋值操作避免临时字符串</h2><p>字符串连接运算符的开销是很大的。因为它会调用内存管理器去构建一个新的临时字符串对象来保存连接后的字符串。</p>
+<p>如果传递给 remove_ctrl() 的参数是一个由可打印的字符组成的字符串，那么 remove_ctrl() 几乎会为 s 中的每个字符都构建一个临时字符串对象，这显然是不可接受的。</p>
+<p>而使用复合赋值操作来避免临时字符串，是针对字符串两种最重要特性（动态分配和大量复制）的优化。</p>
+<p>小小的改动移除了所有为分配临时字符串对象来保存连接结果而对内存管理器的调用，以及相关的复制和释放临时字符串的操作。<br>赋值时的分配和复制操作也可以被移除，不过这取决于字符串的实现方式（C++11实现了右值引用和移动语义，连接表达式的结果由于是一个右值，编译器可以调用 result 的移动构造函数，而无需调用复制构造函数，程序将会执行一次高效的指针复制）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">remove_ctrl_mutating</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> result;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(s[i] &gt;= <span class="number">0x20</span>)</div><div class="line">            result += s[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="通过预留存储空间减少内存的重新分配"><a href="#通过预留存储空间减少内存的重新分配" class="headerlink" title="通过预留存储空间减少内存的重新分配"></a>通过预留存储空间减少内存的重新分配</h2><p>针对字符串的动态分配特性，通过使用 std::string() 的 reserve() 成员函数预先分配足够的内存空间来优化 remove_ctrl_mutating()。使用reserve() 不仅移除了字符串缓冲区的重新分配，还改善了函数所读取的数据的缓存局部性（cache locality）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">remove_ctrl_reserve</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> result;</div><div class="line">    result.reserve(s.length);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(s[i] &gt;= <span class="number">0x20</span>)</div><div class="line">            result += s[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用-pass-by-ref-消除对参数字符串的复制"><a href="#使用-pass-by-ref-消除对参数字符串的复制" class="headerlink" title="使用 pass by ref 消除对参数字符串的复制"></a>使用 pass by ref 消除对参数字符串的复制</h2><p>通过值（即所谓的 pass-by-value）将一个字符串参数传递给一个不会修改该字符串的函数对一个严格的C++程序员来说是不可接受的。</p>
+<p>如果该字符串实参是由表达式产生的（更准确地说它是右值），C++11编译器将会调用移动构造函数执行一次高效的指针复制，这还算好的情况；但如果实参是一个变量（更准确地说它是左值），那么将会调用字符串的拷贝构造函数，这会导致一次内存分配和复制。不要小看一次的内存分配和复制，随着传入字符串的长度增长，该函数的调用性能会越差。</p>
+<p>在此处的例子中移除实参复制，使用 pass by reference 可以省去一次昂贵的内存分配和字符串内容的深拷贝。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">remove_ctrl_ref_args</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> result;</div><div class="line">    result.reserve(s.length);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(s[i] &gt;= <span class="number">0x20</span>)</div><div class="line">            result += s[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将 s 从字符串修改为字符串引用后可能会因为其他因素（比如解引指针，C++中的引用变量实际是作为指针实现的，当程序中每次出现 s 时，都需要解引指针）抵消节省内存分配带来的性能提升，使得整体的性能较 remove_ctrl_reserve 还要差。</p>
+<h2 id="使用迭代器消除指针解引"><a href="#使用迭代器消除指针解引" class="headerlink" title="使用迭代器消除指针解引"></a>使用迭代器消除指针解引</h2><p>字符串迭代器是指向字符缓冲区的简单指针。与不使用迭代器的代码 remove_ctrl_ref_args 相比，可以节省两次解引操作。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">remove_ctrl_ref_args_it</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> result;</div><div class="line">    result.reserve(s.length);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = s.begin(); it != s.end(); ++it)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(*it &gt;= <span class="number">0x20</span>)</div><div class="line">            result += *it;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>为了了解使用 pass by reference 的 remove_ctrl_ref_args 的性能是否有改善，需要控制变量实现 remove_ctrl_reserve 的迭代器版本 remove_ctrl_reserve_it，测试比较 remove_ctrl_reserve_it 和 remove_ctrl_ref_args_it ，结果说明将参数类型修改为字符串引用确实提高了程序性能。</p>
+<p>同时编写上述所有代码的迭代器版本与非迭代器版本进行比较，就现有例子的结果，使用迭代器的都比非迭代器的要快，但这个优化手段 <strong>并不总是有效</strong>。</p>
+<h2 id="消除对返回的字符串的复制"><a href="#消除对返回的字符串的复制" class="headerlink" title="消除对返回的字符串的复制"></a>消除对返回的字符串的复制</h2><p>remove_ctrl() 是通过值返回处理结果的。C++编译器会调用复制构造函数将结果设置到调用上下文中。实际上编译器自身有可能进行C++返回值优化，即RVO，省去拷贝构造，尽管在大多数情况下能提高性能，但是却难以受程序员控制。<br>（此处不具体讨论RVO，详情参考<a href="http://en.cppreference.com/w/cpp/language/copy_elision" target="_blank" rel="external">此链接</a>）</p>
+<p>想要确保不会发生复制，有一种比较简单的方式是将字符串作为输出参数返回，这种方法适用于所有的 C++ 版本以及字符串的所有实现方式。虽然性能有些许提升，但是该函数的接口并不直观，很容易导致调用方误用这个函数。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_ctrl_ref_result_it</span><span class="params">(</span></span></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span>&amp; result,</div><div class="line">    <span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; s)</div><div class="line">&#123;</div><div class="line">    result.clear();</div><div class="line">    result.reserve(s.length);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = s.begin(); it != s.end(); ++it)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(*it &gt;= <span class="number">0x20</span>)</div><div class="line">            result += *it;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="舍弃-C-特性，使用-C-风格字符数组"><a href="#舍弃-C-特性，使用-C-风格字符数组" class="headerlink" title="舍弃 C++ 特性，使用 C 风格字符数组"></a>舍弃 C++ 特性，使用 C 风格字符数组</h2><p>remove_ctrl_cstrings() 这种转换为C风格字符数组的优化方式成本较高（常用于一些高性能服务和严格的嵌入式环境），而且很不C++。但尽管如此，remove_ctrl_cstrings() 仍然说明：只要开发人员愿意用C风格字符数组完全重写关于字符串的函数和接口，就可以获得很大的性能提升。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove_ctrl_cstrings</span><span class="params">(<span class="keyword">char</span>* dst, <span class="keyword">const</span> <span class="keyword">char</span>* src, <span class="keyword">size_t</span> size)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; size; ++i)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (src[i] &gt;= <span class="number">0x20</span>)</div><div class="line">            *dst++ = src[i];</div><div class="line">    &#125;</div><div class="line">    *dst = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="字符串的其他性能优化方法"><a href="#字符串的其他性能优化方法" class="headerlink" title="字符串的其他性能优化方法"></a>字符串的其他性能优化方法</h1><h2 id="使用更好的算法"><a href="#使用更好的算法" class="headerlink" title="使用更好的算法"></a>使用更好的算法</h2><p>算法优化是各种优化手段中的第一选择。</p>
+<p>在没有选择较优算法的情形下过早优化其实是吃力不讨好的。好的算法可能在第一次编写代码时就获得远比坏算法优化迭代多次的结果还要好的性能，而且上述的常用优化手段也能应用到好的新算法中，进一步提升性能。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">remove_ctrl_block_append</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">string</span> s)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> result;</div><div class="line">    result.reserve(s.length());</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> b = <span class="number">0</span>, i = b; b &lt; s.length(); b = i+<span class="number">1</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> (i = b; i &lt; s.length(); ++i)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span> (s[i] &lt; <span class="number">0x20</span>) <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// substr() 仍然生成临时字符串。</span></div><div class="line">        <span class="comment">// 由于这个函数将字符添加到了 result 的末尾，</span></div><div class="line">        <span class="comment">// 开发人员可以通过重载 std::string 的 append() 成员函数</span></div><div class="line">        <span class="comment">// 来复制子字符串，且无需创建临时字符串。</span></div><div class="line">        <span class="comment">// result = result + s.substr(b, i-b);</span></div><div class="line">        result.append(s, b, i-b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="使用更好的编译器和字符串库"><a href="#使用更好的编译器和字符串库" class="headerlink" title="使用更好的编译器和字符串库"></a>使用更好的编译器和字符串库</h2><p>C++只规定了标准，各个编译器内部的具体实现各式各样。因此一个好的编译器能做到更多的自我优化。</p>
+<p>std::string 的定义曾经非常模糊，这让开发人员在实现字符串时有更广泛的选择。后来，对性能和可预测性的需求最终迫使 C++ 标准明确了它的定义，导致很多新奇的实现方式不再适用。比如 C++ 标准要求迭代器能够随机访问，而且禁止写时复制语义，这样更容易定义 std::string，而且更容易推论出哪些操作会使 std::string 中正在使用的迭代器无效，这也推动 std::string 的实现趋于简单。</p>
+<p>就我个人而言，标准 C++ 字符串库已经够用了（尽管缺少了一些字符集的转换函数）。标准 C++ 中共有几种字符串实现方式：</p>
 <ul>
-<li><p><code>new</code> 表达式实际执行三步操作</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"value"</span>);  <span class="comment">// 分配并初始化一个 string 对象</span></div><div class="line"><span class="built_in">string</span> *pArr = <span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">10</span>];       <span class="comment">// 分配10个默认初始化的 string 对象</span></div></pre></td></tr></table></figure>
-<ol>
-<li><code>new</code> 表达式调用名为 <code>operator new</code> 或者（<code>operator new[]</code>）的标准库函数，该函数分配一块足够大的、原始的、未命名的内存空间以便存储特定类型的对象（或对象数组）。</li>
-<li>编译器运行相应的构造函数以构造这些对象，并为其传入初始值。</li>
-<li>对象被分配了空间并构造完成，返回一个指向该对象的指针</li>
-</ol>
-</li>
-<li><p><code>delete</code> 表达式实际执行两步操作</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> pStr;    <span class="comment">// 销毁*pStr，然后释放pStr指向的内存空间</span></div><div class="line"><span class="keyword">delete</span>[] pArr;  <span class="comment">// 销毁数组中的元素，然后释放对应的内存空间</span></div></pre></td></tr></table></figure>
-<ol>
-<li>对 <code>pStr</code> 所指的对象或者 <code>pArr</code> 所指数组中的元素执行对应的析构函数</li>
-<li>编译器调用名为 <code>operator delete</code>（或者 <code>operator delete[]</code>）的标准库函数释放内存空间。</li>
-</ol>
-</li>
+<li>模板化的、支持迭代器访问的、可变长度的std::string 字符串</li>
+<li>简单的、基于迭代器的 std::vector<char></char></li>
+<li>老式的、C 风格的以空字符结尾的、固定长度的字符数组</li>
+<li>std::stringstream 。std::stringstream 类以一种不同的方式封装了一块动态大小的缓冲区（通常就是一个 std::string），数据可以被添加至这个实体中。由于被修改为了一个实体，很长的插入表达式不会创建任何临时字符串，因此不会发生内存分配和复制操作。如果 std::stringstream 是用 std::string 实现的，那么它在性能上永远不能胜过 std::string，但好在可以防止某些降低程序性能的编程实践。</li>
+<li>通过移除一个或多个限制（迭代器、索引、C 风格访问、简单性），自定义的字符串类可以优化那些因使用了 std::string 而无法优化的代码。（尽量在设计初期就确定）</li>
+<li>string_view 可以解决 std::string 的某些问题。它包含一个指向字符串数据的无主指针和一个表示字符串长度的值，所以它可以表示为 std::string 或字面字符串的子字符串。与 std::string 相比，它的 substring 和 trim 等操作更高效，但问题在于无主指针，程序员必须确保每个 string_view 的生命周期都不会比它所指向的 std::string 的生命周期长。</li>
 </ul>
-<p>好了，现在可以知道：如果应用程序希望控制内存分配的过程，即需要定义自己的 <code>operator new</code> 和 <code>operator delete</code>。它们<strong>既可以定义在全局作用域，也可以定义为成员函数</strong>（定义为成员函数时，它们是隐式静态的，但我建议还是显式声明为 <code>static</code>，因为 <code>operator new</code> 用在对象构造之前而 <code>operator delete</code> 用在对象销毁之后）。当编译器发现 <code>new</code> 或 <code>delete</code> 后，将在程序中查找可供调用的 <code>operator</code> 函数，其<strong>匹配查找顺序为：类及其基类的作用域 -&gt; 全局作用域 -&gt; 标准库定义的版本</strong>。</p>
-<p>标准库定义了 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank" rel="external"><code>operator new</code> 函数</a> 和 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_delete" target="_blank" rel="external"><code>operator delete</code> 函数</a> 的 8个重载版本，前4个版本可能抛出 <code>bad_alloc</code> 异常，后4个版本则不抛出异常：</p>
-<pre><code class="c++"><span class="comment">// 可能抛出异常的版本</span>
-<span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span>)</span></span>;
-<span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="keyword">size_t</span>);
-<span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*)</span> <span class="keyword">noexcept</span></span>;
-<span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*) <span class="keyword">noexcept</span>;
+<h2 id="使用更好的内存分配器"><a href="#使用更好的内存分配器" class="headerlink" title="使用更好的内存分配器"></a>使用更好的内存分配器</h2><p>每个 std::string 的内部都是一个动态分配的字符数组。std::string 可以看成是如下通用模板的一种特化：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> &#123;</div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> charT,</div><div class="line">          <span class="keyword">class</span> traits = char_traits&lt;charT&gt;,</div><div class="line">          <span class="keyword">class</span> Alloc = allocator&lt;charT&gt;&gt;</div><div class="line"><span class="keyword">class</span> basic_string;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> basic_string&lt;<span class="keyword">char</span>&gt; <span class="built_in">string</span>;</div><div class="line">...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>第三个模板参数 Alloc 定义了一个分配器——一个访问 C++ 内存管理器的专用接口。默认情况下，Alloc 是 std::allocator，它会调用 operator new() 和operator delete()——两个全局的 C++ 内存分配器函数。</p>
+<p>operator new() 和 operator delete() 实际很复杂，为了实现各种情形下良好的通用性，它们在设计上做出了一些妥协。因此在一些特定场景中自定义一种更加特化的分配器可能会更好地提升性能。但就我这个C++菜鸡而言，我肯定是使用默认的allocator，不会去编写自己的内存分配器。</p>
+<h2 id="消除字符串无谓转换和不同字符集间的转换"><a href="#消除字符串无谓转换和不同字符集间的转换" class="headerlink" title="消除字符串无谓转换和不同字符集间的转换"></a>消除字符串无谓转换和不同字符集间的转换</h2><p>一些场景下 char<em> 转换为 std::string 是无谓的。std::string 有一个参数为 char</em> 的构造函数，因此当返回值被赋值给一个字符串或是作为参数传递给另外一个函数时，会自动进行转换。也就是说将返回值的转换推迟至它真正被使用的时候。如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> <span class="keyword">const</span>* MyClass::Name() <span class="keyword">const</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">"MyClass"</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">char</span> <span class="keyword">const</span>* p = myInstance-&gt;Name(); <span class="comment">// 没有转换</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span> s = myInstance-&gt;Name(); <span class="comment">// 转换为'std::string'</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; myInstance-&gt;Name();    <span class="comment">// 没有转换</span></div></pre></td></tr></table></figure>
+<p>在多字符集的场景下，不同字符集间的频繁转换也是性能优化的一个热点，移除不同字符集间转换的最佳方法是为所有的字符串选择一种固定的格式，并将所有字符串都存储为这种格式。个人而言首推 UTF-8格式（windows万恶的GBK），因为它能够表示所有的 Unicode 码点，并可以直接与 C 风格的字符串进行比较（是否相同）。</p>
+<blockquote>
+<p>PS: 下一篇C++优化的主题内容应该是关于标准库算法的，特别是查找和排序的优化。</p>
+</blockquote>
 
-<span class="comment">// 不会抛出异常的版本</span>
-<span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span>, <span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span>;
-<span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="keyword">size_t</span>, <span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span>;
-<span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span>;
-<span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span>;
-</code></pre>
-<p>与析构函数类似，<code>operator delete</code> 也不允许抛出异常（<a href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/#more">Item8</a>），<strong>重载运算符时必须使用 <code>noexcept</code> 异常说明符指定其不抛出异常</strong>。</p>
-<p><a href="http://en.cppreference.com/w/cpp/memory/new/nothrow_t" target="_blank" rel="external"><code>nothrow_t</code></a> 是定义在 <code>new</code> 头文件中的一个 <code>struct</code>，<code>nothrow</code> 是一个类型为 <code>nothrow_t</code> 的 <code>const</code> 对象，用户可通过这个对象请求 <code>new</code> 的非抛出版本。 </p>
-<h3 id="最近有很多书要看-懒癌发作"><a href="#最近有很多书要看-懒癌发作" class="headerlink" title="最近有很多书要看 懒癌发作"></a>最近有很多书要看 懒癌发作</h3><p>话说剩下的部分不是很熟悉的就是完全没接触过，应该也不会接下去写了，碰到问题再说吧。</p>
-<p>最近也入了 Effective Modern C++11/14 和 C++ Template，接下去应该会整理这两本吧（笑）</p>
-<p>毕设和找工作一起好忙啊…</p>
-<!--
-## Item 49 : 了解 new-handler 的行为
-> Understand the behavior of the new-handler
-
-
-**请记住**
-> - 
-
----
-
-## Item 50 : 了解 new 和 delete 的合理替换时机
-> Understand when it mankes sense to replace new and delete
-
-
-
-**请记住**
-> - 需要自定义的 `new` 和 `delete` 有许多理由，包括：改善效能、对 `heap` 运用错误进行调试、收集 `heap` 使用信息。
-
----
-
-## Item 51 : 编写 new 和 delete 时需固守常规
-> Adhere to convention when writing new and delete
-
-
-**请记住**
-> - 
-
----
-
-## Item 52 : 写了 placement new 也要写 placement delete
-> Write placement delete if you write placement new
-
-
-**请记住**
-> - 当写一个 `placement operator new`，确定也写一个 `placement operator delete`。 
-> - 当声明 `placement new` 和 `placement delete`，请确定不要无意识（非故意）地遮掩它们的正常版本。
-
----
-
--->
       
     </div>
 
@@ -609,7 +556,7 @@
     <strong>本文作者： </strong>koushiro</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://koushiro.me/2017/02/20/Effective-Cpp-Note4/" title="The Note4 of Effective C++">https://koushiro.me/2017/02/20/Effective-Cpp-Note4/</a>
+    <a href="https://koushiro.me/2018/06/05/Cpp中的字符串优化/" title="Cpp中的字符串优化">https://koushiro.me/2018/06/05/Cpp中的字符串优化/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -620,14 +567,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/cpp/" rel="tag"># cpp</a>
-          
-            <a href="/tags/tech/" rel="tag"># tech</a>
-          
-        </div>
-      
 
       
       
@@ -637,8 +576,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/11/Effective-Cpp-Note3/" rel="next" title="The Note3 of Effective C++">
-                <i class="fa fa-chevron-left"></i> The Note3 of Effective C++
+              <a href="/2018/05/28/Write-a-simple-PriorityQueue/" rel="next" title="Write a simple PriorityQueue">
+                <i class="fa fa-chevron-left"></i> Write a simple PriorityQueue
               </a>
             
           </div>
@@ -646,10 +585,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/01/Deploy-gogs-step-by-step/" rel="prev" title="Deploy gogs step by step">
-                Deploy gogs step by step <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -845,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Customizing-new-and-delete"><span class="nav-number">1.</span> <span class="nav-text">Customizing new and delete</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最近有很多书要看-懒癌发作"><span class="nav-number">1.0.1.</span> <span class="nav-text">最近有很多书要看 懒癌发作</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的重要特性"><span class="nav-number">1.</span> <span class="nav-text">字符串的重要特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#动态分配"><span class="nav-number">1.1.</span> <span class="nav-text">动态分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大量复制"><span class="nav-number">1.2.</span> <span class="nav-text">大量复制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的常用性能优化方法"><span class="nav-number">2.</span> <span class="nav-text">字符串的常用性能优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用复合赋值操作避免临时字符串"><span class="nav-number">2.1.</span> <span class="nav-text">使用复合赋值操作避免临时字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过预留存储空间减少内存的重新分配"><span class="nav-number">2.2.</span> <span class="nav-text">通过预留存储空间减少内存的重新分配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-pass-by-ref-消除对参数字符串的复制"><span class="nav-number">2.3.</span> <span class="nav-text">使用 pass by ref 消除对参数字符串的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用迭代器消除指针解引"><span class="nav-number">2.4.</span> <span class="nav-text">使用迭代器消除指针解引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消除对返回的字符串的复制"><span class="nav-number">2.5.</span> <span class="nav-text">消除对返回的字符串的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#舍弃-C-特性，使用-C-风格字符数组"><span class="nav-number">2.6.</span> <span class="nav-text">舍弃 C++ 特性，使用 C 风格字符数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串的其他性能优化方法"><span class="nav-number">3.</span> <span class="nav-text">字符串的其他性能优化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用更好的算法"><span class="nav-number">3.1.</span> <span class="nav-text">使用更好的算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用更好的编译器和字符串库"><span class="nav-number">3.2.</span> <span class="nav-text">使用更好的编译器和字符串库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用更好的内存分配器"><span class="nav-number">3.3.</span> <span class="nav-text">使用更好的内存分配器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消除字符串无谓转换和不同字符集间的转换"><span class="nav-number">3.4.</span> <span class="nav-text">消除字符串无谓转换和不同字符集间的转换</span></a></li></ol></li></ol></div>
             
 
           </div>
