@@ -10,16 +10,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Write a simple PriorityQueue]]></title>
-    <url>%2F2018%2F05%2F28%2FWrite-a-simple-PriorityQueue%2F</url>
-    <content type="text"><![CDATA[最近我在重看算法导论，所以为了更好地巩固算法，打算为每个重要部分都写一篇博客，其实在大学的时候我就干过类似的事情，只不过上次是在leanote上写的并且发布到了leanote的博客上，介于leanote的会员到期，因此决定重写编写之前关于算法导论部分的博客内容并放到github上来，但是这次重写将主要着重强调具体的编码实现。 HeapPriorityQueue是二叉堆（Heap）的一个常见应用，所以想要写一个PriorityQueue之前肯定需要对堆有所了解。 Heap与PriorityQueue一样都是一种抽象数据类型（Abstract Data Type，ADT），实际存储结构常常是一个数组，且将其看成一个近似的完全二叉树（最底层可能不是完全满的），如下图所示。 二叉堆分为两种： 最大堆：除了根以外的所有结点i都要满足 结点i的父亲的值大于等于结点i的值，即Heap[parent(i)] &gt;= Heap[i] 最小堆：除了根以外的所有结点i都要满足 结点i的父亲的值小于等于结点i的值，即Heap[parent(i)] &lt;= Heap[i] 123456789101112template&lt;class T, class Container = std::vector&lt;T&gt;, class Compare = std::less&lt;typename Container::value_type&gt;&gt;class PriorityQueue&#123;public:private: Container container; Compare comp;&#125;]]></content>
-      <tags>
-        <tag>tech</tag>
-        <tag>cpp</tag>
-        <tag>algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[The goals of 2018]]></title>
     <url>%2F2018%2F01%2F01%2FThe-goals-of-2018%2F</url>
     <content type="text"><![CDATA[前天在小姨家，小姨提议让我给自己制定一些2018年的目标，正好博客重开并且坚持写下去就是我的新一年的一个小目标，那索性就直接把2018年的目标写到博客里，等到这年结束时，再回头看看这一年的完成情况。 The goals既然写都要写了，那就分类写得稍微整洁点。 Learning 通过找一些有趣的idea来巩固自己对C++11之后的标准的理解。ps: 顺便在之后的博客中把先前欠下的《Modern Effective C++》的笔记给补上。具体的项目可以先从一些简单的轮子上手，比如一些 parser 和 CG demo，还能加深些编译原理和图形学的知识。 博客有关技术的内容要保持至少一周一更的更新频率。 完成初阶 Rust 的学习，并进行 Rust 官方文档里高阶部分的学习。 CG的学习，通读 Real-time Rendering 和 PBRT，分别对实时渲染和离线渲染的基础算法有一定的了解。 IT 技术书籍和金融理财相关书籍的阅读，一年的预计总数为 20 份（包含中英文和一些系统性的技术文档）。 英文听说和写能力的提高，因为我单词量还不错，所以今年内希望达到至少 English native speaker 简单日常使用的水平，具体的计划还需按阶段详细制定，比如阶段性的考核。 Life 健身的频率要从一周2-3次提高到3-4次，并且对每周每次的健身内容做好计划。脑子里现在暂时有一些想法，但具体的计划需要等我先进行一两周的试练再做调整。ps: 短期的目标是在过春节前减重5斤，也就是一个半月内。 再结交同学和同事之外的几位好友，可以是技术相关的，也可以是爱好相关的，当然两者都相关是最好不过的，不过我知道这很难。彼女的话我想在换工作环境前是没有任何可能（笑。 希望今年能用上一次我前年办的护照23333，顺便坐一下因为恐高而没尝试的飞机（其实是没机会。 Deposit 能达到 100K，换工作前和没搞副业前估计是没办法了（笑。 Work 为今年暑假的 leave 和 interview 做好准备，算法题是肯定要刷起来的，还要想好下一份工作的方向，不要盲目选择，对下一家公司也需要做详细的分析。 希望下一份工作能找到城西西溪附近的好公司和好岗位，因为还能省下一笔房租2333。 Fighting~ 后续若有详细计划会继续更新]]></content>
