@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Customizing new and delete in Cpp">
+<meta property="og:url" content="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/index.html">
+<meta property="og:site_name" content="Koushiro's Blog">
+<meta property="og:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。">
+<meta property="og:updated_time" content="2018-07-18T10:16:16.696Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Customizing new and delete in Cpp">
+<meta name="twitter:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Customizing new and delete in Cpp | Koushiro's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Koushiro's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/koushiro" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="koushiro">
+      <meta itemprop="description" content="你为什么这么熟练啊！">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koushiro's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Customizing new and delete in Cpp
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-18 14:00:07 / 修改时间：18:16:16" itemprop="dateCreated datePublished" datetime="2018-07-18T14:00:07+08:00">2018-07-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/18/Customizing-new-and-delete-in-Cpp/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/18/Customizing-new-and-delete-in-Cpp/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">13k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">11 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这部分主要涉及 <code>new</code> 和 <code>delete</code> 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。</p>
+<a id="more"></a>
+<p>既然标题是 <code>Customizing new and delete</code>，那么定制 <code>new</code> 和 <code>delete</code>（或者说重载 <code>new</code> 和 <code>delete</code>）用在哪些时候呢？<br>某些应用程序对内存分配有特殊需求，因此无法将标准内存管理机制直接应用于此类程序，它们常常需要自定义内存分配的细节，比如使用关键字 <code>new</code> 将对象分配放置在特定的内存空间中。为此，应用程序需要重载 <code>new</code> 运算符和 <code>delete</code> 运算符以控制内存分配的过程。</p>
+<p>实际上重载<code>new</code>运算符（<code>new operator</code>）和<code>delete</code>运算符（<code>delete operator</code>）这种说法并不严谨，因为重载这两个运算符与重载其他运算符的过程有着较大的不同。</p>
+<p>为了讲清原因，需要在此之前了解 <code>new operator</code>/<code>operator new</code>和<code>delete operator</code> / <code>operator delete</code>的概念。这几个概念从名字上可能会有点绕，但是说明白了其实也是挺简单的。（函数 <code>new-handler</code> 也会被提到，这是当无法满足用户的内存需求时所调用的函数）</p>
+<h1 id="new-operator-new-expression"><a href="#new-operator-new-expression" class="headerlink" title="new operator (new expression)"></a>new operator (new expression)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>);</div></pre></td></tr></table></figure>
+<p>此处使用的 <code>new</code> 即是 <code>new operator</code>，也就是常用的用法。<br>这个操作符是由C++语言内建的，就像 <code>sizeof</code> 那样，不能被改变意义，总是做相同的工作：</p>
+<ol>
+<li><p>调用名为 <code>operator new</code> 的标准库函数，分配一块足够大的、原始的、未命名的内存空间用来放置某类型的对象。</p>
+</li>
+<li><p>调用一个该对象类型的 <code>constructor</code>，为刚才分配的内存中的那个对象设定初始值。</p>
+</li>
+<li><p>对象被分配了空间并构造完成，返回一个指向该对象的指针，即如上述例子中的 <code>pStr</code>。</p>
+</li>
+</ol>
+<p>编译器内部产生的代码可能就像下面这样：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 分配原始内存用来放置一个 string 对象</span></div><div class="line"><span class="keyword">void</span>* rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(<span class="built_in">string</span>));</div><div class="line"><span class="comment">// 将内存中的对象初始化</span></div><div class="line">call <span class="built_in">string</span>::<span class="built_in">string</span>(<span class="string">"Hello"</span>) on *rawMemory;</div><div class="line"><span class="comment">// 让 pStr 指向新完成的对象</span></div><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">static_cast</span>&lt;<span class="built_in">string</span>*&gt;(rawMemory);</div></pre></td></tr></table></figure>
+<h2 id="operator-new"><a href="#operator-new" class="headerlink" title="operator new"></a>operator new</h2><p>没错，如上所说，<code>operator new</code> 其实指的是一个标准库函数，它的默认版本定义（伪代码）如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> size)</span> <span class="title">throw</span><span class="params">(<span class="built_in">std</span>::bad_alloc)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">    <span class="comment">// 处理 0-byte 申请，将它视为 1-byte 申请， </span></div><div class="line">    <span class="comment">// C++规定请求 0-byte operator new也得返回一个合法指针</span></div><div class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>)  </div><div class="line">        size = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</div><div class="line">    &#123;</div><div class="line">        尝试分配 size bytes;</div><div class="line">        <span class="keyword">if</span> (分配成功)</div><div class="line">            <span class="keyword">return</span> (一个指针，指向分配得来的内存)</div><div class="line"></div><div class="line">        <span class="comment">// 分配失败：找出目前的 new-handling 函数</span></div><div class="line">        <span class="comment">/**</span></div><div class="line">         * C++11标准以前之所以将 new-handling 函数指针设为 null 后又立刻恢复原样</div><div class="line">         * 是因为没有任何办法可以直接获取 new-handling 函数指针，</div><div class="line">         * 必须要调用 set_new_handler 找出它，set_new_handler</div><div class="line">         * takes a replacement handler as the argument,</div><div class="line">         * returns the previous handler.</div><div class="line">         *</div><div class="line">         * 而 C++11 标准有 get_new_handler(),</div><div class="line">         * it returns the currently installed new-handler,</div><div class="line">         * which may be a null pointer.</div><div class="line">         */</div><div class="line">#<span class="keyword">if</span> __cplusplus &gt;= <span class="number">201103L</span></div><div class="line">        new_handler globalHandler = get_new_handler();</div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">        new_handler globalHandler = set_new_handler(<span class="number">0</span>);</div><div class="line">        set_new_handler(globalHandler);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">        <span class="comment">// 调用 new_handler 函数解决内存不足时的情况，</span></div><div class="line">        <span class="comment">// 只有当指向 new_handling 函数的指针是 null，operator new 才会抛出异常</span></div><div class="line">        <span class="keyword">if</span> (globalHandler) (*globalHandler)();</div><div class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="built_in">std</span>::bad_alloc();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>此函数分配内存成功时返回一个 <code>void</code> 指针，指向一块原始的、未设定初值的内存，分配内存失败时抛出 <code>bad_alloc</code> 异常。函数中的 <code>size_t</code> 参数用于指定需要分配多少内存，可以将 <code>operator new</code> 函数重载，加上额外的参数，但第一参数的类型必须总是 <code>size_t</code>。<br>总而言之， <code>operator new</code> 函数和 <code>malloc</code> 函数一样，它的 <strong>唯一任务就是分配内存</strong>。</p>
+<p>所以开头之所以说重载 <code>new operator</code> 并不严谨，是因为真正能重载的其实是 <code>operator new</code> 函数。也就是说可以修改定制 <code>new operator</code> 完成任务的方式（即 <code>opearotr new</code> 函数），但它的任务流程已经被语言固定死了，无法控制。</p>
+<h2 id="placement-new-placement-operator-new"><a href="#placement-new-placement-operator-new" class="headerlink" title="placement new (placement operator new)"></a>placement new (placement operator new)</h2><p><code>placement new</code> 是特殊版本的 <code>operator new</code> 函数，如果 <code>operator new</code> 函数接受的参数除了一定得有的 <code>size_t</code> 外还有其他参数，这便是所谓的 <code>placement</code> 版本。<br>众多 <code>placement new</code> 版本中特别有用的一个是 “被用于在分配好的内存上构建对象”。具体代码定义如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span>, <span class="keyword">void</span> *ptr)</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> ptr; &#125;</div><div class="line"><span class="comment">// GNU 版本源码：</span></div><div class="line"><span class="comment">// inline void* operator new(std::size_t, void* __p)_GLIBCXX_USE_NOEXCEPT &#123; return __p; &#125;</span></div></pre></td></tr></table></figure>
+<p>这个版本可能比你预想的要简单，因为毕竟 <code>operator new</code> 函数的目的就是为对象找到一块内存，然后返回一个指针指向这块内存。而这一版本 <code>placement new</code> 的调用者显然知道指向内存的指针，因此这一版本 <code>placement new</code> 唯一需要做得就是将它获得的指针再返回。</p>
+<p>这个常用的版本已经被纳入C++标准库中（只需要 #include\<new\>），它同时也是最早的 <code>placement new</code> 版本。</new\></p>
+<p>大多数时候人们谈到的 <code>placement new</code> 就是特指这一版本——即唯一额外参数是个 <code>void*</code>。但一般性术语 <code>placement new</code> 意味着带任意额外参数的 <code>operator new</code> 函数，而且它有相对应的另一个术语 <code>placement delete</code>（下面会提到）。</p>
+<p>常用 <code>placement new</code> 版本示例如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Object(<span class="keyword">int</span> args) &#123; ... &#125;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"><span class="function">Object* <span class="title">constructObject</span><span class="params">(<span class="keyword">void</span> *buffer, <span class="keyword">int</span> args)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> (buffer) Object(args);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// constructObject 函数在编译器内部产生的代码可能就像下面这样</span></div><div class="line"><span class="comment">// 调用 default placement version of operator new, rawMemory 的地址实际就是 buffer 的地址。</span></div><div class="line"><span class="keyword">void</span>* rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(Object), buffer);</div><div class="line"><span class="comment">// 将内存中的对象初始化</span></div><div class="line">call Object::Object(args) on *rawMemory;</div><div class="line"><span class="comment">// 让 pObj 指向新完成的对象</span></div><div class="line">Object *pObj = <span class="keyword">static_cast</span>&lt;Object*&gt;(rawMemory);</div><div class="line"><span class="comment">// pObj 作为函数结果返回</span></div><div class="line"><span class="keyword">return</span> pObj;</div></pre></td></tr></table></figure>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
+<li><p>最常用的，即希望将对象产生于 <code>heap</code>，那么就使用 <code>new opeartor (new expression)</code> ，它不但分配内存而且为该对象调用一个 <code>constructor</code> 设定初值。</p>
+</li>
+<li><p>只是希望分配内存，则使用 <code>operator new</code> 函数，它不会调用任何 <code>constructor</code>。</p>
+</li>
+<li><p>若希望在 <code>heap objects</code> 产生时自己决定内存分配方式，则自己写一个 <code>operator new</code> 函数的重载版本，并使用 <code>new operator(new expression)</code>，它就会自动调用你所写的 <code>operator new</code> 函数。</p>
+</li>
+<li><p>若已经有分配的内存（并拥有指向该内存地址的指针），则直接使用 C++ 标准库中的默认 <code>placement new</code> 版本（即上述的最常用 <code>placement new</code> 版本）在该内存上构造对象。</p>
+</li>
+</ol>
+<hr>
+<h1 id="delete-operator-delete-expression"><a href="#delete-operator-delete-expression" class="headerlink" title="delete operator (delete expression)"></a>delete operator (delete expression)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>);</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">delete</span> pStr;</div></pre></td></tr></table></figure>
+<p><code>delete operator</code> 的实际工作如下：</p>
+<ol>
+<li><p>调用 <code>pStr</code> 所指对象类型的 <code>destructor</code>。</p>
+</li>
+<li><p>调用名为 <code>operator delete</code> 的标准库函数释放被 <code>pStr</code> 所指对象占用的内存空间。</p>
+</li>
+</ol>
+<p>编译器内部产生的代码可能就像下面这样：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 调用对象类型的 `destructor`</span></div><div class="line">pStr-&gt;~<span class="built_in">string</span>();</div><div class="line"><span class="comment">// 释放对象所占的内存</span></div><div class="line"><span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(pStr)</span></span>;</div></pre></td></tr></table></figure>
+<h2 id="operator-delete"><a href="#operator-delete" class="headerlink" title="operator delete"></a>operator delete</h2><p>同理，<code>operator delete</code> 之于 <code>delete operator</code> 就相当于 <code>operator new</code> 之于 <code>new operator</code>。</p>
+<p><code>operator delete</code> 函数其实相比之下更简单，伪代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *rawMemory)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (rawMemory == <span class="number">0</span>) <span class="keyword">return</span>; <span class="comment">// 删除的是 null 指针，什么都不做</span></div><div class="line">    现在归还 rawMemory 所指向的内存</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>与 <code>operator new</code> 函数功能相反，该函数的 <strong>唯一任务就是释放内存</strong>，但注意需要记住 C++ 的保证 —— “删除 null 指针永远安全”。</p>
+<h2 id="placement-delete-placement-operator-delete"><a href="#placement-delete-placement-operator-delete" class="headerlink" title="placement delete (placement operator delete)"></a>placement delete (placement operator delete)</h2><p>类似于 <code>operator new</code> 函数的 <code>placement</code> 版本，<code>operator delete</code> 函数如果接受除 <code>void*</code> 参数之外的额外参数，便称为 <code>placement delete</code>。</p>
+<p>如果在 <code>new operator</code> 的流程中，<code>operator new</code> 函数分配内存成功，但在该块内存上构造对象时抛出异常，则运行期系统有责任取消 <code>operator new</code> 函数的内存分配并恢复原样。<strong>运行期系统会寻找 “参数个数和类型都与 <code>operator new</code> 相同”的某个 <code>operator delete</code></strong>，如果找到那就是它的的调用对象。</p>
+<p>即 <code>placement delete</code> 函数只有在 <code>placement new</code> 函数调用而触发的构造函数出现异常时才会被运行期系统调用，而对着一个指针施行 <code>delete</code> 绝不会调用 <code>placement delete</code>。</p>
+<p>所以规则很简单：如果一个带额外参数的 <code>operator new</code> 函数没有带相同额外参数的对应版 <code>operator delete</code> 函数，那么当 <code>new operator</code> 的内存分配动作需要取消并恢复原样时就没有任何 <code>operator delete</code> 函数会被调用，这会造成内存泄漏，显然是不对的。</p>
+<p>这也意味着如果要对所有与 <code>placement new</code> 相关的内存泄漏问题宣战，<strong>必须同时提供一个正常版本的 <code>operator delete</code> （用于构造期间无任何异常被抛出）和一个 <code>placement</code> 版本（用于构造期间有异常被抛出），后者的额外参数必须和 <code>operator new</code> 的 <code>placement</code> 版本一样</strong>。</p>
+<p>示例（来自 <code>Effective C++ Item 52</code>）：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Widget &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    <span class="comment">// placement operator new，即带有额外参数 std::ostream&amp; 的 operator new</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> size, <span class="built_in">std</span>::ostream &amp;logStream)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">// 正常形式的 operator delete (class 专属)</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *pMemory)</span> <span class="keyword">noexcept</span></span>;</div><div class="line">    <span class="comment">// placement operator delete，即带有额外参数 std::ostream&amp; 的 operator delete</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *pMemory, <span class="built_in">std</span>::ostream &amp;logStream)</span> <span class="keyword">noexcept</span></span>;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// new operator 调用 placement new 函数，现在构造时抛出异常不再泄漏</span></div><div class="line">Widget *pw = <span class="keyword">new</span> (<span class="built_in">std</span>::<span class="built_in">cerr</span>) Widget;</div><div class="line"><span class="comment">// delete operator 调用正常的 operator delete 函数</span></div><div class="line"><span class="keyword">delete</span> pw;</div></pre></td></tr></table></figure>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
+<li><p>当写一个 <code>placement operator new</code>，请确定也写出了对应的 <code>placement operator delete</code>。若果不这样做，程序可能会发生隐微而时断时续的内存泄漏。</p>
+</li>
+<li><p>当声明 <code>placement operator new</code> 和 <code>placement operator delete</code> 时，请确定不要无意识地遮掩它们的正常版本。</p>
+</li>
+</ol>
+<hr>
+<h1 id="Array-version"><a href="#Array-version" class="headerlink" title="Array version"></a>Array version</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">10</span>];</div><div class="line">...</div><div class="line"><span class="keyword">delete</span>[] pStr;</div></pre></td></tr></table></figure>
+<p>上述使用的 <code>new</code> 仍然是那个 <code>new operator</code>，但由于诞生的是数组，所以 <code>new operator</code> 的行为与之前产生单一对象的版本不同，内存分配将是由 <code>operator new</code> 函数的兄弟版本 <code>operator new[]</code> 函数负责。和 <code>operator new</code> 函数一样，<code>operator new[]</code> 也可以被重载。</p>
+<p><code>operator delete[]</code> 函数和 <code>operator delete</code> 函数同理。</p>
+<p>要说 “数组版” 和 “单一对象版” 的 <code>new operator</code> 最大的不同是它所调用的 <code>constructor</code> 数量。数组版本 <code>new operator</code> 先调用 <code>operator new[]</code> 分配足够内存，再然后必须针对数组中的每一个对象调用一个 <code>constructor</code>。</p>
+<p>同理，当 <code>delete operator</code> 被用于数组时，它会针对数组中的每一个元素调用其 <code>destructor</code>，然后再调用 <code>operator delete[]</code> 释放内存。</p>
+<hr>
+<p>好了，现在可以知道：如果希望自己控制应用程序中内存分配的过程，即需要定义自己的 <code>operator new</code> 函数和 <code>operator delete</code> 函数。它们 <strong>既可以定义在全局作用域，也可以定义为成员函数</strong>（定义为成员函数时，它们是隐式静态的，但我建议还是显式声明为 <code>static</code>，因为 <code>operator new</code> 函数用在对象构造之前而 <code>operator delete</code> 函数用在对象销毁之后）。<br>当编译器发现 <code>new</code> 或 <code>delete</code> 后，将在程序中查找可供调用的 <code>operator</code> 函数，其 <strong>匹配查找顺序为：类及其基类的作用域 -&gt; 全局作用域 -&gt; 标准库定义的版本</strong>。</p>
+<p>最新的标准库定义了 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank" rel="external"><code>operator new</code> 函数</a> 和 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_delete" target="_blank" rel="external"><code>operator delete</code> 函数</a> 的各种版本，以下给出 GNU 中的 <code>&lt;new&gt;</code> 头文件的部分源码：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div></pre></td><td class="code"><pre><div class="line">namespace std</div><div class="line">&#123;</div><div class="line">  /**</div><div class="line">   *  @brief  Exception possibly thrown by @c new.</div><div class="line">   *  @ingroup exceptions</div><div class="line">   *</div><div class="line">   *  @c bad_alloc (or classes derived from it) is used to report allocation</div><div class="line">   *  errors from the throwing forms of @c new.  */</div><div class="line">  class bad_alloc : public exception </div><div class="line">  &#123;</div><div class="line">  public:</div><div class="line">    bad_alloc() throw() &#123; &#125;</div><div class="line"></div><div class="line">    // This declaration is not useless:</div><div class="line">    // http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118</div><div class="line">    virtual ~bad_alloc() throw();</div><div class="line"></div><div class="line">    // See comment in eh_exception.cc.</div><div class="line">    virtual const char* what() const throw();</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">#if __cplusplus &gt;= 201103L</div><div class="line">  class bad_array_new_length : public bad_alloc</div><div class="line">  &#123;</div><div class="line">  public:</div><div class="line">    bad_array_new_length() throw() &#123; &#125;;</div><div class="line"></div><div class="line">    // This declaration is not useless:</div><div class="line">    // http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118</div><div class="line">    virtual ~bad_array_new_length() throw();</div><div class="line"></div><div class="line">    // See comment in eh_exception.cc.</div><div class="line">    virtual const char* what() const throw();</div><div class="line">  &#125;;</div><div class="line">#endif</div><div class="line"></div><div class="line">#if __cpp_aligned_new</div><div class="line">  enum class align_val_t: size_t &#123;&#125;;</div><div class="line">#endif</div><div class="line"></div><div class="line">  struct nothrow_t</div><div class="line">  &#123;</div><div class="line">#if __cplusplus &gt;= 201103L</div><div class="line">    explicit nothrow_t() = default;</div><div class="line">#endif</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  extern const nothrow_t nothrow;</div><div class="line"></div><div class="line">  /** If you write your own error handler to be called by @c new, it must</div><div class="line">   *  be of this type.  */</div><div class="line">  typedef void (*new_handler)();</div><div class="line"></div><div class="line">  /// Takes a replacement handler as the argument, returns the</div><div class="line">  /// previous handler.</div><div class="line">  new_handler set_new_handler(new_handler) throw();</div><div class="line"></div><div class="line">#if __cplusplus &gt;= 201103L</div><div class="line">  /// Return the current new handler.</div><div class="line">  new_handler get_new_handler() noexcept;</div><div class="line">#endif</div><div class="line">&#125; // namespace std</div><div class="line"></div><div class="line">// =================================================================</div><div class="line"></div><div class="line">/** These are replaceable signatures:</div><div class="line"> *  - normal single new and delete (no arguments, throw @c bad_alloc on error)</div><div class="line"> *  - normal array new and delete (same)</div><div class="line"> *  - @c nothrow single new and delete (take a @c nothrow argument, return</div><div class="line"> *    @c NULL on error)</div><div class="line"> *  - @c nothrow array new and delete (same)</div><div class="line"> *</div><div class="line"> *  Placement new and delete signatures (take a memory address argument,</div><div class="line"> *  does nothing) may not be replaced by a user's program.</div><div class="line">*/</div><div class="line">void* operator new(std::size_t) throw(std::bad_alloc)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t) throw(std::bad_alloc)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete(void*) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line"></div><div class="line">#if __cpp_sized_deallocation</div><div class="line">void operator delete(void*, std::size_t) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::size_t) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">#endif</div><div class="line"></div><div class="line">void* operator new(std::size_t, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete(void*, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line"></div><div class="line">#if __cpp_aligned_new</div><div class="line">void* operator new(std::size_t, std::align_val_t)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new(std::size_t, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete(void*, std::align_val_t) noexcept</div><div class="line">   __attribute__((__externally_visible__));</div><div class="line">void operator delete(void*, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t, std::align_val_t)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::align_val_t) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line"></div><div class="line">#if __cpp_sized_deallocation</div><div class="line">void operator delete(void*, std::size_t, std::align_val_t) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::size_t, std::align_val_t) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">#endif // __cpp_sized_deallocation</div><div class="line"></div><div class="line">#endif // __cpp_aligned_new</div><div class="line"></div><div class="line">// Default placement versions of operator new.</div><div class="line">inline void* operator new(std::size_t, void* __p) noexcept</div><div class="line">&#123; return __p; &#125;</div><div class="line">inline void* operator new[](std::size_t, void* __p) noexcept</div><div class="line">&#123; return __p; &#125;</div><div class="line"></div><div class="line">// Default placement versions of operator delete.</div><div class="line">inline void operator delete  (void*, void*) noexcept &#123; &#125;</div><div class="line">inline void operator delete[](void*, void*) noexcept &#123; &#125;</div></pre></td></tr></table></figure>
+<p>与析构函数类似，<code>operator delete</code> 函数也不允许抛出异常（<a href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/#more">Item8</a>），<strong>重载 <code>operator delete</code> 函数时必须使用 <code>noexcept</code> 异常说明符指定其不抛出异常</strong>。</p>
+<p><a href="http://en.cppreference.com/w/cpp/memory/new/nothrow_t" target="_blank" rel="external"><code>nothrow_t</code></a> 是定义在 <code>&lt;new&gt;</code> 头文件中的一个 <code>struct</code>，<code>nothrow</code> 是一个类型为 <code>nothrow_t</code> 的 <code>const</code> 对象，用户可通过这个对象获取 <code>operator new</code> 函数的不抛出异常版本。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>koushiro</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/" title="Customizing new and delete in Cpp">https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tech/" rel="tag"># tech</a>
+          
+            <a href="/tags/cpp/" rel="tag"># cpp</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/05/Cpp中的字符串优化/" rel="next" title="Cpp中的字符串优化">
+                <i class="fa fa-chevron-left"></i> Cpp中的字符串优化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">koushiro</p>
+              <p class="site-description motion-element" itemprop="description">你为什么这么熟练啊！</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/koushiro" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:koushiro.cqx@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/shawn_cqx" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://loliko.me/" title="L1nxy" target="_blank">L1nxy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://jacobchang.cn/" title="黄小豆" target="_blank">黄小豆</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#new-operator-new-expression"><span class="nav-number">1.</span> <span class="nav-text">new operator (new expression)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#operator-new"><span class="nav-number">1.1.</span> <span class="nav-text">operator new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placement-new-placement-operator-new"><span class="nav-number">1.2.</span> <span class="nav-text">placement new (placement operator new)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">1.3.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#delete-operator-delete-expression"><span class="nav-number">2.</span> <span class="nav-text">delete operator (delete expression)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#operator-delete"><span class="nav-number">2.1.</span> <span class="nav-text">operator delete</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#placement-delete-placement-operator-delete"><span class="nav-number">2.2.</span> <span class="nav-text">placement delete (placement operator delete)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Note"><span class="nav-number">2.3.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Array-version"><span class="nav-number">3.</span> <span class="nav-text">Array version</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">koushiro</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">72k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">1:05</span>
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.2.2</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'koushiro',
+            repo: 'koushiro.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67b4ee22c6f0dc684b0d2c60847f6eb0a62da3de',
+            
+                client_id: '427e7235a71b33e01a0c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script type="text/javascript">pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script type="text/javascript">
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+</body>
+</html>
