@@ -1,6 +1,5 @@
 ---
 title: categories
-date: 2016-12-30 23:05:01
+date: 2018-08-21 20:44:45
 type: "categories"
-comments: false
 ---

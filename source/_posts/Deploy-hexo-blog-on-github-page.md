@@ -4,7 +4,7 @@ date: 2017-01-02 22:56:05
 tags: [tech, hexo]
 ---
 
-This is a simple tutorial to deploy your hexo blog on Github Page. 
+<center>This is a simple tutorial to deploy your hexo blog on Github Page. </center>
 
 <!-- more -->
 
@@ -26,14 +26,14 @@ Git 就直接下个 [Git bash](https://git-for-windows.github.io/).
 打开 Git bash， 为本地 Git 配置全局 user 和 email 参数，当然你肯定要有 Github 账户.
 
 ```bash
-$ git config --global user.name "your github account name"
-$ git config --global user.email "your github account email"
+git config --global user.name "your github account name"
+git config --global user.email "your github account email"
 ```
 
 然后在本地生成 SSH 私钥，并将公钥保存到你的 GitHub 账户中去。
 
 ```bash
-$ ssh-keygen -t rsa -C "your github account email"
+ssh-keygen -t rsa -C "your github account email"
 ```
 生成过程会有提示要输入，直接一路enter.
 
@@ -46,23 +46,17 @@ title 可以随意起，key 那一栏则是把刚刚生成的 id_rsa.pub 的内�
 Node.js 在 windows 上的安装默认会直接安装上 npm.
 
 ```bash
-$ npm install -g hexo-cli
-```
-
-创建并进入 Hexo 目录
-
-```bash
-$ mkdir Hexo && cd Hexo
+npm install -g hexo-cli
 ```
 
 使用 hexo 生成博客框架
 
 ```bash
-$ hexo init blog
-$ cd blog
-$ npm install
-$ hexo generate (or hexo g)
-$ hexo server   (or hexo s)
+hexo init Blog
+cd Blog
+npm install
+hexo generate (or hexo g)
+hexo server   (or hexo s)
 ```
 
 > hexo init blog 过程可能比较慢，因为过程中要远程从 github 上下载默认的主题。
@@ -89,9 +83,10 @@ $ hexo server   (or hexo s)
 通过之前的两条命令重新生成网页文件：
 
 ```bash
-$ hexo g
-$ hexo s
+hexo g
+hexo s
 ```
+
 应该就可以在本地浏览器看见新主题了。
 
 主题更具体的配置请见 [NexT 的官方文档](http://theme-next.iissnan.com/getting-started.html)，官方文档写得很有条理，而且里面还有各种第三方服务的配置。
@@ -101,26 +96,28 @@ $ hexo s
 首先要创建一个 new repository，注意仓库名格式必须为 your_github_name.github.io ，这个仓库将作为你的静态博客文件的存放仓库。
 
 ```bash
-$ cd Hexo/blog
-$ git clone git@github.com:your_github_name/your_github_name.github.io.git
+cd Hexo/blog
+git clone git@github.com:your_github_name/your_github_name.github.io.git
 ```
+
 部署要做的事就是把 public 文件目录下的博客文件都复制到你的本地仓库中，
 并将本地仓库 push 到 github 仓库上。这样当其他人访问你的博客链接的时候 github 将会自动将该仓库中的相应文件展示出来。
 
-你可以把上面的部署方法写成 `shell` 脚本一键部署：
+你可以把上面的部署方法写成 `shell` 脚本一键部署（个人更推荐脚本的方法）：
 
 ```bash
-$ cp -R public/ * your_github_name.github.io/
-$ cd your_github_name.github.io
-$ git add .
-$ git commit -m 'update blog'
-$ git push
+cp -R public/* your_github_name.github.io/
+cp -R source/* your_github_name.github.io/source/
+cd your_github_name.github.io
+git add .
+git commit -m 'update blog'
+git push origin master
 ```
 
 或者使用更方便的方法，即安装 `hexo-deployer-git`:
 
 ```bash
-$ npm install hexo-deployer-git --save
+npm install hexo-deployer-git --save
 ```
 
 修改站点配置文件 `_config.yml`：
@@ -136,7 +133,7 @@ deploy:
 然后执行
 
 ```bash
-$ hexo deploy (or hexo d)
+hexo deploy (or hexo d)
 ```
 
 ### Addtion：为 Github Page 绑定独立域名

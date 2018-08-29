@@ -2,12 +2,11 @@
 title: About
 date: 2016-12-30 23:07:32
 type: "about"
-comments: false
 ---
 
 # 关于我 / About me
 
-My name is Shawn Chen(陈钦轩).
+My name is Qinxuan Chen(陈钦轩).
 
 I graduated from HDU in 2017, majoring in Computer Science.
 

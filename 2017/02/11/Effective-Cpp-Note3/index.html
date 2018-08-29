@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,10 +22,6 @@
 <meta name="theme-color" content="#222">
 
 
-
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
 
 
@@ -113,12 +109,14 @@
 
 
   <meta name="description" content="书中第三部分是讲资源管理（Resource Management），只有不足20页，尽管不是专门讲动态内存（dynamical memory）和智能指针（smart pointer），但还是占较大篇幅的，我会结合 C++11 新标准对其进行一些扩充。今日も顽张りましょう。">
+<meta name="keywords" content="tech,cpp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Note3 of Effective C++">
-<meta property="og:url" content="https://koushiro.me/2017/02/11/Effective-Cpp-Note3/index.html">
-<meta property="og:site_name" content="Koushiro's Blog">
+<meta property="og:url" content="http://koushiro.me/2017/02/11/Effective-Cpp-Note3/index.html">
+<meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:description" content="书中第三部分是讲资源管理（Resource Management），只有不足20页，尽管不是专门讲动态内存（dynamical memory）和智能指针（smart pointer），但还是占较大篇幅的，我会结合 C++11 新标准对其进行一些扩充。今日も顽张りましょう。">
-<meta property="og:updated_time" content="2018-04-15T13:33:16.093Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-21T12:07:01.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Note3 of Effective C++">
 <meta name="twitter:description" content="书中第三部分是讲资源管理（Resource Management），只有不足20页，尽管不是专门讲动态内存（dynamical memory）和智能指针（smart pointer），但还是占较大篇幅的，我会结合 C++11 新标准对其进行一些扩充。今日も顽张りましょう。">
@@ -128,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://koushiro.me/2017/02/11/Effective-Cpp-Note3/"/>
+  <link rel="canonical" href="http://koushiro.me/2017/02/11/Effective-Cpp-Note3/"/>
 
 
 
@@ -178,7 +176,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -201,10 +199,14 @@
       </a>
     </div>
     
+      
+        <p class="site-subtitle">Tech & Life</p>
+      
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -224,15 +226,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -240,7 +234,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
         
         
@@ -248,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -256,7 +250,31 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+    <a href="/projects/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-database"></i> <br />Projects</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gists">
+    <a href="/gists/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Gists</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
@@ -266,7 +284,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -290,7 +308,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -351,12 +369,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/02/11/Effective-Cpp-Note3/">
+    <link itemprop="mainEntityOfPage" href="http://koushiro.me/2017/02/11/Effective-Cpp-Note3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -386,14 +404,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="创建时间：2017-02-11 14:27:39" itemprop="dateCreated datePublished" datetime="2017-02-11T14:27:39+08:00">2017-02-11</time>
+              <time title="Created: 2017-02-11 14:27:39" itemprop="dateCreated datePublished" datetime="2017-02-11T14:27:39+08:00">2017-02-11</time>
             
 
             
@@ -408,9 +426,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">更新于</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="修改时间：2018-04-15 21:33:16" itemprop="dateModified" datetime="2018-04-15T21:33:16+08:00">2018-04-15</time>
+                <time title="Modified: 2018-08-21 20:07:01" itemprop="dateModified" datetime="2018-08-21T20:07:01+08:00">2018-08-21</time>
               
             
           </span>
@@ -424,7 +442,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
@@ -443,7 +461,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/02/11/Effective-Cpp-Note3/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2017/02/11/Effective-Cpp-Note3/" itemprop="commentsCount"></span>
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2017/02/11/Effective-Cpp-Note3/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -457,7 +475,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             阅读次数： 
+             Views:  
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -471,9 +489,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">本文字数：</span>
+                  <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="本文字数">15k</span>
+                <span title="Symbols count in article">15k</span>
               
 
               
@@ -485,9 +503,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">14 分钟</span>
+                <span title="Reading time">28 mins.</span>
               
             </div>
           
@@ -515,7 +533,7 @@
 <h1 id="Resourse-Management"><a href="#Resourse-Management" class="headerlink" title="Resourse Management"></a>Resourse Management</h1><h2 id="Item-13-以对象管理资源"><a href="#Item-13-以对象管理资源" class="headerlink" title="Item 13 : 以对象管理资源"></a>Item 13 : 以对象管理资源</h2><blockquote>
 <p>Use objects to manage resourses</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function">Object* <span class="title">factory</span><span class="params">(T arg)</span>      <span class="comment">// factory 返回指针，指向动态分配的对象</span></span></div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Object(arg); <span class="comment">// 调用者负责释放此内存</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">use_factory</span><span class="params">(T arg)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">// 由内置指针（非智能指针）管理的动态内存在被显式释放前一直都会存在</span></div><div class="line">    Object* p = factory(arg);</div><div class="line">    ...</div><div class="line">    <span class="keyword">delete</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object* <span class="title">factory</span><span class="params">(T arg)</span>      <span class="comment">// factory 返回指针，指向动态分配的对象</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Object(arg); <span class="comment">// 调用者负责释放此内存</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">use_factory</span><span class="params">(T arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 由内置指针（非智能指针）管理的动态内存在被显式释放前一直都会存在</span></span><br><span class="line">    Object* p = factory(arg);</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">delete</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在某些情况下，<code>use_factory</code> 可能无法删除从 <code>factory</code> 得到的资源对象【这是在实际中很容易放的错】——或许因为 “…” 区域内过早的一个 <code>return</code>；有或者 “…” 区域内的语句抛出异常。无论 <code>delete</code> 如何被忽略过去，泄露的不仅仅是内含 <code>Object</code> 对象的那块内存，还包括对象所保存的任何资源。</p>
 <p>使用 <code>new</code> 和 <code>delete</code> 管理动态内存资源的三个常见问题：</p>
 <ol>
@@ -525,7 +543,7 @@
 </ol>
 <p>因此<strong>为确保内存等资源总是被释放，需要将资源放进对象</strong>。实际上这正是本条款背后的半边想法：把资源放进对象内，依赖 C++ 的 “析构函数自动调用机制” 确保资源被释放。（另半边想法之后讨论）</p>
 <p>许多资源被动态分配于 <code>heap</code> 内而后被使用于某个作用域（除了静态内存和栈内存，每个程序还有一个内存池，被称为 <code>free store</code> 或 <code>heap</code>，程序用其来存储动态分配的对象，即运行时分配的对象），它们应该在离开该作用域时被释放。C++ 标准库提供了一类智能指针 <code>unique_ptr</code>，智能指针是个“类指针（pointer-like）”对象，其析构函数自动对其所指对象调用 <code>delete</code>。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;Object&gt; pObject(factory());     <span class="comment">// 为简洁，factory 中不加实参</span></div><div class="line">    ...</div><div class="line">&#125;   <span class="comment">// 经由 unique_ptr 的析构函数自动删除 pObject</span></div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">function</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;Object&gt; pObject(factory());     <span class="comment">// 为简洁，factory 中不加实参</span></span><br><span class="line">    ...</span><br><span class="line">&#125;   <span class="comment">// 经由 unique_ptr 的析构函数自动删除 pObject</span></span><br></pre></td></tr></table></figure>
 <p>这个例子展示了 “以对象管理资源” 的两个关键想法：</p>
 <ul>
 <li><p><strong>获得资源后立即放进管理对象（managing object）内</strong>。实际上 “以对象管理资源” 的观念常被称为 <strong>“资源取得时便是初始化时机（Resource Acquisition Is Initialization，RAII）”</strong>，因为实际中几乎总是在获得一笔资源后于同一语句内以该资源初始化某个管理对象。</p>
@@ -537,7 +555,7 @@
 <ol>
 <li>一个 <code>unique_ptr</code> “拥有” 它所指的对象，也就是说，<strong>某个时刻只能有一个 <code>unique_ptr</code> 指向一个给定对象</strong>【不然怎么叫 <code>unique</code> →_→. </li>
 <li><strong>定义一个 <code>unique_ptr</code> 时，需要将其绑定到一个 <code>new</code> 返回的指针上</strong>【不像 <code>shared_ptr</code>，它没有类似 <code>make_shared</code> 的标准库函数返回一个 <code>unique_ptr</code>，后面会提】；而<strong>初始化 <code>unique_ptr</code> 必须采用直接初始化形式</strong>。</li>
-<li>由于 <code>unique_ptr</code> 拥有它所指对象，因此 <strong><code>unique_ptr</code> 不支持普通拷贝和赋值操作</strong>。<strong>但可通过调用 <code>release</code> 或 <code>reset</code> 将指针的所有权从一个（非<code>const</code>）<code>unique_ptr</code> 转移给另一个 <code>unique</code></strong>。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p1(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>));     <span class="comment">// 正确</span></div><div class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p2(p1);                      <span class="comment">// 错误：unique_ptr 不支持 拷贝</span></div><div class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p3;</div><div class="line">p3 = p2;                                        <span class="comment">// 错误：unique_ptr 不支持 赋值</span></div><div class="line"></div><div class="line"><span class="comment">// ==========================================================================</span></div><div class="line"></div><div class="line"><span class="comment">// 将所有权从 p1 转移到 p2</span></div><div class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p1(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>));</div><div class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p2(p1.release());            <span class="comment">// release 将 p1 置为空</span></div><div class="line"><span class="comment">// 将所有权从 p3 转移到 p2</span></div><div class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p3(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"World"</span>));</div><div class="line">p2.reset(p3.release());                         <span class="comment">// reset 释放了 p2 原来指向的内存</span></div></pre></td></tr></table></figure>
+<li>由于 <code>unique_ptr</code> 拥有它所指对象，因此 <strong><code>unique_ptr</code> 不支持普通拷贝和赋值操作</strong>。<strong>但可通过调用 <code>release</code> 或 <code>reset</code> 将指针的所有权从一个（非<code>const</code>）<code>unique_ptr</code> 转移给另一个 <code>unique</code></strong>。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p1(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>));     <span class="comment">// 正确</span></span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p2(p1);                      <span class="comment">// 错误：unique_ptr 不支持 拷贝</span></span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p3;</span><br><span class="line">p3 = p2;                                        <span class="comment">// 错误：unique_ptr 不支持 赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ==========================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将所有权从 p1 转移到 p2</span></span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p1(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>));</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p2(p1.release());            <span class="comment">// release 将 p1 置为空</span></span><br><span class="line"><span class="comment">// 将所有权从 p3 转移到 p2</span></span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p3(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"World"</span>));</span><br><span class="line">p2.reset(p3.release());                         <span class="comment">// reset 释放了 p2 原来指向的内存</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>由于 <code>unique_ptr</code> 不支持普通的拷贝和赋值操作，也就意味着 <code>unique_ptr</code> 并非动态分配资源的利器。举个例子，STL 容器要求其元素发挥“正常的” 拷贝行为，因此这些容器不能使用 <code>unique_ptr</code>。</p>
@@ -546,10 +564,10 @@
 <p><strong>注意事项</strong>：</p>
 <ol>
 <li><p><strong>最安全的分配和使用动态内存的方法是调用名为 <code>make_shared</code> 的标准库函数</strong>。此函数在动态内存中分配一个对象并初始化它，返回指向此对象的 <code>shared_ptr</code>。之所以推荐 <code>make_shared</code> 而不是 <code>new</code> 是因为能在分配对象的同时就将 <code>shared_ptr</code> 与之绑定，从而避免无意中将同一块内存绑定到多个独立创建的 <code>shared_ptr</code> 上。【该函数也被定义在头文件 <code>memory</code> 中】</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 指向值为 666 的 int 的 shared_ptr</span></div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; pInt = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">666</span>);</div><div class="line"><span class="comment">// 指向值为 “666” 的 string</span></div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; pString = make_shared&lt;<span class="built_in">string</span>&gt;(<span class="number">3</span>, <span class="string">'6'</span>);</div></pre></td></tr></table></figure>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指向值为 666 的 int 的 shared_ptr</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; pInt = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">666</span>);</span><br><span class="line"><span class="comment">// 指向值为 “666” 的 string</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; pString = make_shared&lt;<span class="built_in">string</span>&gt;(<span class="number">3</span>, <span class="string">'6'</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>shared_ptr</code> 通过析构函数完成对象销毁和和内存释放的自动化，<strong>其析构函数会递减它所指的对象的引用计数，如果引用计数变为 0，<code>shared_ptr</code> 的析构函数就会销毁对象，并释放它所占的内存</strong>。</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">123</span>); <span class="comment">// p 指向的对象只有 p 一个引用者</span></div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; q(p);                      <span class="comment">// p 和 q 指向相同对象，此对象有两个引用者</span></div><div class="line"></div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; r = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">666</span>); <span class="comment">// r 指向的 int 只有一个引用者</span></div><div class="line">r = q;                                    <span class="comment">// 给 r 赋值，令它指向另一个地址</span></div><div class="line">                                          <span class="comment">// 递增 q 指向对象的引用计数，递减 r 原来指向对象的引用计数</span></div><div class="line">                                          <span class="comment">// r 原来指向的对象已没有引用者，会自动释放</span></div></pre></td></tr></table></figure>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">123</span>); <span class="comment">// p 指向的对象只有 p 一个引用者</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; q(p);                      <span class="comment">// p 和 q 指向相同对象，此对象有两个引用者</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; r = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">666</span>); <span class="comment">// r 指向的 int 只有一个引用者</span></span><br><span class="line">r = q;                                    <span class="comment">// 给 r 赋值，令它指向另一个地址</span></span><br><span class="line">                                          <span class="comment">// 递增 q 指向对象的引用计数，递减 r 原来指向对象的引用计数</span></span><br><span class="line">                                          <span class="comment">// r 原来指向的对象已没有引用者，会自动释放</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>虽说写了这么多关于 <code>unique_ptr</code> 和 <code>shared_ptr</code> 的东西，但本条款真正强调的是 “以对象管理资源” 的重要性，<code>unique_ptr</code> 和 <code>shared_ptr</code> 只是实际例子。</p>
@@ -729,10 +747,10 @@
 <h3 id="扩展（shared-ptr-和-unique-ptr-的删除器）"><a href="#扩展（shared-ptr-和-unique-ptr-的删除器）" class="headerlink" title="扩展（shared_ptr 和 unique_ptr 的删除器）"></a>扩展（<code>shared_ptr</code> 和 <code>unique_ptr</code> 的删除器）</h3><p><code>shared_ptr</code> 和 <code>unique_ptr</code> 之间明显的不同已经在 <code>Item13</code> 中谈到过了，是它们<strong>管理所保存的指针的策略</strong> —— 前者给予共享指针所有权的能力，后者则独占指针。<br>另一个差异是它们<strong>允许指定用户重载默认删除器的方式</strong>。</p>
 <ul>
 <li><p>重载 <code>shared_ptr</code> 的删除器很容易，<strong>只要创建或 <code>reset</code> 指针时传递给它一个可调用对象即可</strong>。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">end_connection</span><span class="params">(connection *p)</span> </span>&#123; disconnect(*p); &#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(destination &amp;d <span class="comment">/* 其他参数 */</span>)</span></span></div><div class="line">&#123;</div><div class="line">    connection c = connect(&amp;d); <span class="comment">// 打开连接</span></div><div class="line">    <span class="built_in">shared_ptr</span>&lt;connection&gt; p(&amp;c, end_connection);</div><div class="line">    <span class="comment">// 使用连接</span></div><div class="line">    <span class="comment">// 当 f 退出时（即使由于异常而退出），connection 会被正确关闭</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">end_connection</span><span class="params">(connection *p)</span> </span>&#123; disconnect(*p); &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(destination &amp;d <span class="comment">/* 其他参数 */</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    connection c = connect(&amp;d); <span class="comment">// 打开连接</span></span><br><span class="line">    <span class="built_in">shared_ptr</span>&lt;connection&gt; p(&amp;c, end_connection);</span><br><span class="line">    <span class="comment">// 使用连接</span></span><br><span class="line">    <span class="comment">// 当 f 退出时（即使由于异常而退出），connection 会被正确关闭</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>与之相反，删除器的类型是一个 <code>unique_ptr</code> 对象类型的一部分，<strong>用户必须在定义 <code>unique_ptr</code> 时以显式模板实参的形式提供删除器的类型</strong>。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(destination &amp;d <span class="comment">/* 其他参数 */</span>)</span></span></div><div class="line">&#123;</div><div class="line">    connection c = connect(&amp;d); <span class="comment">// 打开连接</span></div><div class="line">    <span class="built_in">unique_ptr</span>&lt;connection, <span class="keyword">decltype</span>(end_connection)*&gt; p(&amp;c, end_connection);</div><div class="line">    <span class="comment">// 使用连接</span></div><div class="line">    <span class="comment">// 当 f 退出时（即使由于异常而退出），connection 会被正确关闭</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// decltype(end_connection) 返回函数类型，</span></div><div class="line"><span class="comment">// 必须添加一个 * 来指出我们正在使用该类型的一个指针</span></div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(destination &amp;d <span class="comment">/* 其他参数 */</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    connection c = connect(&amp;d); <span class="comment">// 打开连接</span></span><br><span class="line">    <span class="built_in">unique_ptr</span>&lt;connection, <span class="keyword">decltype</span>(end_connection)*&gt; p(&amp;c, end_connection);</span><br><span class="line">    <span class="comment">// 使用连接</span></span><br><span class="line">    <span class="comment">// 当 f 退出时（即使由于异常而退出），connection 会被正确关闭</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// decltype(end_connection) 返回函数类型，</span></span><br><span class="line"><span class="comment">// 必须添加一个 * 来指出我们正在使用该类型的一个指针</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>尽管不知道标准库类型是如何实现的，但可以推断出 <code>shared_ptr</code> 必须能直接访问其删除器，即删除器必须保存为一个指针或一个封装了指针的类。</p>
@@ -751,30 +769,30 @@
 <p>Provide access to raw resourse in resourse-managing classes</p>
 </blockquote>
 <p>实际中许多 API 直接涉及资源，所以除非承诺永不使用这样的 API，否则只得绕过资源管理对象（resource-managing object）直接访问原始资源（raw resource）。</p>
-<p>举个例子，再次使用 <code>Item 13</code> 中的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function">Object* <span class="title">factory</span><span class="params">(T arg)</span>      <span class="comment">// factory 返回指针，指向动态分配的对象</span></span></div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Object(arg); <span class="comment">// 调用者负责释放此内存</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// =====================================================</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;Object&gt; pObject(factory());</div><div class="line"><span class="comment">// 假如有某个 function 希望处理 Object 对象，如下</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">function</span><span class="params">(<span class="keyword">const</span> Object* o)</span></span>;</div></pre></td></tr></table></figure></p>
-<p>若想要像下面这么调用 <code>function</code>，是通不过编译的。因为 <code>function</code> 需要的是 <code>Object*</code> 指针，而不是你传给它的类型为 <code>unique_ptr&lt;Object&gt;</code> 的对象。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> ret = function(pObject);            <span class="comment">// 错误</span></div></pre></td></tr></table></figure></p>
+<p>举个例子，再次使用 <code>Item 13</code> 中的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Object* <span class="title">factory</span><span class="params">(T arg)</span>      <span class="comment">// factory 返回指针，指向动态分配的对象</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Object(arg); <span class="comment">// 调用者负责释放此内存</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// =====================================================</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">unique_ptr</span>&lt;Object&gt; pObject(factory());</span><br><span class="line"><span class="comment">// 假如有某个 function 希望处理 Object 对象，如下</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">function</span><span class="params">(<span class="keyword">const</span> Object* o)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<p>若想要像下面这么调用 <code>function</code>，是通不过编译的。因为 <code>function</code> 需要的是 <code>Object*</code> 指针，而不是你传给它的类型为 <code>unique_ptr&lt;Object&gt;</code> 的对象。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ret = function(pObject);            <span class="comment">// 错误</span></span><br></pre></td></tr></table></figure></p>
 <p>这时候你需要一个函数<strong>可将 <code>RAII class</code> 对象转换为其所内含的原始资源</strong>（本例为 <code>Object*</code>），有两种做法可以做到：</p>
 <ul>
 <li><p><strong>显式转换</strong>：<code>unique_ptr</code> 和 <code>shared_ptr</code> 都提供了一个 <strong><code>get</code> 成员函数</strong>，用来执行显式转换，也就是它会<strong>返回智能指针内部的原始指针（的复件）</strong>：  </p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> ret = function(pObject.get());</div></pre></td></tr></table></figure>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ret = function(pObject.get());</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>隐式转换</strong>：<strong><code>unique_ptr</code> 和 <code>shared_ptr</code> 重载了指针取值（pointer dereference）操作符（<code>operator-&gt;</code> 和 <code>operator*</code>）</strong>，它们允许隐式转换至底部原始指针：</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsReal</span><span class="params">()</span> <span class="keyword">const</span></span>;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"><span class="function">Object* <span class="title">factory</span><span class="params">()</span></span>;              <span class="comment">// 为代码简洁，此处省略实参</span></div><div class="line"><span class="built_in">shared_ptr</span>&lt;Object&gt; p1(factory());</div><div class="line"><span class="keyword">bool</span> ret1 = p1-&gt;IsReal();       <span class="comment">// 经由 operator-&gt; 访问资源</span></div><div class="line">...</div><div class="line"><span class="built_in">unique_ptr</span>&lt;Object&gt; p2(factory());</div><div class="line"><span class="keyword">bool</span> ret2 = (*p2).IsReal();     <span class="comment">// 经由 operator * 访问资源</span></div><div class="line">...</div></pre></td></tr></table></figure>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsReal</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">Object* <span class="title">factory</span><span class="params">()</span></span>;              <span class="comment">// 为代码简洁，此处省略实参</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;Object&gt; p1(factory());</span><br><span class="line"><span class="keyword">bool</span> ret1 = p1-&gt;IsReal();       <span class="comment">// 经由 operator-&gt; 访问资源</span></span><br><span class="line">...</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;Object&gt; p2(factory());</span><br><span class="line"><span class="keyword">bool</span> ret2 = (*p2).IsReal();     <span class="comment">// 经由 operator * 访问资源</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="扩展（智能指针的一些使用注意事项）"><a href="#扩展（智能指针的一些使用注意事项）" class="headerlink" title="扩展（智能指针的一些使用注意事项）"></a>扩展（智能指针的一些使用注意事项）</h3><p><strong>接受指针参数的智能指针的构造函数是 <code>explicit</code> 的</strong>，因此必须使用直接初始化形式来初始化一个智能指针【当然更推荐使用 <code>make_shared</code> 来初始化 <code>shared_ptr</code>，前面有提及过原因】：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1 = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>); <span class="comment">// 错误，必须使用直接初始化形式</span></div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p2(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>));  <span class="comment">// 正确 </span></div><div class="line"><span class="comment">// shared_ptr 更推荐用 make_shared 初始化</span></div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p3 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">1024</span>);</div></pre></td></tr></table></figure></p>
-<p>出于相同的原因，一个返回 <code>shared_ptr</code> 的函数不能在其返回语句中隐式转换一个普通指针：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; clone(<span class="keyword">int</span> p)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 错误，不能隐式转换</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>(p);  </div><div class="line">&#125;</div><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; clone(<span class="keyword">int</span> p)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 正确，显式地用 int* 创建 shared_ptr&lt;int&gt;</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;(<span class="keyword">new</span> <span class="keyword">int</span>(p));</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>不要混合使用普通指针和智能指针</strong>，因为当一个 <code>shared_ptr</code> 绑定到一个普通指针时，内存的管理责任就交给了这个 <code>shared_ptr</code>。而继续使用该普通指针很可能会指向（已经释放的）内存【毕竟复杂情况下很难知道对象何时会被销毁】，导致该指针的值是未定义的，这是很危险的。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">void process(shared_ptr&lt;int&gt; ptr); // pass-by-value</div><div class="line"></div><div class="line">shared_ptr&lt;int&gt; p(new int(1024)); // 引用计数为 1</div><div class="line">process(p); // 拷贝 p 会递增它的引用计数，引用计数为 2</div><div class="line">int i = *p; // 正确，引用计数为 1</div><div class="line"></div><div class="line">int *x(new int(1024));  // 危险：x 是普通指针</div><div class="line">// process(x); // 错误，不能将int* 转换为shared_ptr&lt;int&gt;</div><div class="line">/*  下面是合法的，但内存会被释放!</div><div class="line">**  因为是一个临时 shared_ptr传递给 process，当调用表达式结束时，该临时对象就会被销毁。</div><div class="line">**  销毁这个临时变量会递减引用计数，此时引用计数就变为0，该临时变量所指向的内存会被释放。</div><div class="line">*/</div><div class="line">process(shared_ptr&lt;int&gt;(x)); </div><div class="line">int j = *x;                  // 未定义的：x 是个空悬指针</div></pre></td></tr></table></figure></p>
+<h3 id="扩展（智能指针的一些使用注意事项）"><a href="#扩展（智能指针的一些使用注意事项）" class="headerlink" title="扩展（智能指针的一些使用注意事项）"></a>扩展（智能指针的一些使用注意事项）</h3><p><strong>接受指针参数的智能指针的构造函数是 <code>explicit</code> 的</strong>，因此必须使用直接初始化形式来初始化一个智能指针【当然更推荐使用 <code>make_shared</code> 来初始化 <code>shared_ptr</code>，前面有提及过原因】：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p1 = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>); <span class="comment">// 错误，必须使用直接初始化形式</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p2(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>));  <span class="comment">// 正确 </span></span><br><span class="line"><span class="comment">// shared_ptr 更推荐用 make_shared 初始化</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p3 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">1024</span>);</span><br></pre></td></tr></table></figure></p>
+<p>出于相同的原因，一个返回 <code>shared_ptr</code> 的函数不能在其返回语句中隐式转换一个普通指针：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; clone(<span class="keyword">int</span> p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 错误，不能隐式转换</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>(p);  </span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; clone(<span class="keyword">int</span> p)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 正确，显式地用 int* 创建 shared_ptr&lt;int&gt;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;(<span class="keyword">new</span> <span class="keyword">int</span>(p));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>不要混合使用普通指针和智能指针</strong>，因为当一个 <code>shared_ptr</code> 绑定到一个普通指针时，内存的管理责任就交给了这个 <code>shared_ptr</code>。而继续使用该普通指针很可能会指向（已经释放的）内存【毕竟复杂情况下很难知道对象何时会被销毁】，导致该指针的值是未定义的，这是很危险的。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">process</span><span class="params">(<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; ptr)</span></span>; <span class="comment">// pass-by-value</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>)); <span class="comment">// 引用计数为 1</span></span><br><span class="line">process(p); <span class="comment">// 拷贝 p 会递增它的引用计数，引用计数为 2</span></span><br><span class="line"><span class="keyword">int</span> i = *p; <span class="comment">// 正确，引用计数为 1</span></span><br><span class="line"></span><br><span class="line">int *x(new int(1024));  // 危险：x 是普通指针</span><br><span class="line"><span class="comment">// process(x); // 错误，不能将int* 转换为shared_ptr&lt;int&gt;</span></span><br><span class="line"><span class="comment">/*  下面是合法的，但内存会被释放!</span></span><br><span class="line"><span class="comment">**  因为是一个临时 shared_ptr传递给 process，当调用表达式结束时，该临时对象就会被销毁。</span></span><br><span class="line"><span class="comment">**  销毁这个临时变量会递减引用计数，此时引用计数就变为0，该临时变量所指向的内存会被释放。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">process(<span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt;(x)); </span><br><span class="line"><span class="keyword">int</span> j = *x;                  <span class="comment">// 未定义的：x 是个空悬指针</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>也不要使用 <code>get</code> 初始化另一个智能指针 或 为智能指针赋值</strong>，因为设计 <code>get</code> 函数的目的是 “为了向不能使用智能指针的代码传递一个内置指针（或者说是如下一部分内容中 必须要取得<code>RAII class</code>对象内原始资源的情况）”。</p>
-<p><strong>【注意：只有在代码不会 <code>delete</code> 指针的情况下才能使用 <code>get</code>，特别是，永远不要用 <code>get</code> 初始化另一个智能指针 或 为另一个智能指针赋值，尽管编译器不会给出错误信息】</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>));  <span class="comment">// 引用计数为 1</span></div><div class="line"><span class="keyword">int</span> *q = p.get();   <span class="comment">// 正确：但使用 q 时要注意，不要让它管理的指针被释放</span></div><div class="line">&#123;<span class="comment">// 新程序块</span></div><div class="line">    <span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; (q); <span class="comment">// q 和 p 指向相同的内存，q 的引用计数为 1</span></div><div class="line">&#125;<span class="comment">// 程序块结束，q 被销毁，并且 q 所指向的内存被释放</span></div><div class="line"><span class="keyword">int</span> foo = *p;   <span class="comment">// 未定义：p 指向的内存已经被释放了</span></div></pre></td></tr></table></figure></p>
+<p><strong>【注意：只有在代码不会 <code>delete</code> 指针的情况下才能使用 <code>get</code>，特别是，永远不要用 <code>get</code> 初始化另一个智能指针 或 为另一个智能指针赋值，尽管编译器不会给出错误信息】</strong><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>));  <span class="comment">// 引用计数为 1</span></span><br><span class="line"><span class="keyword">int</span> *q = p.get();   <span class="comment">// 正确：但使用 q 时要注意，不要让它管理的指针被释放</span></span><br><span class="line">&#123;<span class="comment">// 新程序块</span></span><br><span class="line">    <span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; (q); <span class="comment">// q 和 p 指向相同的内存，q 的引用计数为 1</span></span><br><span class="line">&#125;<span class="comment">// 程序块结束，q 被销毁，并且 q 所指向的内存被释放</span></span><br><span class="line"><span class="keyword">int</span> foo = *p;   <span class="comment">// 未定义：p 指向的内存已经被释放了</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="必须要取得-RAII-class-对象内原始资源的情况"><a href="#必须要取得-RAII-class-对象内原始资源的情况" class="headerlink" title="必须要取得 RAII class 对象内原始资源的情况"></a>必须要取得 <code>RAII class</code> 对象内原始资源的情况</h3><p>套用书中的例子：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function">FontHandle <span class="title">getFont</span><span class="params">()</span></span>;           <span class="comment">// 这是个 C API，为简化暂略参数</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">releaseFont</span><span class="params">(FontHandle fh)</span></span>;<span class="comment">// 来自同一组 C API</span></div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Font</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    // 采用 pass-by-value，因为 C API 这么做</div><div class="line">    explicit Font(FontHandle fh) : f(fh) &#123;  &#125;</div><div class="line">    ~Font() &#123; releaseFont(f); &#125; // 释放资源</div><div class="line">private:</div><div class="line">    FontHandle f;               // 原始字体资源</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">FontHandle <span class="title">getFont</span><span class="params">()</span></span>;           <span class="comment">// 这是个 C API，为简化暂略参数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">releaseFont</span><span class="params">(FontHandle fh)</span></span>;<span class="comment">// 来自同一组 C API</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Font</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 采用 pass-by-value，因为 C API 这么做</span></span><br><span class="line">    explicit Font(FontHandle fh) : f(fh) &#123;  &#125;</span><br><span class="line">    ~Font() &#123; releaseFont(f); &#125; <span class="comment">// 释放资源</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    FontHandle f;               <span class="comment">// 原始字体资源</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>如果有大量的 C API，它们处理的是 <code>FontHandle</code>，那么 “将 <code>Font</code> 对象转换为 <code>FontHandle</code>” 会是一种频繁的需求。<code>Font class</code> 可为此<strong>提供一个如下的显式转换函数</strong>，但这使得用户每当要使用 API 时就必须调用 <code>get</code>，这不免会让某些人觉得厌烦。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 显式转换函数</span></div><div class="line"><span class="keyword">class</span> Font</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    <span class="function">FontHandle <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> f; &#125;</div><div class="line">    ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 显式转换函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Font</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="function">FontHandle <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> f; &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>另一个办法是令 <code>Font</code> <strong>提供如下的隐式转换函数</strong>，转型为 <code>FontHandle</code>，这会使得用户调用 C API 时更为轻松自然。但这份隐式转换会增加错误发生机会。例如用户可能会在需要 <code>Font</code> 时意外创建一个 <code>FontHandle</code>。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 隐式转换函数</span></div><div class="line"><span class="keyword">class</span> Font</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">FontHandle</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> f; &#125;</div><div class="line">    ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 需要 Font 时意外创建一个 FontHandle</div><div class="line">Font f1(getFont());</div><div class="line">...</div><div class="line">FontHandle f2 = f1;</div><div class="line">// 原意是要拷贝一个 Font 对象，</div><div class="line">// 却反而将 f1 隐式转换为其底部的 FontHandle，然后才复制它。</div><div class="line">// 当 f1 被销毁时，字体被释放，而 f2 会因此成为 “虚吊的（dangle）”。</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 隐式转换函数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Font</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">operator</span> <span class="title">FontHandle</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> f; &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要 Font 时意外创建一个 FontHandle</span></span><br><span class="line">Font f1(getFont());</span><br><span class="line">...</span><br><span class="line">FontHandle f2 = f1;</span><br><span class="line"><span class="comment">// 原意是要拷贝一个 Font 对象，</span></span><br><span class="line"><span class="comment">// 却反而将 f1 隐式转换为其底部的 FontHandle，然后才复制它。</span></span><br><span class="line"><span class="comment">// 当 f1 被销毁时，字体被释放，而 f2 会因此成为 “虚吊的（dangle）”。</span></span><br></pre></td></tr></table></figure>
 <p>是否该提供一个显式转换函数（例如 <code>get</code> 成员函数）将 <code>RAII class</code> 转换为其底部资源，或是应该提供隐式转换，答案主要<strong>取决于 <code>RAII class</code> 被设计者执行的特点工作，以及它被使用的情况</strong>。通常显式转换函数如 <code>get</code> 是比较受欢迎的，因为它将“非故意之类型转换” 的可能性最小化，然而有时候隐式转换所带来的“自然用法”的好处更大。</p>
 <p><strong>请记住</strong></p>
 <blockquote>
@@ -800,8 +818,8 @@
 </ul>
 <p><code>delete</code> 最大的问题在于：即将被删除的内存内究竟有多少对象，这也意味着究竟有多少个析构函数必须被调用。或者更通俗点来说，即将被删除的指针，其所指的是单一对象还是对象数组。</p>
 <p>数组所用的内存通常还包括“数组大小”的记录，以便 <code>delete</code> 知道需要调用多少次析构函数，而单一对象的内存则没有这个记录。</p>
-<p>唯一能够让 <code>delete</code> 知道内存中是否存在一个 “数组大小记录” 的办法就是：由编码者告诉编译器，<strong>如果使用 <code>delete[]</code>，<code>delete</code> 便认定指针指向一个数组，否则便认定指针指向单一对象</strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pStr1 = <span class="keyword">new</span> <span class="built_in">std</span>::<span class="built_in">string</span>;</div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pStr2 = <span class="keyword">new</span> <span class="built_in">std</span>::<span class="built_in">string</span>[<span class="number">100</span>];</div><div class="line">...</div><div class="line"><span class="keyword">delete</span> pStr1;           <span class="comment">// 删除单一对象</span></div><div class="line"><span class="keyword">delete</span>[] pStr2;         <span class="comment">// 删除一个对象数组</span></div><div class="line"><span class="comment">// =======================================</span></div><div class="line"><span class="keyword">delete</span>[] pStr1;         <span class="comment">// 结果未定义</span></div><div class="line"><span class="keyword">delete</span> pStr2;           <span class="comment">// 结果未定义</span></div></pre></td></tr></table></figure></p>
-<p>上述的规则对喜欢使用 <code>typedef</code> 的编码者也很重要，因为它意味着 <code>typedef</code> 的作者必须说清楚，当以 <code>new</code> 创建该种 <code>typedef</code> 类型对象时，该以哪一种 <code>delete</code> 形式删除它。比如下面这种问题：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">string</span> AddressLines[<span class="number">4</span>];</div><div class="line"><span class="comment">// 注意，"new AddressLines" 返回一个 string*，就像"new string[4]" 一样</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pAL = <span class="keyword">new</span> AddressLines;</div><div class="line"></div><div class="line"><span class="comment">// 必须匹配 “数组形式” 的 delete </span></div><div class="line"><span class="keyword">delete</span> pAL;         <span class="comment">// 行为未定义</span></div><div class="line"><span class="keyword">delete</span>[] pAL;       <span class="comment">// 正确</span></div></pre></td></tr></table></figure></p>
+<p>唯一能够让 <code>delete</code> 知道内存中是否存在一个 “数组大小记录” 的办法就是：由编码者告诉编译器，<strong>如果使用 <code>delete[]</code>，<code>delete</code> 便认定指针指向一个数组，否则便认定指针指向单一对象</strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pStr1 = <span class="keyword">new</span> <span class="built_in">std</span>::<span class="built_in">string</span>;</span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pStr2 = <span class="keyword">new</span> <span class="built_in">std</span>::<span class="built_in">string</span>[<span class="number">100</span>];</span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span> pStr1;           <span class="comment">// 删除单一对象</span></span><br><span class="line"><span class="keyword">delete</span>[] pStr2;         <span class="comment">// 删除一个对象数组</span></span><br><span class="line"><span class="comment">// =======================================</span></span><br><span class="line"><span class="keyword">delete</span>[] pStr1;         <span class="comment">// 结果未定义</span></span><br><span class="line"><span class="keyword">delete</span> pStr2;           <span class="comment">// 结果未定义</span></span><br></pre></td></tr></table></figure></p>
+<p>上述的规则对喜欢使用 <code>typedef</code> 的编码者也很重要，因为它意味着 <code>typedef</code> 的作者必须说清楚，当以 <code>new</code> 创建该种 <code>typedef</code> 类型对象时，该以哪一种 <code>delete</code> 形式删除它。比如下面这种问题：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">std</span>::<span class="built_in">string</span> AddressLines[<span class="number">4</span>];</span><br><span class="line"><span class="comment">// 注意，"new AddressLines" 返回一个 string*，就像"new string[4]" 一样</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span>* pAL = <span class="keyword">new</span> AddressLines;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 必须匹配 “数组形式” 的 delete </span></span><br><span class="line"><span class="keyword">delete</span> pAL;         <span class="comment">// 行为未定义</span></span><br><span class="line"><span class="keyword">delete</span>[] pAL;       <span class="comment">// 正确</span></span><br></pre></td></tr></table></figure></p>
 <p>为了避免这样的问题，**最好尽量不要对数组形式做 <code>typedef</code> 动作，而且C++标准库中有许多容器（如<code>vector</code>,<code>string</code>等 <code>templates</code>）可以实现类似数组的需求。</p>
 <p><strong>请记住</strong></p>
 <blockquote>
@@ -813,8 +831,8 @@
 <h2 id="Item-17-以独立语句将-newed-对象置入智能指针"><a href="#Item-17-以独立语句将-newed-对象置入智能指针" class="headerlink" title="Item 17 : 以独立语句将 newed 对象置入智能指针"></a>Item 17 : 以独立语句将 newed 对象置入智能指针</h2><blockquote>
 <p>Store newed objects in smart pointers in standalone statements</p>
 </blockquote>
-<p>假设有一个函数用来揭示处理程序的优先权，另一个函数用来在某动态分配所得的 <code>Object</code> 上进行某些带有优先权的处理：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">priority</span><span class="params">()</span></span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">processObject</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Object&gt; pObj, <span class="keyword">int</span> priority)</span></span>;</div></pre></td></tr></table></figure></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// processObject(new Object, priority());  // 错误，编译不通过</span></div><div class="line"><span class="comment">// 由于 shared_ptr 的构造函数是个 explicit 构造函数，无法进行隐式转换</span></div><div class="line"><span class="comment">// 只有写成下面这样才能通过编译</span></div><div class="line">processObject(<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Object&gt;(<span class="keyword">new</span> Object), priority());</div></pre></td></tr></table></figure>
+<p>假设有一个函数用来揭示处理程序的优先权，另一个函数用来在某动态分配所得的 <code>Object</code> 上进行某些带有优先权的处理：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">priority</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">processObject</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Object&gt; pObj, <span class="keyword">int</span> priority)</span></span>;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// processObject(new Object, priority());  // 错误，编译不通过</span></span><br><span class="line"><span class="comment">// 由于 shared_ptr 的构造函数是个 explicit 构造函数，无法进行隐式转换</span></span><br><span class="line"><span class="comment">// 只有写成下面这样才能通过编译</span></span><br><span class="line">processObject(<span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Object&gt;(<span class="keyword">new</span> Object), priority());</span><br></pre></td></tr></table></figure>
 <p>尽管在此使用了 “对象管理式资源”（object-managing resources），但上述调用却仍可能泄露资源。</p>
 <p>究其原因，要从 <strong>C++ 完成函数参数的核算次序</strong>说起。不像 Java 和 C# 语言一样以特定次序完成函数参数的核算，C++编译器对以什么次序来完成这些事情<strong>弹性很大</strong>。</p>
 <p>拿上面的代码举例，C++ 编译器<strong>产出一个 <code>processObject</code> 调用码之前，必须首先核算即将被传递的各个实参</strong>。此处第二个实参只是单纯地对 <code>priority</code> 函数的调用，但第一个实参 <code>std::shared_ptr&lt;Object&gt;(new Object)</code> 由两部分组成：</p>
@@ -839,7 +857,7 @@
 <p>避免这类问题的办法很简单：<strong>使用分离语句</strong>，分别写出</p>
 <ol>
 <li>创建 <code>Object</code> ，将它置入一个智能指针内</li>
-<li>然后再把那个智能指针传给 <code>processObject</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Object&gt; pObj(<span class="keyword">new</span> Object);</div><div class="line"></div><div class="line">processObject(pObj, priority());</div></pre></td></tr></table></figure>
+<li>然后再把那个智能指针传给 <code>processObject</code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">std</span>::<span class="built_in">shared_ptr</span>&lt;Object&gt; pObj(<span class="keyword">new</span> Object);</span><br><span class="line"></span><br><span class="line">processObject(pObj, priority());</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>上面的代码之所以能行得通，是因为<strong>编译器对于 “跨越语句的各项操作” 没有重新排列的自由（只有在语句内它才拥有那个自由度）</strong>。</p>
@@ -869,13 +887,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>koushiro</li>
+    <strong>Post author:  </strong>koushiro</li>
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://koushiro.me/2017/02/11/Effective-Cpp-Note3/" title="The Note3 of Effective C++">https://koushiro.me/2017/02/11/Effective-Cpp-Note3/</a>
+    <strong>Post link: </strong>
+    <a href="http://koushiro.me/2017/02/11/Effective-Cpp-Note3/" title="The Note3 of Effective C++">http://koushiro.me/2017/02/11/Effective-Cpp-Note3/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
 </ul>
 
       </div>
@@ -928,10 +946,6 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -970,10 +984,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -982,8 +996,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="koushiro" />
+            
               <p class="site-author-name" itemprop="name">koushiro</p>
-              <p class="site-description motion-element" itemprop="description">你为什么这么熟练啊！</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
           </div>
 
           
@@ -993,8 +1011,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">日志</span>
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -1015,7 +1033,7 @@
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">分类</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -1040,7 +1058,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">标签</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -1064,6 +1082,11 @@
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/shawn_cqx" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://t.me/koushiro" target="_blank" title="Telegram"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
                   
                 </span>
               
@@ -1132,7 +1155,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1144,9 +1167,9 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">站点总字数：</span>
+      <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="站点总字数">80k</span>
+    <span title="Symbols count total">79k</span>
   
 
   
@@ -1155,16 +1178,16 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="站点阅读时长">1:false</span>
+    <span title="Reading time total">2:24</span>
   
 </div>
 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.2.2</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -1172,7 +1195,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
 
 
 
@@ -1182,14 +1205,14 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
+    <span class="site-uv" title="Total Visitors">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="总访问量">
+    <span class="site-pv" title="Total Views">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
@@ -1216,13 +1239,10 @@
     
 
     
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
+	
     
 
+    
   </div>
 
   
@@ -1310,18 +1330,6 @@
 
 
 
-	
-
-
-
-
-
-  
-
-
-
-
-
   
 
 
@@ -1343,7 +1351,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1486794459000',
+            id: window.location.pathname,
             owner: 'koushiro',
             repo: 'koushiro.github.io',
             
@@ -1706,27 +1714,6 @@
 
   
   
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
-  
 
   
   
@@ -1745,7 +1732,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.scrollToMark('auto', "#更多");
+    bookmark.scrollToMark('auto', "#more");
   
   </script>
 
@@ -1792,7 +1779,7 @@
     $('.highlight').each(function (i, e) {
       var $wrap = $('<div>').addClass('highlight-wrap')
       $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
         var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
           return $(e).text()
         }).toArray().join('\n')
@@ -1807,11 +1794,14 @@
         var result = document.execCommand('copy')
         document.body.removeChild(ta)
         
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
         $(this).blur()
       })).on('mouseleave', function (e) {
         var $b = $(this).find('.copy-btn')
         setTimeout(function () {
-          $b.text('复制')
+          $b.text('Copy')
         }, 300)
       }).append(e)
     })

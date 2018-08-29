@@ -51,9 +51,8 @@ ls: cannot access '/sys/firmware/efi/efivars': No such file or directory
 
 ```bash
 /dev/nvme1n1p1  512M        EFI System
-/dev/nvme1n1p2  20G         Linux filesystem
-/dev/nvme1n1p3  16G         Linux swap
-/dev/nvme1n1p4  all left    Linux home      # 分完上面三个区，剩余空间都留给 home
+/dev/nvme1n1p2  16G         Linux swap
+/dev/nvme1n1p3  all left    Linux filesystem     # 剩余空间都留给根分区
 ```
 
 分完区后需要格式化：
@@ -61,30 +60,24 @@ ls: cannot access '/sys/firmware/efi/efivars': No such file or directory
 ```bash
 # EFI
 mkfs.fat -F32 /dev/nvme1n1p1
-# 根分区
-mkfs.ext4 /dev/nvme1n1p2
 # swap
-mkswap /dev/nvme1n1p3
-#home
-mkfs.ext4 /dev/nvme1n1p4
+mkswap /dev/nvme1n1p2
+# 根分区
+mkfs.ext4 /dev/nvme1n1p3
 ```
 
 格式化完分区后需要挂载：
 
 ```bash
 # 首先需要挂载根分区
-mount /dev/nvme1n1p2 /mnt
+mount /dev/nvme1n1p3 /mnt
 
 # EFI/GPT引导方式，执行以下命令创建/boot文件夹并将引导分区挂载到上面
 mkdir -p /mnt/boot
 mount /dev/nvme1n1p1 /mnt/boot
 
 # swap分区
-swapon /dev/nvme1n1p3
-
-# home分区
-mkdir -p /mnt/home
-mount /dev/nvme1n1p4 /mnt/home
+swapon /dev/nvme1n1p2
 ```
 
 执行 `lsblk` 看看是否都挂载成功。

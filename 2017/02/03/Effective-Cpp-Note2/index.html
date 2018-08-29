@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,10 +22,6 @@
 <meta name="theme-color" content="#222">
 
 
-
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
 
 
@@ -113,12 +109,14 @@
 
 
   <meta name="description" content="过年好像并没有想象的这么闲，无聊又麻烦的事情比较多【这也是我过年期间中的daikirai】，所以第二部分的整理来的有些迟，这一部分的 Items 相比第一部分要短小简洁，而且这部分 Items 中对我来说绝大多数都是较熟悉的【毕竟构造和析构这种东西写的太多了】，除了 Item 8 ，可能是实际中异常我用的比较少。总之，Let’s do it !">
+<meta name="keywords" content="tech,cpp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Note2 of Effective C++">
-<meta property="og:url" content="https://koushiro.me/2017/02/03/Effective-Cpp-Note2/index.html">
-<meta property="og:site_name" content="Koushiro's Blog">
+<meta property="og:url" content="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/index.html">
+<meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:description" content="过年好像并没有想象的这么闲，无聊又麻烦的事情比较多【这也是我过年期间中的daikirai】，所以第二部分的整理来的有些迟，这一部分的 Items 相比第一部分要短小简洁，而且这部分 Items 中对我来说绝大多数都是较熟悉的【毕竟构造和析构这种东西写的太多了】，除了 Item 8 ，可能是实际中异常我用的比较少。总之，Let’s do it !">
-<meta property="og:updated_time" content="2018-04-15T13:33:11.791Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-21T12:07:01.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Note2 of Effective C++">
 <meta name="twitter:description" content="过年好像并没有想象的这么闲，无聊又麻烦的事情比较多【这也是我过年期间中的daikirai】，所以第二部分的整理来的有些迟，这一部分的 Items 相比第一部分要短小简洁，而且这部分 Items 中对我来说绝大多数都是较熟悉的【毕竟构造和析构这种东西写的太多了】，除了 Item 8 ，可能是实际中异常我用的比较少。总之，Let’s do it !">
@@ -128,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://koushiro.me/2017/02/03/Effective-Cpp-Note2/"/>
+  <link rel="canonical" href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/"/>
 
 
 
@@ -178,7 +176,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -201,10 +199,14 @@
       </a>
     </div>
     
+      
+        <p class="site-subtitle">Tech & Life</p>
+      
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -224,15 +226,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -240,7 +234,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
         
         
@@ -248,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -256,7 +250,31 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+    <a href="/projects/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-database"></i> <br />Projects</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gists">
+    <a href="/gists/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Gists</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
@@ -266,7 +284,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -290,7 +308,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -351,12 +369,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2017/02/03/Effective-Cpp-Note2/">
+    <link itemprop="mainEntityOfPage" href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -386,14 +404,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="创建时间：2017-02-03 12:40:57" itemprop="dateCreated datePublished" datetime="2017-02-03T12:40:57+08:00">2017-02-03</time>
+              <time title="Created: 2017-02-03 12:40:57" itemprop="dateCreated datePublished" datetime="2017-02-03T12:40:57+08:00">2017-02-03</time>
             
 
             
@@ -408,9 +426,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">更新于</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="修改时间：2018-04-15 21:33:11" itemprop="dateModified" datetime="2018-04-15T21:33:11+08:00">2018-04-15</time>
+                <time title="Modified: 2018-08-21 20:07:01" itemprop="dateModified" datetime="2018-08-21T20:07:01+08:00">2018-08-21</time>
               
             
           </span>
@@ -424,7 +442,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
@@ -443,7 +461,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2017/02/03/Effective-Cpp-Note2/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2017/02/03/Effective-Cpp-Note2/" itemprop="commentsCount"></span>
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2017/02/03/Effective-Cpp-Note2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -457,7 +475,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             阅读次数： 
+             Views:  
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -471,9 +489,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">本文字数：</span>
+                  <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="本文字数">15k</span>
+                <span title="Symbols count in article">15k</span>
               
 
               
@@ -485,9 +503,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">14 分钟</span>
+                <span title="Reading time">28 mins.</span>
               
             </div>
           
@@ -515,8 +533,8 @@
 <h1 id="Constructor-Destructor-and-Assignment-Operator"><a href="#Constructor-Destructor-and-Assignment-Operator" class="headerlink" title="Constructor, Destructor, and Assignment Operator"></a>Constructor, Destructor, and Assignment Operator</h1><h2 id="Item-5-了解C-默默编写并调用哪些函数"><a href="#Item-5-了解C-默默编写并调用哪些函数" class="headerlink" title="Item 5 : 了解C++默默编写并调用哪些函数"></a>Item 5 : 了解C++默默编写并调用哪些函数</h2><blockquote>
 <p>Know what functions C++ silently writes and calls</p>
 </blockquote>
-<p>在一个空类中，若没有自定义 <strong>类内特殊成员函数（ <code>default constructor</code>、<code>copy constructor</code>、<code>copy assignment operator</code>、<code>destructor</code>）</strong> 的声明，则编译器就会为其对应地声明（编译器版本）一个，所有这些编译器自动生成的函数都是 <code>public</code> 且 <code>inline</code>。<br>例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Empty &#123;  &#125;;</div></pre></td></tr></table></figure></p>
-<p>就像写下了这样的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Empty</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Empty()  &#123;...&#125;                              <span class="comment">// default constructor </span></div><div class="line">    Empty(<span class="keyword">const</span> Empty&amp; rhs) &#123; ... &#125;             <span class="comment">// copy constructor</span></div><div class="line">    Empty&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs) &#123; ... &#125;  <span class="comment">// copy assignment operator</span></div><div class="line">    ~Empty() &#123; ... &#125;                            <span class="comment">// destructor</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// ==============================================</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Empty e1;       <span class="comment">// call default constructor</span></div><div class="line">    <span class="function">Empty <span class="title">e2</span><span class="params">(e1)</span></span>;   <span class="comment">// call copy constructor</span></div><div class="line">    e2 = e1;        <span class="comment">// call copy assignment operator</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;       <span class="comment">// call destructor</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在一个空类中，若没有自定义 <strong>类内特殊成员函数（ <code>default constructor</code>、<code>copy constructor</code>、<code>copy assignment operator</code>、<code>destructor</code>）</strong> 的声明，则编译器就会为其对应地声明（编译器版本）一个，所有这些编译器自动生成的函数都是 <code>public</code> 且 <code>inline</code>。<br>例如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span> &#123;</span>  &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>就像写下了这样的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty()  &#123;...&#125;                              <span class="comment">// default constructor </span></span><br><span class="line">    Empty(<span class="keyword">const</span> Empty&amp; rhs) &#123; ... &#125;             <span class="comment">// copy constructor</span></span><br><span class="line">    Empty&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs) &#123; ... &#125;  <span class="comment">// copy assignment operator</span></span><br><span class="line">    ~Empty() &#123; ... &#125;                            <span class="comment">// destructor</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// ==============================================</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Empty e1;       <span class="comment">// call default constructor</span></span><br><span class="line">    <span class="function">Empty <span class="title">e2</span><span class="params">(e1)</span></span>;   <span class="comment">// call copy constructor</span></span><br><span class="line">    e2 = e1;        <span class="comment">// call copy assignment operator</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;       <span class="comment">// call destructor</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><strong>注意</strong></p>
 <ol>
 <li>只有当这些函数被需要（即被调用）时，才会被编译器创建出来。</li>
@@ -530,7 +548,7 @@
 </li>
 </ol>
 <p>在此，我给出自己的建议，那就是：<strong>不论是要使用编译器默认生成的,还是自定义的，一律都显式地写出</strong>。一致的规则难道不是更好记么？【当然非必要的情况不要提供 <code>default constructor</code>（具体见 <em>More Effective C++,Item 4</em>），具体来说 凡是可以“从无到有生成对象”的 <code>classes</code> 都应该内含 <code>default constructor</code>，而“必须有某些外来信息才能生成对象”的 <code>classes</code> 则不必拥有 <code>default constructor</code>，因为这类 <code>classes</code> 没有获得外来信息产生的对象显然毫无意义】</p>
-<p>此外，C++11 标准还引进了 <strong><code>defaulted function</code></strong> ，<code>defaulted function</code> 特性 <strong>仅适用于类的特殊成员函数</strong>，即 <strong>可以显式地写出编译器自动生成的版本</strong>，而且 <code>defaulted function</code> 既可以在类体内定义，也可以在类体外定义。<br>比如上述代码可改为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Empty</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Empty() = <span class="keyword">default</span>;                       </div><div class="line">    Empty(<span class="keyword">const</span> Empty&amp; rhs) = <span class="keyword">default</span>;</div><div class="line">    Empty&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs) = <span class="keyword">default</span>;</div><div class="line">    ~Empty() = <span class="keyword">default</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>此外，C++11 标准还引进了 <strong><code>defaulted function</code></strong> ，<code>defaulted function</code> 特性 <strong>仅适用于类的特殊成员函数</strong>，即 <strong>可以显式地写出编译器自动生成的版本</strong>，而且 <code>defaulted function</code> 既可以在类体内定义，也可以在类体外定义。<br>比如上述代码可改为：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Empty</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Empty() = <span class="keyword">default</span>;                       </span><br><span class="line">    Empty(<span class="keyword">const</span> Empty&amp; rhs) = <span class="keyword">default</span>;</span><br><span class="line">    Empty&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Empty&amp; rhs) = <span class="keyword">default</span>;</span><br><span class="line">    ~Empty() = <span class="keyword">default</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p><strong>请记住</strong></p>
 <blockquote>
 <ul>
@@ -543,9 +561,9 @@
 </blockquote>
 <p>有些东西是先天独一无二的，而能对这些对象进行拷贝显然是我们不乐意看到的。</p>
 <p>通常不希望 class 支持某一特定功能，只要不声明对应函数就行。但这个策略对 <code>copy constructor</code> 和 <code>copy assignment operator</code> 却不起作用，因为尽管不声明它们，编译器也会暗自为我们声明。</p>
-<p>那怎么办呢，在 C++11 标准以前，阻止拷贝较受欢迎的做法便是：<strong>将这类独一无二的对象的 <code>copy constructor</code> 和 <code>copy assignment operator</code> 声明为 <code>private</code> 但不定义它们</strong> 。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> UniqueObject</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    ...</div><div class="line">    UniqueObject(<span class="keyword">const</span> UniqueObject&amp;);      <span class="comment">// 只有声明</span></div><div class="line">    UniqueObject&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> UniqueObject&amp;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>那怎么办呢，在 C++11 标准以前，阻止拷贝较受欢迎的做法便是：<strong>将这类独一无二的对象的 <code>copy constructor</code> 和 <code>copy assignment operator</code> 声明为 <code>private</code> 但不定义它们</strong> 。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UniqueObject</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    ...</span><br><span class="line">    UniqueObject(<span class="keyword">const</span> UniqueObject&amp;);      <span class="comment">// 只有声明</span></span><br><span class="line">    UniqueObject&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> UniqueObject&amp;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>因为通过明确声明成员函数可以阻止编译器暗自创建其专属版本，而令这些函数为 <code>private</code> 可以阻止开发人员调用它，但只做到此显然并不绝对安全，因为 成员函数 和 友元函数 还能调用同一个类中的 <code>private</code> 函数。在此之上，还必须要不定义它们，以便有人不慎调用任何一个，链接器能返回一个链接错误（linkage error）。</p>
-<p>而在 C++11 标准引入了 <code>deleted function</code> 之后，解决方法就显得简单多了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> UniqueObject</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    UniqueObject(<span class="keyword">const</span> UniqueObject&amp;) = <span class="keyword">delete</span>;</div><div class="line">    UniqueObject&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> UniqueObject&amp;) = <span class="keyword">delete</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>而在 C++11 标准引入了 <code>deleted function</code> 之后，解决方法就显得简单多了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UniqueObject</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    UniqueObject(<span class="keyword">const</span> UniqueObject&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    UniqueObject&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> UniqueObject&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="deleted-function-的注意事项"><a href="#deleted-function-的注意事项" class="headerlink" title="deleted function 的注意事项"></a><code>deleted function</code> 的注意事项</h3><ol>
 <li><code>=delete</code> 和 <code>=default</code> 不同，必须出现在函数第一次声明时。</li>
 <li>可以对任何函数指定 <code>=delete</code>，但主要用途还是禁止拷贝控制成员。</li>
@@ -564,14 +582,14 @@
 <p>Declare destructors virtual in polymorphic base classes</p>
 </blockquote>
 <p>C++ 明白指出：当 <code>derived class</code> 对象经由一个 <code>base class</code> 指针被删除，而该 <code>base class</code> 带着一个 <code>non-virtual</code> 析构函数，其结果是<strong>未定义的</strong>——实际执行时通常发生的是 <strong>对象的 <code>base class</code> 成分被销毁</strong>，然而其 <strong><code>derived</code> 成分没被销毁</strong>，造成一个 “局部销毁” 对象。</p>
-<p>举个例子【我知道这例子很做作，也请先不要理会手工delete这件事，看看就好→_→】：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Animal</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Animal();</div><div class="line">    ~Animal();      <span class="comment">// 解决办法：virtual ~Animal();</span></div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> Cat : <span class="keyword">public</span> Animal &#123; ... &#125;;</div><div class="line"><span class="keyword">class</span> Rat : <span class="keyword">public</span> Animal &#123; ... &#125;;</div><div class="line"><span class="comment">// ================================</span></div><div class="line">Cat tom;</div><div class="line">Animal* pA = &amp;tom;</div><div class="line">...</div><div class="line"><span class="keyword">delete</span> pA;</div></pre></td></tr></table></figure></p>
+<p>举个例子【我知道这例子很做作，也请先不要理会手工delete这件事，看看就好→_→】：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Animal();</span><br><span class="line">    ~Animal();      <span class="comment">// 解决办法：virtual ~Animal();</span></span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> :</span> <span class="keyword">public</span> Animal &#123; ... &#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rat</span> :</span> <span class="keyword">public</span> Animal &#123; ... &#125;;</span><br><span class="line"><span class="comment">// ================================</span></span><br><span class="line">Cat tom;</span><br><span class="line">Animal* pA = &amp;tom;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span> pA;</span><br></pre></td></tr></table></figure></p>
 <p>解决办法很简单：给 <code>base class</code> 一个 <code>virtual</code> 析构函数，<strong>因为 <code>virtual</code> 函数的目的就是允许 <code>derived class</code> 的实现得以客制化</strong>。</p>
 <p><strong>注意</strong>：</p>
 <p>“给 <code>base class</code> 一个 <code>virtual</code> 析构函数” 这个规则 只适用于 <code>polymorphic</code>（带多态性质的）<code>base class</code> 身上，目的是为了用来 “通过 <code>base class</code> 接口处理 <code>derived class</code> 对象”，而并非所有 <code>base class</code> 的设计目的都是为了多态用途。</p>
 <p>例如标准string 和 STL容器，如果你企图继承一个STL容器 或 任何其他“带有 <code>non-virtual</code> 析构函数”的 class，就可能会导致刚开始就讲到的未定义错误【很可惜C++中没有提供类似 C#中的 sealed class 那样的“禁止派生”机制】。</p>
 <p>这里要提及一下 <code>pure virtual</code> 函数，它也涉及到 <code>virtual destructor</code>【可能会带来些许便利】。<br><code>pure virtual</code> 函数导致 <code>abstract class</code>——即不能被实例化的 <code>class</code>，也就是不能创建这类型的对象。</p>
-<p>有时候会希望拥有一个 <code>abstract class</code>，该怎么做呢？<br>由于 <code>abstract class</code> 总是被当做一个 <code>base class</code> 来用，而又由于 <code>base class</code> 应该有一个 <code>virtual</code> 析构函数，因此做法很简单：<strong>为期望成为抽象的 <code>class</code> 声明一个 <code>pure virtual destructor</code></strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> AbstractClass</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">virtual</span> ~AbstractClass() = <span class="number">0</span>;       <span class="comment">// 声明 pure virtual 析构函数</span></div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>还有个小窍门：<strong>必须为 <code>pure virtual destructor</code> 提供一份定义</strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AbstractClass::~AbstractClass() &#123;  &#125;    <span class="comment">// pure virtual 析构函数的定义</span></div></pre></td></tr></table></figure></p>
+<p>有时候会希望拥有一个 <code>abstract class</code>，该怎么做呢？<br>由于 <code>abstract class</code> 总是被当做一个 <code>base class</code> 来用，而又由于 <code>base class</code> 应该有一个 <code>virtual</code> 析构函数，因此做法很简单：<strong>为期望成为抽象的 <code>class</code> 声明一个 <code>pure virtual destructor</code></strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AbstractClass</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~AbstractClass() = <span class="number">0</span>;       <span class="comment">// 声明 pure virtual 析构函数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>还有个小窍门：<strong>必须为 <code>pure virtual destructor</code> 提供一份定义</strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AbstractClass::~AbstractClass() &#123;  &#125;    <span class="comment">// pure virtual 析构函数的定义</span></span><br></pre></td></tr></table></figure></p>
 <p>这样做的原因是：对象的析构是会调用 <code>derived class</code> 的析构函数，然后接着调用 <code>base class</code> 的析构函数。也就是说编译器会在 <code>AbstractClass</code> 的 <code>derived class</code> 的析构函数中创建一个对 <code>~AbstractClass</code> 的调用动作，所以必须提供定义，不然链接器会拿小拳拳捶你胸口的→_→</p>
 <h3 id="扩展（关于vptr和vtbl）"><a href="#扩展（关于vptr和vtbl）" class="headerlink" title="扩展（关于vptr和vtbl）"></a>扩展（关于<code>vptr</code>和<code>vtbl</code>）</h3><p>关于 virtual 关键字，我想稍微有点C++编码经验的应该大致了解其语法，这里并不想多说，而是把<strong>重点放在 “不论class是否为base class，都令其析构函数为virtual” 这种做法不好在哪里</strong>。</p>
 <p>要实现人们期望的 <code>virtual</code> 函数的功能，对象必须携带某些信息——主要用于在运行期决定哪一个 <code>virtual</code> 函数该被调用。这份信息通常由一个所谓 <code>虚表指针（vptr）</code>指出，<code>虚表指针（vptr）</code>指向一个<strong>由函数指针构成的数组</strong>——称为<code>虚表（vtbl）</code>。每一个带有 <code>virtual</code> 函数的 <code>class</code> 都有一个相应的 <code>vtbl</code>，当对象调用某一 <code>virtual</code> 函数，实际调用的函数取决于该对象的 <code>vptr</code> 所指的那个 <code>vtbl</code> ——编译器在其中寻找适当的函数指针。</p>
@@ -587,7 +605,7 @@
 <h2 id="Item-8-别让异常逃离析构函数"><a href="#Item-8-别让异常逃离析构函数" class="headerlink" title="Item 8 : 别让异常逃离析构函数"></a>Item 8 : 别让异常逃离析构函数</h2><blockquote>
 <p>Prevent exceptions from leaving destructors</p>
 </blockquote>
-<p>C++ 并不禁止析构函数抛出异常，但不鼓励这么做。比如下面的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    ~Object() &#123; ... &#125;       <span class="comment">// 假设抛出一个异常</span></div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Object&gt; v;</div><div class="line">    ...</div><div class="line">&#125;           <span class="comment">// 此处 v 被销毁</span></div></pre></td></tr></table></figure></p>
+<p>C++ 并不禁止析构函数抛出异常，但不鼓励这么做。比如下面的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    ~Object() &#123; ... &#125;       <span class="comment">// 假设抛出一个异常</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;Object&gt; v;</span><br><span class="line">    ...</span><br><span class="line">&#125;           <span class="comment">// 此处 v 被销毁</span></span><br></pre></td></tr></table></figure></p>
 <p>假设【就是有这么多假设】v 中含有10个 <code>Object</code>，析构第一个时抛出一个异常，但其他9个还是应该被销毁，此时若有第二个 <code>Object</code> 抛出异常，那么<strong>在两个异常同时存在的情况下，C++程序不是过早结束执行就是导致不明确行为</strong>【本例会导致不明确行为】。说实话，其实我之前根本不知道这个，谁让我异常写得少【逃。</p>
 <h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><p>若析构函数必须要执行某个动作，但该动作可能会在失败时抛出异常，你就说这尴不尴尬…</p>
 <p>说实话，我觉得书中负责数据库连接的例子并不是非常简单明了【这估计也是因为我很少写异常→_→</p>
@@ -614,7 +632,7 @@
 <p>Never call virtual function during construction or destruction</p>
 </blockquote>
 <p>既然标题已经这么明显了，那么肯定会有人问为什么这么做【至少我会想一想</p>
-<p>套用书中一个明显看出违反本条款的例子【懒得自己想了<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Transaction</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Transaction();</div><div class="line">    <span class="comment">// 记录交易日志</span></div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;    <span class="comment">// pure virtual function</span></div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">Transaction::Transaction()</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    logTransaction();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> BuyTransaction : <span class="keyword">public</span> Transaction</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span></span>;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"><span class="keyword">class</span> SellTransaction : <span class="keyword">public</span> Transaction</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span></span>;</div><div class="line">    ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>套用书中一个明显看出违反本条款的例子【懒得自己想了<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Transaction</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Transaction();</span><br><span class="line">    <span class="comment">// 记录交易日志</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;    <span class="comment">// pure virtual function</span></span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line">Transaction::Transaction()</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    logTransaction();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BuyTransaction</span> :</span> <span class="keyword">public</span> Transaction</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SellTransaction</span> :</span> <span class="keyword">public</span> Transaction</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>若执行 <code>BuyTransaction b</code>，显然会调用 <code>BuyTransaction</code> 构造函数，而调用 <code>BuyTransaction</code> 构造函数之前一定要调用基类 <code>Transaction</code> 的构造函数——使得 <code>derived class</code> 对象内的 <code>base class</code> 成分先构造完。</p>
 <p>问题在于：例子中的 <code>Transaction</code> 构造函数却在最后调用了 <code>virtual</code> 函数 <code>logTransaction</code>。</p>
 <p><strong>注意</strong>：</p>
@@ -622,10 +640,10 @@
 <p>想想看，当 <code>base class</code> 构造函数在执行时，<code>derived class</code> 的成员变量<strong>尚未初始化</strong>，若此时 <code>virtual</code> 函数下降到 <code>derived class</code> 层面，<code>derived class</code> 中的函数一般会取用 <code>local</code> 成员变量，而这些变量又没初始化，那肯定会导致未定义行为。</p>
 <p>相同道理也适用于 析构函数。一旦 <code>derived class</code> 析构函数开始执行，目标对象内的 <code>derived class</code> 成员变量所占的资源即将归还系统，此时这些成员变量便呈现未定义值【这么说不知道恰不恰当】，C++ 也仿佛视它们不存在，进入 <code>base class</code> 析构函数后，对象就成为了一个 <code>base class</code> 对象，C++ 的任何部分包括 <code>virtual</code> 函数等也都这么看待它。</p>
 <h3 id="不易察觉的情况及避免方法"><a href="#不易察觉的情况及避免方法" class="headerlink" title="不易察觉的情况及避免方法"></a>不易察觉的情况及避免方法</h3><p>上述示例中，应该很容易就能看出不符合标题，但很多情况并不会被轻易察觉。</p>
-<p>比如，<code>Transaction</code> 有多个构造函数，而且都要执行某些相同工作，显然代码复用是个很好的主意。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Transaction</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Transaction(.) &#123; init(); ... &#125;</div><div class="line">    Transaction(..) &#123; init(); ... &#125;</div><div class="line">    ...</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>         <span class="comment">// 复用的代码</span></span></div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        logTransaction();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>比如，<code>Transaction</code> 有多个构造函数，而且都要执行某些相同工作，显然代码复用是个很好的主意。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Transaction</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Transaction(.) &#123; init(); ... &#125;</span><br><span class="line">    Transaction(..) &#123; init(); ... &#125;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">()</span> <span class="keyword">const</span> </span>= <span class="number">0</span>;</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span>         <span class="comment">// 复用的代码</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">        logTransaction();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>此时由于 <code>logTransaction</code> 是个 <code>pure virtual</code> 函数【调用<code>pure virtual</code>函数，一般程序会被系统直接中止】，若 <code>logTransaction</code> 是个 <code>impure virtual</code> 函数，那么这样的代码通常不会引发编译器和链接器的组合小拳拳，但显然也会发生上面提及的问题。因此，唯一能够避免此问题的做法就是：<strong>确定构造函数和析构函数都没有（在对象被创建和被销毁期间）调用 <code>virtual</code> 函数，而它们调用的所有函数也都服从同一约束</strong>。</p>
 <p>可能有人发现了，讲了一大堆，若真的想 在对象被创建时 调用适当的 <code>logTransaction</code>，那该怎么办？<br>书中给出了一种做法：将 <code>logTransaction</code> 改为 <code>non-virtual</code>，然后<strong>要求 <code>derived class</code>构造函数传递必要信息给 <code>Transaction</code> 构造函数</strong>，而后便可安全调用 <code>non-virtual</code> 的 <code>logTransaction</code>。 </p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Transaction</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Transaction</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; logInfo)</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; logInfo)</span> <span class="keyword">const</span></span>;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line">Transaction::Transaction(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; logInfo)</div><div class="line">&#123;</div><div class="line">    ...</div><div class="line">    logTransaction(logInfo);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> BuyTransaction : <span class="keyword">public</span> Transaction</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    BuyTransaction( parameters )</div><div class="line">        : Transaction(createLogString( parameters ))</div><div class="line">    &#123; ... &#125;</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="comment">// 此函数为 static，也就不可能意外指向 BuyTransaction 对象内初期尚未初始化的变量</span></div><div class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">createLogString</span><span class="params">( parameters )</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Transaction</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Transaction</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; logInfo)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">logTransaction</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; logInfo)</span> <span class="keyword">const</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line">Transaction::Transaction(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; logInfo)</span><br><span class="line">&#123;</span><br><span class="line">    ...</span><br><span class="line">    logTransaction(logInfo);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BuyTransaction</span> :</span> <span class="keyword">public</span> Transaction</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    BuyTransaction( parameters )</span><br><span class="line">        : Transaction(createLogString( parameters ))</span><br><span class="line">    &#123; ... &#125;</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">// 此函数为 static，也就不可能意外指向 BuyTransaction 对象内初期尚未初始化的变量</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">std</span>::<span class="function"><span class="built_in">string</span> <span class="title">createLogString</span><span class="params">( parameters )</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>怎么感觉这个 <code>Item</code> 这么长啊… 果然我好垃圾啊… 但是垃圾的我还是要牢牢记住这个 <code>Item</code> 的标题和下面的”请记住”条目…</p>
 <p><strong>请记住</strong></p>
 <blockquote>
@@ -640,7 +658,7 @@
 <p>赋值采用右结合律，连锁赋值形式 <code>x = y = z = 1</code> 被解析为 <code>x = (y = (z = 1))</code>。</p>
 <p>为了实现自定义 <code>class</code> 的 “连锁赋值” 操作， <code>class</code> 应该遵循协议：<strong>赋值操作符必须返回一个 <code>reference</code> 指向操作符的左侧实参</strong>。</p>
 <p>该协议不仅适用于标准赋值形式，也适用于所有赋值相关运算，如：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    <span class="comment">// 返回类型为 reference，指向当前对象</span></div><div class="line">    Object&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 也适用于 +=，-=，*= 等运算操作</span></div><div class="line">    Object&amp; <span class="keyword">operator</span> += (<span class="keyword">const</span> Object&amp; rhs)</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 此函数也适用，即使此操作符的参数类型不符协定</span></div><div class="line">    Object&amp; <span class="keyword">operator</span> = (<span class="keyword">int</span> rhs)</div><div class="line">    &#123;</div><div class="line">        ...</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line">    ...</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// 返回类型为 reference，指向当前对象</span></span><br><span class="line">    Object&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 也适用于 +=，-=，*= 等运算操作</span></span><br><span class="line">    Object&amp; <span class="keyword">operator</span> += (<span class="keyword">const</span> Object&amp; rhs)</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 此函数也适用，即使此操作符的参数类型不符协定</span></span><br><span class="line">    Object&amp; <span class="keyword">operator</span> = (<span class="keyword">int</span> rhs)</span><br><span class="line">    &#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>注意</strong>：这只是个协议，并无强制性，若不遵守该协议，代码仍然能编译通过。但是 <strong>这份协议被所有内置类型和标准程序库提供的类型共同遵守</strong>，所以没有什么特别的理由，还是遵守它比较好。</p>
 <p><strong>请记住</strong></p>
 <blockquote>
@@ -653,12 +671,12 @@
 <p>Handle assignment to self in Operator =</p>
 </blockquote>
 <p>自我赋值，顾名思义，发生在对象被赋值给自己时，有些自我赋值一眼就能看出，而另一些则很难看出来，这类很难看出来的自我赋值可能会导致一些意料之外的错误，这里套用书中的例子，<strong>建立一个 <code>class</code> 用来保存一个指针指向一块动态分配的位图（bitmap）</strong>：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Bitmap &#123; ... &#125;;</div><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line">...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    Bitmap* pb;        <span class="comment">// 指向一个从 heap 分配得到的对象</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// 一份不安全的 operator = 实现版本</span></div><div class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">delete</span> pb;</div><div class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bitmap</span> &#123;</span> ... &#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Bitmap* pb;        <span class="comment">// 指向一个从 heap 分配得到的对象</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 一份不安全的 operator = 实现版本</span></span><br><span class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> pb;</span><br><span class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此处可能存在的自我赋值问题是：<code>operator =</code> 函数内的 <code>*this</code> 和 <code>rhs</code> 有可能是同个对象。<br>若是同个对象的话，当前对象 <code>delete pb</code> 的时候顺便也销毁了 <code>rhs</code> 的 <code>bitmap</code>，最后函数返回的是一个指针指向一个已被删除的对象，这显然不行。</p>
-<p>传统的解决办法：通过 <strong>“证同测试（identity test）” 检验自我赋值</strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 若是自我赋值，不做任何事</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == rhs) <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="keyword">delete</span> pb;</div><div class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>但该版本仍然会导致异常，比如 “new Bitmap” 时抛出异常。由于 让 <code>operator =</code> 具备“异常安全性”往往自动获得“自我赋值安全”的回报，因此许多人把重心放在实现“异常安全性”上。比如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</div><div class="line">&#123;</div><div class="line">    Bitmap* pOrigin = pb;       <span class="comment">// 存储原先的 pb</span></div><div class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</div><div class="line">    <span class="keyword">delete</span> pOrigin;             <span class="comment">// 删除原先的 pb</span></div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>传统的解决办法：通过 <strong>“证同测试（identity test）” 检验自我赋值</strong>。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 若是自我赋值，不做任何事</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == rhs) <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> pb;</span><br><span class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但该版本仍然会导致异常，比如 “new Bitmap” 时抛出异常。由于 让 <code>operator =</code> 具备“异常安全性”往往自动获得“自我赋值安全”的回报，因此许多人把重心放在实现“异常安全性”上。比如：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    Bitmap* pOrigin = pb;       <span class="comment">// 存储原先的 pb</span></span><br><span class="line">    pb = <span class="keyword">new</span> Bitmap(*rhs.pb);</span><br><span class="line">    <span class="keyword">delete</span> pOrigin;             <span class="comment">// 删除原先的 pb</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>此处函数内对原 <code>bitmap</code> 做了一个复件、删除原 <code>bitmap</code>、然后指向新创建的那个复件，即使 <code>new Bitmap</code> 抛出异常，<code>pb</code> 仍保持原状。虽说这种做法不高效，但行得通。</p>
-<p>另一种替换方案，即 <code>copy and swap</code>技术 可以确保代码不但“异常安全”，而且“自我赋值安全”，并且比起上面在 <code>operator=</code> 函数内手工排列语句显得更简洁【说实话这个部分的 <code>swap</code> 我都还没弄清楚，所以先将就看看，之后弄懂了再来补充，希望想的起来→_→】。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line">...</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(Object&amp; rhs)</span></span>;     <span class="comment">// 交换 *this 和 rhs 的数据，具体实现【未完】</span></div><div class="line">...    </div><div class="line">&#125;;</div><div class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</div><div class="line">&#123;</div><div class="line">    Object temp(rhs);</div><div class="line">    swap(temp);         <span class="comment">// 将 *this 数据 和 复件数据 交换</span></div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*</span></div><div class="line">// 这种做法尽管聪明，但感觉会让代码不够清晰</div><div class="line">Object&amp; Object::operator = (Object rhs)</div><div class="line">&#123;</div><div class="line">    swap(rhs);</div><div class="line">    return *this;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>另一种替换方案，即 <code>copy and swap</code>技术 可以确保代码不但“异常安全”，而且“自我赋值安全”，并且比起上面在 <code>operator=</code> 函数内手工排列语句显得更简洁【说实话这个部分的 <code>swap</code> 我都还没弄清楚，所以先将就看看，之后弄懂了再来补充，希望想的起来→_→】。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(Object&amp; rhs)</span></span>;     <span class="comment">// 交换 *this 和 rhs 的数据，具体实现【未完】</span></span><br><span class="line">...    </span><br><span class="line">&#125;;</span><br><span class="line">Object&amp; Object::<span class="keyword">operator</span> = (<span class="keyword">const</span> Object&amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    Object temp(rhs);</span><br><span class="line">    swap(temp);         <span class="comment">// 将 *this 数据 和 复件数据 交换</span></span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// 这种做法尽管聪明，但感觉会让代码不够清晰</span></span><br><span class="line"><span class="comment">Object&amp; Object::operator = (Object rhs)</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">    swap(rhs);</span></span><br><span class="line"><span class="comment">    return *this;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>请记住</strong></p>
 <blockquote>
 <ul>
@@ -670,9 +688,9 @@
 <p>Copy all parts of an object</p>
 </blockquote>
 <p><code>copying</code> 函数 包括 <code>copy constructor</code> 和 <code>copy assignment operator</code>，这两个函数负责对象拷贝。</p>
-<p>我在最开始部分（即 <code>Item 5</code>）说过，就我个人而言，我更推荐声明自己的 <code>default constructor</code>、<code>destructor</code>、<code>copying</code> 函数（<code>copy constructor</code>、<code>copy assignment operator</code>），此时编译器就仿佛自己的权威受到了挑战，在代码显然出错的地方也不会告诉你。<br>套用书中的例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">logCall</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; funcName)</span></span>;</div><div class="line"><span class="keyword">class</span> Customer</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Customer() = <span class="keyword">default</span>;</div><div class="line">    ~Customer() = <span class="keyword">default</span>;</div><div class="line">    Customer(<span class="keyword">const</span> Customer&amp; rhs);</div><div class="line">    Customer&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Customer&amp; rhs);</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">Customer::Customer(<span class="keyword">const</span> Customer&amp; rhs)</div><div class="line">    : name(rhs.name)</div><div class="line">&#123;</div><div class="line">    logCall(<span class="string">"Customer copy constructor"</span>);</div><div class="line">&#125;</div><div class="line">Customer&amp; Customer::<span class="keyword">operator</span> = (<span class="keyword">const</span> Customer&amp; rhs)</div><div class="line">&#123;</div><div class="line">    logCall(<span class="string">"Customer copy assignment operator"</span>);</div><div class="line">    name = rhs.name;</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>若此时再加入另一个成员变量–顾客的最近交易日期【如下】，问题就出现了，当前既有的 <code>copying</code> 函数执行的是 <strong>局部拷贝（partial copy）</strong>：的确复制了顾客的 <code>name</code>，但没有复制新添加的 <code>lastTransaction</code>。大多数编译器【包括VC++】对此不出任何怨言–即使在最高警告级别中，但是这也不能说是编译器的责任，谁让你不把新加入的变量写进 <code>copying</code> 函数里【说到底还是编码者的责任→_→<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Date &#123; ... &#125;;     <span class="comment">// 具体内容随便写</span></div><div class="line"><span class="keyword">class</span> Customer</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</div><div class="line">    Date lastTransaction;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>还有<strong>注意在继承中，<code>derived class</code> 容易在 <code>copying</code> 函数中遗漏 <code>base class</code> 的成分</strong>，忘记的话就是你自己的锅了→_→，比如正确的情况如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> PriorityCustomer : <span class="keyword">public</span> Customer</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    PriorityCustomer(<span class="keyword">const</span> PriorityCustomer&amp; rhs);</div><div class="line">    PriorityCustomer&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> PriorityCustomer&amp; rhs);</div><div class="line">    ...</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> priority;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">PriorityCustomer::PriorityCustomer(<span class="keyword">const</span> PriorityCustomer&amp; rhs)</div><div class="line">    : Customer(rhs),                <span class="comment">// 调用 base class 的 copy constructor</span></div><div class="line">     priority(rhs.priority)</div><div class="line">&#123;</div><div class="line">    logCall(<span class="string">"PriorityCustomer copy constructor"</span>);</div><div class="line">&#125;</div><div class="line">PriorityCustomer&amp; PriorityCustomer::<span class="keyword">operator</span> = (<span class="keyword">const</span> PriorityCustomer&amp; rhs)</div><div class="line">&#123;</div><div class="line">    logCall(<span class="string">"PriorityCustomer copy assignment operator"</span>);</div><div class="line">    Customer::<span class="keyword">operator</span>=(rhs);       <span class="comment">// 对 base class 成分进行赋值动作</span></div><div class="line">    priority = rhs.priority;</div><div class="line">    reference *<span class="keyword">this</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我在最开始部分（即 <code>Item 5</code>）说过，就我个人而言，我更推荐声明自己的 <code>default constructor</code>、<code>destructor</code>、<code>copying</code> 函数（<code>copy constructor</code>、<code>copy assignment operator</code>），此时编译器就仿佛自己的权威受到了挑战，在代码显然出错的地方也不会告诉你。<br>套用书中的例子：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">logCall</span><span class="params">(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span>&amp; funcName)</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Customer() = <span class="keyword">default</span>;</span><br><span class="line">    ~Customer() = <span class="keyword">default</span>;</span><br><span class="line">    Customer(<span class="keyword">const</span> Customer&amp; rhs);</span><br><span class="line">    Customer&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Customer&amp; rhs);</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Customer::Customer(<span class="keyword">const</span> Customer&amp; rhs)</span><br><span class="line">    : name(rhs.name)</span><br><span class="line">&#123;</span><br><span class="line">    logCall(<span class="string">"Customer copy constructor"</span>);</span><br><span class="line">&#125;</span><br><span class="line">Customer&amp; Customer::<span class="keyword">operator</span> = (<span class="keyword">const</span> Customer&amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    logCall(<span class="string">"Customer copy assignment operator"</span>);</span><br><span class="line">    name = rhs.name;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>若此时再加入另一个成员变量–顾客的最近交易日期【如下】，问题就出现了，当前既有的 <code>copying</code> 函数执行的是 <strong>局部拷贝（partial copy）</strong>：的确复制了顾客的 <code>name</code>，但没有复制新添加的 <code>lastTransaction</code>。大多数编译器【包括VC++】对此不出任何怨言–即使在最高警告级别中，但是这也不能说是编译器的责任，谁让你不把新加入的变量写进 <code>copying</code> 函数里【说到底还是编码者的责任→_→<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Date</span> &#123;</span> ... &#125;;     <span class="comment">// 具体内容随便写</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> name;</span><br><span class="line">    Date lastTransaction;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>还有<strong>注意在继承中，<code>derived class</code> 容易在 <code>copying</code> 函数中遗漏 <code>base class</code> 的成分</strong>，忘记的话就是你自己的锅了→_→，比如正确的情况如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PriorityCustomer</span> :</span> <span class="keyword">public</span> Customer</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    PriorityCustomer(<span class="keyword">const</span> PriorityCustomer&amp; rhs);</span><br><span class="line">    PriorityCustomer&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> PriorityCustomer&amp; rhs);</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> priority;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">PriorityCustomer::PriorityCustomer(<span class="keyword">const</span> PriorityCustomer&amp; rhs)</span><br><span class="line">    : Customer(rhs),                <span class="comment">// 调用 base class 的 copy constructor</span></span><br><span class="line">     priority(rhs.priority)</span><br><span class="line">&#123;</span><br><span class="line">    logCall(<span class="string">"PriorityCustomer copy constructor"</span>);</span><br><span class="line">&#125;</span><br><span class="line">PriorityCustomer&amp; PriorityCustomer::<span class="keyword">operator</span> = (<span class="keyword">const</span> PriorityCustomer&amp; rhs)</span><br><span class="line">&#123;</span><br><span class="line">    logCall(<span class="string">"PriorityCustomer copy assignment operator"</span>);</span><br><span class="line">    Customer::<span class="keyword">operator</span>=(rhs);       <span class="comment">// 对 base class 成分进行赋值动作</span></span><br><span class="line">    priority = rhs.priority;</span><br><span class="line">    reference *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>可能有人觉得两个 <code>copying</code> 函数有相似的实现内容，可以像之前说过的在 <code>const</code> 和 <code>non-const</code> 成员函数中避免代码重复一样，用某个调用另一个。但其实只要认真思考一下：<code>copy constructor</code> 用来初始化新对象，而 <code>copy assignment operator</code> 只能作用在已初始化的对象身上，不管是构造一个已经存在的对象，还是对一个尚未构造好的对象赋值 显然都是荒谬的，无意义的。</p>
 <p><strong>请记住</strong></p>
 <blockquote>
@@ -700,13 +718,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>koushiro</li>
+    <strong>Post author:  </strong>koushiro</li>
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://koushiro.me/2017/02/03/Effective-Cpp-Note2/" title="The Note2 of Effective C++">https://koushiro.me/2017/02/03/Effective-Cpp-Note2/</a>
+    <strong>Post link: </strong>
+    <a href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/" title="The Note2 of Effective C++">http://koushiro.me/2017/02/03/Effective-Cpp-Note2/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
 </ul>
 
       </div>
@@ -759,10 +777,6 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -801,10 +815,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -813,8 +827,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="koushiro" />
+            
               <p class="site-author-name" itemprop="name">koushiro</p>
-              <p class="site-description motion-element" itemprop="description">你为什么这么熟练啊！</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
           </div>
 
           
@@ -824,8 +842,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">日志</span>
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -846,7 +864,7 @@
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">分类</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -871,7 +889,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">标签</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -895,6 +913,11 @@
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/shawn_cqx" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://t.me/koushiro" target="_blank" title="Telegram"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
                   
                 </span>
               
@@ -963,7 +986,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -975,9 +998,9 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">站点总字数：</span>
+      <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="站点总字数">80k</span>
+    <span title="Symbols count total">79k</span>
   
 
   
@@ -986,16 +1009,16 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="站点阅读时长">1:false</span>
+    <span title="Reading time total">2:24</span>
   
 </div>
 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.2.2</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -1003,7 +1026,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
 
 
 
@@ -1013,14 +1036,14 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
+    <span class="site-uv" title="Total Visitors">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="总访问量">
+    <span class="site-pv" title="Total Views">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
@@ -1047,13 +1070,10 @@
     
 
     
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
+	
     
 
+    
   </div>
 
   
@@ -1141,18 +1161,6 @@
 
 
 
-	
-
-
-
-
-
-  
-
-
-
-
-
   
 
 
@@ -1174,7 +1182,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1486096857000',
+            id: window.location.pathname,
             owner: 'koushiro',
             repo: 'koushiro.github.io',
             
@@ -1537,27 +1545,6 @@
 
   
   
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
-  
 
   
   
@@ -1576,7 +1563,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.scrollToMark('auto', "#更多");
+    bookmark.scrollToMark('auto', "#more");
   
   </script>
 
@@ -1623,7 +1610,7 @@
     $('.highlight').each(function (i, e) {
       var $wrap = $('<div>').addClass('highlight-wrap')
       $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
         var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
           return $(e).text()
         }).toArray().join('\n')
@@ -1638,11 +1625,14 @@
         var result = document.execCommand('copy')
         document.body.removeChild(ta)
         
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
         $(this).blur()
       })).on('mouseleave', function (e) {
         var $b = $(this).find('.copy-btn')
         setTimeout(function () {
-          $b.text('复制')
+          $b.text('Copy')
         }, 300)
       }).append(e)
     })

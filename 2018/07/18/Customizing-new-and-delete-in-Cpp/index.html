@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,10 +22,6 @@
 <meta name="theme-color" content="#222">
 
 
-
-  
-  
-  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
 
 
 
@@ -113,12 +109,14 @@
 
 
   <meta name="description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。">
+<meta name="keywords" content="tech,cpp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Customizing new and delete in Cpp">
-<meta property="og:url" content="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/index.html">
-<meta property="og:site_name" content="Koushiro's Blog">
+<meta property="og:url" content="http://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/index.html">
+<meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。">
-<meta property="og:updated_time" content="2018-07-25T09:58:22.379Z">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-21T12:07:01.893Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Customizing new and delete in Cpp">
 <meta name="twitter:description" content="这部分主要涉及 new 和 delete 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。">
@@ -128,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/"/>
+  <link rel="canonical" href="http://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/"/>
 
 
 
@@ -178,7 +176,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -201,10 +199,14 @@
       </a>
     </div>
     
+      
+        <p class="site-subtitle">Tech & Life</p>
+      
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -224,15 +226,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
         
         
@@ -240,7 +234,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
   </li>
         
         
@@ -248,7 +242,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
   </li>
         
         
@@ -256,7 +250,31 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+    <a href="/projects/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-database"></i> <br />Projects</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-gists">
+    <a href="/gists/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-code"></i> <br />Gists</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
   </li>
 
       
@@ -266,7 +284,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
         </li>
       
     </ul>
@@ -290,7 +308,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -351,12 +369,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/">
+    <link itemprop="mainEntityOfPage" href="http://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="koushiro">
-      <meta itemprop="description" content="你为什么这么熟练啊！">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -386,14 +404,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
 
               
                 
               
 
-              <time title="创建时间：2018-07-18 14:00:07" itemprop="dateCreated datePublished" datetime="2018-07-18T14:00:07+08:00">2018-07-18</time>
+              <time title="Created: 2018-07-18 14:00:07" itemprop="dateCreated datePublished" datetime="2018-07-18T14:00:07+08:00">2018-07-18</time>
             
 
             
@@ -408,9 +426,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">更新于</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="修改时间：2018-07-25 17:58:22" itemprop="dateModified" datetime="2018-07-25T17:58:22+08:00">2018-07-25</time>
+                <time title="Modified: 2018-08-21 20:07:01" itemprop="dateModified" datetime="2018-08-21T20:07:01+08:00">2018-08-21</time>
               
             
           </span>
@@ -424,7 +442,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Note/" itemprop="url" rel="index"><span itemprop="name">Note</span></a></span>
@@ -443,7 +461,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2018/07/18/Customizing-new-and-delete-in-Cpp/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/18/Customizing-new-and-delete-in-Cpp/" itemprop="commentsCount"></span>
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/07/18/Customizing-new-and-delete-in-Cpp/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -457,7 +475,7 @@
             <span class="post-meta-item-icon"
             >
             <i class="fa fa-eye"></i>
-             阅读次数： 
+             Views:  
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -471,9 +489,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">本文字数：</span>
+                  <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="本文字数">13k</span>
+                <span title="Symbols count in article">13k</span>
               
 
               
@@ -485,9 +503,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">11 分钟</span>
+                <span title="Reading time">23 mins.</span>
               
             </div>
           
@@ -512,7 +530,7 @@
 <p>既然标题是 <code>Customizing new and delete</code>，那么定制 <code>new</code> 和 <code>delete</code>（或者说重载 <code>new</code> 和 <code>delete</code>）用在哪些时候呢？<br>某些应用程序对内存分配有特殊需求，因此无法将标准内存管理机制直接应用于此类程序，它们常常需要自定义内存分配的细节，比如使用关键字 <code>new</code> 将对象分配放置在特定的内存空间中。为此，应用程序需要重载 <code>new</code> 运算符和 <code>delete</code> 运算符以控制内存分配的过程。</p>
 <p>实际上重载<code>new</code>运算符（<code>new operator</code>）和<code>delete</code>运算符（<code>delete operator</code>）这种说法并不严谨，因为重载这两个运算符与重载其他运算符的过程有着较大的不同。</p>
 <p>为了讲清原因，需要在此之前了解 <code>new operator</code>/<code>operator new</code>和<code>delete operator</code> / <code>operator delete</code>的概念。这几个概念从名字上可能会有点绕，但是说明白了其实也是挺简单的。（函数 <code>new-handler</code> 也会被提到，这是当无法满足用户的内存需求时所调用的函数）</p>
-<h1 id="new-operator-new-expression"><a href="#new-operator-new-expression" class="headerlink" title="new operator (new expression)"></a>new operator (new expression)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>);</div></pre></td></tr></table></figure>
+<h1 id="new-operator-new-expression"><a href="#new-operator-new-expression" class="headerlink" title="new operator (new expression)"></a>new operator (new expression)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
 <p>此处使用的 <code>new</code> 即是 <code>new operator</code>，也就是常用的用法。<br>这个操作符是由C++语言内建的，就像 <code>sizeof</code> 那样，不能被改变意义，总是做相同的工作：</p>
 <ol>
 <li><p>调用名为 <code>operator new</code> 的标准库函数，分配一块足够大的、原始的、未命名的内存空间用来放置某类型的对象。</p>
@@ -523,18 +541,18 @@
 </li>
 </ol>
 <p>编译器内部产生的代码可能就像下面这样：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 分配原始内存用来放置一个 string 对象</span></div><div class="line"><span class="keyword">void</span>* rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(<span class="built_in">string</span>));</div><div class="line"><span class="comment">// 将内存中的对象初始化</span></div><div class="line">call <span class="built_in">string</span>::<span class="built_in">string</span>(<span class="string">"Hello"</span>) on *rawMemory;</div><div class="line"><span class="comment">// 让 pStr 指向新完成的对象</span></div><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">static_cast</span>&lt;<span class="built_in">string</span>*&gt;(rawMemory);</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分配原始内存用来放置一个 string 对象</span></span><br><span class="line"><span class="keyword">void</span>* rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(<span class="built_in">string</span>));</span><br><span class="line"><span class="comment">// 将内存中的对象初始化</span></span><br><span class="line">call <span class="built_in">string</span>::<span class="built_in">string</span>(<span class="string">"Hello"</span>) on *rawMemory;</span><br><span class="line"><span class="comment">// 让 pStr 指向新完成的对象</span></span><br><span class="line"><span class="built_in">string</span> *pStr = <span class="keyword">static_cast</span>&lt;<span class="built_in">string</span>*&gt;(rawMemory);</span><br></pre></td></tr></table></figure>
 <h2 id="operator-new"><a href="#operator-new" class="headerlink" title="operator new"></a>operator new</h2><p>没错，如上所说，<code>operator new</code> 其实指的是一个标准库函数，它的默认版本定义（伪代码）如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> size)</span> <span class="title">throw</span><span class="params">(<span class="built_in">std</span>::bad_alloc)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">    <span class="comment">// 处理 0-byte 申请，将它视为 1-byte 申请， </span></div><div class="line">    <span class="comment">// C++规定请求 0-byte operator new也得返回一个合法指针</span></div><div class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>)  </div><div class="line">        size = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</div><div class="line">    &#123;</div><div class="line">        尝试分配 size bytes;</div><div class="line">        <span class="keyword">if</span> (分配成功)</div><div class="line">            <span class="keyword">return</span> (一个指针，指向分配得来的内存)</div><div class="line"></div><div class="line">        <span class="comment">// 分配失败：找出目前的 new-handling 函数</span></div><div class="line">        <span class="comment">/**</span></div><div class="line">         * C++11标准以前之所以将 new-handling 函数指针设为 null 后又立刻恢复原样</div><div class="line">         * 是因为没有任何办法可以直接获取 new-handling 函数指针，</div><div class="line">         * 必须要调用 set_new_handler 找出它，set_new_handler</div><div class="line">         * takes a replacement handler as the argument,</div><div class="line">         * returns the previous handler.</div><div class="line">         *</div><div class="line">         * 而 C++11 标准有 get_new_handler(),</div><div class="line">         * it returns the currently installed new-handler,</div><div class="line">         * which may be a null pointer.</div><div class="line">         */</div><div class="line">#<span class="keyword">if</span> __cplusplus &gt;= <span class="number">201103L</span></div><div class="line">        new_handler globalHandler = get_new_handler();</div><div class="line"><span class="meta">#<span class="meta-keyword">else</span></span></div><div class="line">        new_handler globalHandler = set_new_handler(<span class="number">0</span>);</div><div class="line">        set_new_handler(globalHandler);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">        <span class="comment">// 调用 new_handler 函数解决内存不足时的情况，</span></div><div class="line">        <span class="comment">// 只有当指向 new_handling 函数的指针是 null，operator new 才会抛出异常</span></div><div class="line">        <span class="keyword">if</span> (globalHandler) (*globalHandler)();</div><div class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="built_in">std</span>::bad_alloc();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> size)</span> <span class="title">throw</span><span class="params">(<span class="built_in">std</span>::bad_alloc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">    <span class="comment">// 处理 0-byte 申请，将它视为 1-byte 申请， </span></span><br><span class="line">    <span class="comment">// C++规定请求 0-byte operator new也得返回一个合法指针</span></span><br><span class="line">    <span class="keyword">if</span> (size == <span class="number">0</span>)  </span><br><span class="line">        size = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        尝试分配 size bytes;</span><br><span class="line">        <span class="keyword">if</span> (分配成功)</span><br><span class="line">            <span class="keyword">return</span> (一个指针，指向分配得来的内存)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 分配失败：找出目前的 new-handling 函数</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * C++11标准以前之所以将 new-handling 函数指针设为 null 后又立刻恢复原样</span></span><br><span class="line"><span class="comment">         * 是因为没有任何办法可以直接获取 new-handling 函数指针，</span></span><br><span class="line"><span class="comment">         * 必须要调用 set_new_handler 找出它，set_new_handler</span></span><br><span class="line"><span class="comment">         * takes a replacement handler as the argument,</span></span><br><span class="line"><span class="comment">         * returns the previous handler.</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 而 C++11 标准有 get_new_handler(),</span></span><br><span class="line"><span class="comment">         * it returns the currently installed new-handler,</span></span><br><span class="line"><span class="comment">         * which may be a null pointer.</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">#<span class="keyword">if</span> __cplusplus &gt;= <span class="number">201103L</span></span><br><span class="line">        new_handler globalHandler = get_new_handler();</span><br><span class="line"><span class="meta">#<span class="meta-keyword">else</span></span></span><br><span class="line">        new_handler globalHandler = set_new_handler(<span class="number">0</span>);</span><br><span class="line">        set_new_handler(globalHandler);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 调用 new_handler 函数解决内存不足时的情况，</span></span><br><span class="line">        <span class="comment">// 只有当指向 new_handling 函数的指针是 null，operator new 才会抛出异常</span></span><br><span class="line">        <span class="keyword">if</span> (globalHandler) (*globalHandler)();</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">throw</span> <span class="built_in">std</span>::bad_alloc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>此函数分配内存成功时返回一个 <code>void</code> 指针，指向一块原始的、未设定初值的内存，分配内存失败时抛出 <code>bad_alloc</code> 异常。函数中的 <code>size_t</code> 参数用于指定需要分配多少内存，可以将 <code>operator new</code> 函数重载，加上额外的参数，但第一参数的类型必须总是 <code>size_t</code>。<br>总而言之， <code>operator new</code> 函数和 <code>malloc</code> 函数一样，它的 <strong>唯一任务就是分配内存</strong>。</p>
 <p>所以开头之所以说重载 <code>new operator</code> 并不严谨，是因为真正能重载的其实是 <code>operator new</code> 函数。也就是说可以修改定制 <code>new operator</code> 完成任务的方式（即 <code>opearotr new</code> 函数），但它的任务流程已经被语言固定死了，无法控制。</p>
 <h2 id="placement-new-placement-operator-new"><a href="#placement-new-placement-operator-new" class="headerlink" title="placement new (placement operator new)"></a>placement new (placement operator new)</h2><p><code>placement new</code> 是特殊版本的 <code>operator new</code> 函数，如果 <code>operator new</code> 函数接受的参数除了一定得有的 <code>size_t</code> 外还有其他参数，这便是所谓的 <code>placement</code> 版本。<br>众多 <code>placement new</code> 版本中特别有用的一个是 “被用于在分配好的内存上构建对象”。具体代码定义如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span>, <span class="keyword">void</span> *ptr)</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> ptr; &#125;</div><div class="line"><span class="comment">// GNU 版本源码：</span></div><div class="line"><span class="comment">// inline void* operator new(std::size_t, void* __p)_GLIBCXX_USE_NOEXCEPT &#123; return __p; &#125;</span></div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span>, <span class="keyword">void</span> *ptr)</span> <span class="keyword">noexcept</span> </span>&#123; <span class="keyword">return</span> ptr; &#125;</span><br><span class="line"><span class="comment">// GNU 版本源码：</span></span><br><span class="line"><span class="comment">// inline void* operator new(std::size_t, void* __p)_GLIBCXX_USE_NOEXCEPT &#123; return __p; &#125;</span></span><br></pre></td></tr></table></figure>
 <p>这个版本可能比你预想的要简单，因为毕竟 <code>operator new</code> 函数的目的就是为对象找到一块内存，然后返回一个指针指向这块内存。而这一版本 <code>placement new</code> 的调用者显然知道指向内存的指针，因此这一版本 <code>placement new</code> 唯一需要做得就是将它获得的指针再返回。</p>
-<p>这个常用的版本已经被纳入C++标准库中（只需要 #include\<new\>），它同时也是最早的 <code>placement new</code> 版本。</new\></p>
+<p>这个常用的版本已经被纳入C++标准库中（只需要 #include\&lt;new>），它同时也是最早的 <code>placement new</code> 版本。</p>
 <p>大多数时候人们谈到的 <code>placement new</code> 就是特指这一版本——即唯一额外参数是个 <code>void*</code>。但一般性术语 <code>placement new</code> 意味着带任意额外参数的 <code>operator new</code> 函数，而且它有相对应的另一个术语 <code>placement delete</code>（下面会提到）。</p>
 <p>常用 <code>placement new</code> 版本示例如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Object</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Object(<span class="keyword">int</span> args) &#123; ... &#125;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"><span class="function">Object* <span class="title">constructObject</span><span class="params">(<span class="keyword">void</span> *buffer, <span class="keyword">int</span> args)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> (buffer) Object(args);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// constructObject 函数在编译器内部产生的代码可能就像下面这样</span></div><div class="line"><span class="comment">// 调用 default placement version of operator new, rawMemory 的地址实际就是 buffer 的地址。</span></div><div class="line"><span class="keyword">void</span>* rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(Object), buffer);</div><div class="line"><span class="comment">// 将内存中的对象初始化</span></div><div class="line">call Object::Object(args) on *rawMemory;</div><div class="line"><span class="comment">// 让 pObj 指向新完成的对象</span></div><div class="line">Object *pObj = <span class="keyword">static_cast</span>&lt;Object*&gt;(rawMemory);</div><div class="line"><span class="comment">// pObj 作为函数结果返回</span></div><div class="line"><span class="keyword">return</span> pObj;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Object</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Object(<span class="keyword">int</span> args) &#123; ... &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">Object* <span class="title">constructObject</span><span class="params">(<span class="keyword">void</span> *buffer, <span class="keyword">int</span> args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> (buffer) Object(args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// constructObject 函数在编译器内部产生的代码可能就像下面这样</span></span><br><span class="line"><span class="comment">// 调用 default placement version of operator new, rawMemory 的地址实际就是 buffer 的地址。</span></span><br><span class="line"><span class="keyword">void</span>* rawMemory = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(Object), buffer);</span><br><span class="line"><span class="comment">// 将内存中的对象初始化</span></span><br><span class="line">call Object::Object(args) on *rawMemory;</span><br><span class="line"><span class="comment">// 让 pObj 指向新完成的对象</span></span><br><span class="line">Object *pObj = <span class="keyword">static_cast</span>&lt;Object*&gt;(rawMemory);</span><br><span class="line"><span class="comment">// pObj 作为函数结果返回</span></span><br><span class="line"><span class="keyword">return</span> pObj;</span><br></pre></td></tr></table></figure>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ol>
 <li><p>最常用的，即希望将对象产生于 <code>heap</code>，那么就使用 <code>new opeartor (new expression)</code> ，它不但分配内存而且为该对象调用一个 <code>constructor</code> 设定初值。</p>
 </li>
@@ -546,7 +564,7 @@
 </li>
 </ol>
 <hr>
-<h1 id="delete-operator-delete-expression"><a href="#delete-operator-delete-expression" class="headerlink" title="delete operator (delete expression)"></a>delete operator (delete expression)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>);</div><div class="line"><span class="comment">//...</span></div><div class="line"><span class="keyword">delete</span> pStr;</div></pre></td></tr></table></figure>
+<h1 id="delete-operator-delete-expression"><a href="#delete-operator-delete-expression" class="headerlink" title="delete operator (delete expression)"></a>delete operator (delete expression)</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Hello"</span>);</span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="keyword">delete</span> pStr;</span><br></pre></td></tr></table></figure>
 <p><code>delete operator</code> 的实际工作如下：</p>
 <ol>
 <li><p>调用 <code>pStr</code> 所指对象类型的 <code>destructor</code>。</p>
@@ -555,10 +573,10 @@
 </li>
 </ol>
 <p>编译器内部产生的代码可能就像下面这样：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 调用对象类型的 `destructor`</span></div><div class="line">pStr-&gt;~<span class="built_in">string</span>();</div><div class="line"><span class="comment">// 释放对象所占的内存</span></div><div class="line"><span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(pStr)</span></span>;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用对象类型的 `destructor`</span></span><br><span class="line">pStr-&gt;~<span class="built_in">string</span>();</span><br><span class="line"><span class="comment">// 释放对象所占的内存</span></span><br><span class="line"><span class="function"><span class="keyword">operator</span> <span class="title">delete</span><span class="params">(pStr)</span></span>;</span><br></pre></td></tr></table></figure>
 <h2 id="operator-delete"><a href="#operator-delete" class="headerlink" title="operator delete"></a>operator delete</h2><p>同理，<code>operator delete</code> 之于 <code>delete operator</code> 就相当于 <code>operator new</code> 之于 <code>new operator</code>。</p>
 <p><code>operator delete</code> 函数其实相比之下更简单，伪代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *rawMemory)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (rawMemory == <span class="number">0</span>) <span class="keyword">return</span>; <span class="comment">// 删除的是 null 指针，什么都不做</span></div><div class="line">    现在归还 rawMemory 所指向的内存</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *rawMemory)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (rawMemory == <span class="number">0</span>) <span class="keyword">return</span>; <span class="comment">// 删除的是 null 指针，什么都不做</span></span><br><span class="line">    现在归还 rawMemory 所指向的内存</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>与 <code>operator new</code> 函数功能相反，该函数的 <strong>唯一任务就是释放内存</strong>，但注意需要记住 C++ 的保证 —— “删除 null 指针永远安全”。</p>
 <h2 id="placement-delete-placement-operator-delete"><a href="#placement-delete-placement-operator-delete" class="headerlink" title="placement delete (placement operator delete)"></a>placement delete (placement operator delete)</h2><p>类似于 <code>operator new</code> 函数的 <code>placement</code> 版本，<code>operator delete</code> 函数如果接受除 <code>void*</code> 参数之外的额外参数，便称为 <code>placement delete</code>。</p>
 <p>如果在 <code>new operator</code> 的流程中，<code>operator new</code> 函数分配内存成功，但在该块内存上构造对象时抛出异常，则运行期系统有责任取消 <code>operator new</code> 函数的内存分配并恢复原样。<strong>运行期系统会寻找 “参数个数和类型都与 <code>operator new</code> 相同”的某个 <code>operator delete</code></strong>，如果找到那就是它的的调用对象。</p>
@@ -566,7 +584,7 @@
 <p>所以规则很简单：如果一个带额外参数的 <code>operator new</code> 函数没有带相同额外参数的对应版 <code>operator delete</code> 函数，那么当 <code>new operator</code> 的内存分配动作需要取消并恢复原样时就没有任何 <code>operator delete</code> 函数会被调用，这会造成内存泄漏，显然是不对的。</p>
 <p>这也意味着如果要对所有与 <code>placement new</code> 相关的内存泄漏问题宣战，<strong>必须同时提供一个正常版本的 <code>operator delete</code> （用于构造期间无任何异常被抛出）和一个 <code>placement</code> 版本（用于构造期间有异常被抛出），后者的额外参数必须和 <code>operator new</code> 的 <code>placement</code> 版本一样</strong>。</p>
 <p>示例（来自 <code>Effective C++ Item 52</code>）：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Widget &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    ...</div><div class="line">    <span class="comment">// placement operator new，即带有额外参数 std::ostream&amp; 的 operator new</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> size, <span class="built_in">std</span>::ostream &amp;logStream)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">// 正常形式的 operator delete (class 专属)</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *pMemory)</span> <span class="keyword">noexcept</span></span>;</div><div class="line">    <span class="comment">// placement operator delete，即带有额外参数 std::ostream&amp; 的 operator delete</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *pMemory, <span class="built_in">std</span>::ostream &amp;logStream)</span> <span class="keyword">noexcept</span></span>;</div><div class="line">    ...</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// new operator 调用 placement new 函数，现在构造时抛出异常不再泄漏</span></div><div class="line">Widget *pw = <span class="keyword">new</span> (<span class="built_in">std</span>::<span class="built_in">cerr</span>) Widget;</div><div class="line"><span class="comment">// delete operator 调用正常的 operator delete 函数</span></div><div class="line"><span class="keyword">delete</span> pw;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">// placement operator new，即带有额外参数 std::ostream&amp; 的 operator new</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> size, <span class="built_in">std</span>::ostream &amp;logStream)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 正常形式的 operator delete (class 专属)</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *pMemory)</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line">    <span class="comment">// placement operator delete，即带有额外参数 std::ostream&amp; 的 operator delete</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span> *pMemory, <span class="built_in">std</span>::ostream &amp;logStream)</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new operator 调用 placement new 函数，现在构造时抛出异常不再泄漏</span></span><br><span class="line">Widget *pw = <span class="keyword">new</span> (<span class="built_in">std</span>::<span class="built_in">cerr</span>) Widget;</span><br><span class="line"><span class="comment">// delete operator 调用正常的 operator delete 函数</span></span><br><span class="line"><span class="keyword">delete</span> pw;</span><br></pre></td></tr></table></figure>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><ol>
 <li><p>当写一个 <code>placement operator new</code>，请确定也写出了对应的 <code>placement operator delete</code>。若果不这样做，程序可能会发生隐微而时断时续的内存泄漏。</p>
 </li>
@@ -574,17 +592,17 @@
 </li>
 </ol>
 <hr>
-<h1 id="Array-version"><a href="#Array-version" class="headerlink" title="Array version"></a>Array version</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">10</span>];</div><div class="line">...</div><div class="line"><span class="keyword">delete</span>[] pStr;</div></pre></td></tr></table></figure>
+<h1 id="Array-version"><a href="#Array-version" class="headerlink" title="Array version"></a>Array version</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> *pStr = <span class="keyword">new</span> <span class="built_in">string</span>[<span class="number">10</span>];</span><br><span class="line">...</span><br><span class="line"><span class="keyword">delete</span>[] pStr;</span><br></pre></td></tr></table></figure>
 <p>上述使用的 <code>new</code> 仍然是那个 <code>new operator</code>，但由于诞生的是数组，所以 <code>new operator</code> 的行为与之前产生单一对象的版本不同，内存分配将是由 <code>operator new</code> 函数的兄弟版本 <code>operator new[]</code> 函数负责。和 <code>operator new</code> 函数一样，<code>operator new[]</code> 也可以被重载。</p>
 <p><code>operator delete[]</code> 函数和 <code>operator delete</code> 函数同理。</p>
 <p>要说 “数组版” 和 “单一对象版” 的 <code>new operator</code> 最大的不同是它所调用的 <code>constructor</code> 数量。数组版本 <code>new operator</code> 先调用 <code>operator new[]</code> 分配足够内存，再然后必须针对数组中的每一个对象调用一个 <code>constructor</code>。</p>
 <p>同理，当 <code>delete operator</code> 被用于数组时，它会针对数组中的每一个元素调用其 <code>destructor</code>，然后再调用 <code>operator delete[]</code> 释放内存。</p>
 <hr>
 <p>好了，现在可以知道：如果希望自己控制应用程序中内存分配的过程，即需要定义自己的 <code>operator new</code> 函数和 <code>operator delete</code> 函数。它们 <strong>既可以定义在全局作用域，也可以定义为成员函数</strong>（定义为成员函数时，它们是隐式静态的，但我建议还是显式声明为 <code>static</code>，因为 <code>operator new</code> 函数用在对象构造之前而 <code>operator delete</code> 函数用在对象销毁之后）。<br>当编译器发现 <code>new</code> 或 <code>delete</code> 后，将在程序中查找可供调用的 <code>operator</code> 函数，其 <strong>匹配查找顺序为：类及其基类的作用域 -&gt; 全局作用域 -&gt; 标准库定义的版本</strong>。</p>
-<p>最新的标准库定义了 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank" rel="external"><code>operator new</code> 函数</a> 和 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_delete" target="_blank" rel="external"><code>operator delete</code> 函数</a> 的各种版本，以下给出 GNU 中的 <code>&lt;new&gt;</code> 头文件的部分源码：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div></pre></td><td class="code"><pre><div class="line">namespace std</div><div class="line">&#123;</div><div class="line">  /**</div><div class="line">   *  @brief  Exception possibly thrown by @c new.</div><div class="line">   *  @ingroup exceptions</div><div class="line">   *</div><div class="line">   *  @c bad_alloc (or classes derived from it) is used to report allocation</div><div class="line">   *  errors from the throwing forms of @c new.  </div><div class="line">   **/</div><div class="line">  class bad_alloc : public exception</div><div class="line">  &#123;</div><div class="line">  public:</div><div class="line">    bad_alloc() throw() &#123; &#125;</div><div class="line"></div><div class="line">    // This declaration is not useless:</div><div class="line">    // http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118</div><div class="line">    virtual ~bad_alloc() throw();</div><div class="line"></div><div class="line">    // See comment in eh_exception.cc.</div><div class="line">    virtual const char* what() const throw();</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">#if __cplusplus &gt;= 201103L</div><div class="line">  class bad_array_new_length : public bad_alloc</div><div class="line">  &#123;</div><div class="line">  public:</div><div class="line">    bad_array_new_length() throw() &#123; &#125;;</div><div class="line"></div><div class="line">    // This declaration is not useless:</div><div class="line">    // http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118</div><div class="line">    virtual ~bad_array_new_length() throw();</div><div class="line"></div><div class="line">    // See comment in eh_exception.cc.</div><div class="line">    virtual const char* what() const throw();</div><div class="line">  &#125;;</div><div class="line">#endif</div><div class="line"></div><div class="line">#if __cpp_aligned_new</div><div class="line">  enum class align_val_t: size_t &#123;&#125;;</div><div class="line">#endif</div><div class="line"></div><div class="line">  struct nothrow_t</div><div class="line">  &#123;</div><div class="line">#if __cplusplus &gt;= 201103L</div><div class="line">    explicit nothrow_t() = default;</div><div class="line">#endif</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  extern const nothrow_t nothrow;</div><div class="line"></div><div class="line">  /** If you write your own error handler to be called by @c new, it must</div><div class="line">   *  be of this type.  */</div><div class="line">  typedef void (*new_handler)();</div><div class="line"></div><div class="line">  /// Takes a replacement handler as the argument, returns the</div><div class="line">  /// previous handler.</div><div class="line">  new_handler set_new_handler(new_handler) throw();</div><div class="line"></div><div class="line">#if __cplusplus &gt;= 201103L</div><div class="line">  /// Return the current new handler.</div><div class="line">  new_handler get_new_handler() noexcept;</div><div class="line">#endif</div><div class="line">&#125; // namespace std</div><div class="line"></div><div class="line">// =================================================================</div><div class="line"></div><div class="line">/** These are replaceable signatures:</div><div class="line"> *  - normal single new and delete (no arguments, throw @c bad_alloc on error)</div><div class="line"> *  - normal array new and delete (same)</div><div class="line"> *  - @c nothrow single new and delete (take a @c nothrow argument, return</div><div class="line"> *    @c NULL on error)</div><div class="line"> *  - @c nothrow array new and delete (same)</div><div class="line"> *</div><div class="line"> *  Placement new and delete signatures (take a memory address argument,</div><div class="line"> *  does nothing) may not be replaced by a user's program.</div><div class="line">*/</div><div class="line">void* operator new(std::size_t) throw(std::bad_alloc)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t) throw(std::bad_alloc)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete(void*) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line"></div><div class="line">#if __cpp_sized_deallocation</div><div class="line">void operator delete(void*, std::size_t) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::size_t) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">#endif</div><div class="line"></div><div class="line">void* operator new(std::size_t, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete(void*, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, const std::nothrow_t&amp;) noexcept</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line"></div><div class="line">#if __cpp_aligned_new</div><div class="line">void* operator new(std::size_t, std::align_val_t)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new(std::size_t, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete(void*, std::align_val_t) noexcept</div><div class="line">   __attribute__((__externally_visible__));</div><div class="line">void operator delete(void*, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t, std::align_val_t)</div><div class="line">  __attribute__((__externally_visible__));</div><div class="line">void* operator new[](std::size_t, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::align_val_t) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::align_val_t, const std::nothrow_t&amp;) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line"></div><div class="line">#if __cpp_sized_deallocation</div><div class="line">void operator delete(void*, std::size_t, std::align_val_t) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">void operator delete[](void*, std::size_t, std::align_val_t) noexcept</div><div class="line">__attribute__((__externally_visible__));</div><div class="line">#endif // __cpp_sized_deallocation</div><div class="line"></div><div class="line">#endif // __cpp_aligned_new</div><div class="line"></div><div class="line">// Default placement versions of operator new.</div><div class="line">inline void* operator new(std::size_t, void* __p) noexcept</div><div class="line">&#123; return __p; &#125;</div><div class="line">inline void* operator new[](std::size_t, void* __p) noexcept</div><div class="line">&#123; return __p; &#125;</div><div class="line"></div><div class="line">// Default placement versions of operator delete.</div><div class="line">inline void operator delete  (void*, void*) noexcept &#123; &#125;</div><div class="line">inline void operator delete[](void*, void*) noexcept &#123; &#125;</div></pre></td></tr></table></figure>
+<p>最新的标准库定义了 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_new" target="_blank" rel="noopener"><code>operator new</code> 函数</a> 和 <a href="http://en.cppreference.com/w/cpp/memory/new/operator_delete" target="_blank" rel="noopener"><code>operator delete</code> 函数</a> 的各种版本，以下给出 GNU 中的 <code>&lt;new&gt;</code> 头文件的部分源码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   *  @brief  Exception possibly thrown by @c new.</span></span><br><span class="line"><span class="comment">   *  @ingroup exceptions</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   *  @c bad_alloc (or classes derived from it) is used to report allocation</span></span><br><span class="line"><span class="comment">   *  errors from the throwing forms of @c new.  </span></span><br><span class="line"><span class="comment">   **/</span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">bad_alloc</span> :</span> <span class="keyword">public</span> exception</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    bad_alloc() <span class="keyword">throw</span>() &#123; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This declaration is not useless:</span></span><br><span class="line">    <span class="comment">// http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118</span></span><br><span class="line">    <span class="keyword">virtual</span> ~bad_alloc() <span class="keyword">throw</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// See comment in eh_exception.cc.</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span>* <span class="title">what</span><span class="params">()</span> <span class="keyword">const</span> <span class="title">throw</span><span class="params">()</span></span>;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cplusplus &gt;= 201103L</span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">bad_array_new_length</span> :</span> <span class="keyword">public</span> bad_alloc</span><br><span class="line">  &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    bad_array_new_length() <span class="keyword">throw</span>() &#123; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// This declaration is not useless:</span></span><br><span class="line">    <span class="comment">// http://gcc.gnu.org/onlinedocs/gcc-3.0.2/gcc_6.html#SEC118</span></span><br><span class="line">    <span class="keyword">virtual</span> ~bad_array_new_length() <span class="keyword">throw</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// See comment in eh_exception.cc.</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keyword">char</span>* <span class="title">what</span><span class="params">()</span> <span class="keyword">const</span> <span class="title">throw</span><span class="params">()</span></span>;</span><br><span class="line">  &#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cpp_aligned_new</span></span><br><span class="line">  <span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">align_val_t</span>:</span> <span class="keyword">size_t</span> &#123;&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">nothrow_t</span></span></span><br><span class="line"><span class="class">  &#123;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cplusplus &gt;= 201103L</span></span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">nothrow_t</span><span class="params">()</span> </span>= <span class="keyword">default</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">nothrow_t</span> nothrow;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** If you write your own error handler to be called by @c new, it must</span></span><br><span class="line"><span class="comment">   *  be of this type.  */</span></span><br><span class="line">  <span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*new_handler)</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/// Takes a replacement handler as the argument, returns the</span></span><br><span class="line">  <span class="comment">/// previous handler.</span></span><br><span class="line">  <span class="function">new_handler <span class="title">set_new_handler</span><span class="params">(new_handler)</span> <span class="title">throw</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cplusplus &gt;= 201103L</span></span><br><span class="line">  <span class="comment">/// Return the current new handler.</span></span><br><span class="line">  <span class="function">new_handler <span class="title">get_new_handler</span><span class="params">()</span> <span class="keyword">noexcept</span></span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">&#125; <span class="comment">// namespace std</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// =================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** These are replaceable signatures:</span></span><br><span class="line"><span class="comment"> *  - normal single new and delete (no arguments, throw @c bad_alloc on error)</span></span><br><span class="line"><span class="comment"> *  - normal array new and delete (same)</span></span><br><span class="line"><span class="comment"> *  - @c nothrow single new and delete (take a @c nothrow argument, return</span></span><br><span class="line"><span class="comment"> *    @c NULL on error)</span></span><br><span class="line"><span class="comment"> *  - @c nothrow array new and delete (same)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *  Placement new and delete signatures (take a memory address argument,</span></span><br><span class="line"><span class="comment"> *  does nothing) may not be replaced by a user's program.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span>)</span> <span class="title">throw</span><span class="params">(<span class="built_in">std</span>::bad_alloc)</span></span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span>) <span class="keyword">throw</span>(<span class="built_in">std</span>::bad_alloc)</span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*) <span class="keyword">noexcept</span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cpp_sized_deallocation</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">size_t</span>)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">size_t</span>) <span class="keyword">noexcept</span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cpp_aligned_new</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>)</span></span></span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">   __attribute__((__externally_visible__));</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>)</span><br><span class="line">  __attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>) <span class="keyword">noexcept</span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>, <span class="keyword">const</span> <span class="built_in">std</span>::<span class="keyword">nothrow_t</span>&amp;) <span class="keyword">noexcept</span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> __cpp_sized_deallocation</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>)</span> <span class="keyword">noexcept</span></span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="built_in">std</span>::<span class="keyword">align_val_t</span>) <span class="keyword">noexcept</span></span><br><span class="line">__attribute__((__externally_visible__));</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// __cpp_sized_deallocation</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// __cpp_aligned_new</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Default placement versions of operator new.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="keyword">void</span>* __p)</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="keyword">return</span> __p; &#125;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span>, <span class="keyword">void</span>* __p) <span class="keyword">noexcept</span></span><br><span class="line">&#123; <span class="keyword">return</span> __p; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Default placement versions of operator delete.</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span>  <span class="params">(<span class="keyword">void</span>*, <span class="keyword">void</span>*)</span> <span class="keyword">noexcept</span> </span>&#123; &#125;</span><br><span class="line"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="keyword">operator</span> <span class="keyword">delete</span>[](<span class="keyword">void</span>*, <span class="keyword">void</span>*) <span class="keyword">noexcept</span> &#123; &#125;</span><br></pre></td></tr></table></figure>
 <p>与析构函数类似，<code>operator delete</code> 函数也不允许抛出异常（<a href="http://koushiro.me/2017/02/03/Effective-Cpp-Note2/#more">Item8</a>），<strong>重载 <code>operator delete</code> 函数时必须使用 <code>noexcept</code> 异常说明符指定其不抛出异常</strong>。</p>
-<p><a href="http://en.cppreference.com/w/cpp/memory/new/nothrow_t" target="_blank" rel="external"><code>nothrow_t</code></a> 是定义在 <code>&lt;new&gt;</code> 头文件中的一个 <code>struct</code>，<code>nothrow</code> 是一个类型为 <code>nothrow_t</code> 的 <code>const</code> 对象，用户可通过这个对象获取 <code>operator new</code> 函数的不抛出异常版本。</p>
+<p><a href="http://en.cppreference.com/w/cpp/memory/new/nothrow_t" target="_blank" rel="noopener"><code>nothrow_t</code></a> 是定义在 <code>&lt;new&gt;</code> 头文件中的一个 <code>struct</code>，<code>nothrow</code> 是一个类型为 <code>nothrow_t</code> 的 <code>const</code> 对象，用户可通过这个对象获取 <code>operator new</code> 函数的不抛出异常版本。</p>
 
       
     </div>
@@ -603,13 +621,13 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>koushiro</li>
+    <strong>Post author:  </strong>koushiro</li>
   <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/" title="Customizing new and delete in Cpp">https://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/</a>
+    <strong>Post link: </strong>
+    <a href="http://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/" title="Customizing new and delete in Cpp">http://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
 </ul>
 
       </div>
@@ -662,10 +680,6 @@
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -704,10 +718,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -716,8 +730,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="koushiro" />
+            
               <p class="site-author-name" itemprop="name">koushiro</p>
-              <p class="site-description motion-element" itemprop="description">你为什么这么熟练啊！</p>
+              <p class="site-description motion-element" itemprop="description">Stay hungry, stay foolish.</p>
           </div>
 
           
@@ -727,8 +745,8 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
-                    <span class="site-state-item-name">日志</span>
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
               
@@ -749,7 +767,7 @@
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">分类</span>
+                    <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
               
@@ -774,7 +792,7 @@
                       
                     
                     <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">标签</span>
+                    <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
               
@@ -798,6 +816,11 @@
               
                 <span class="links-of-author-item">
                   <a href="https://twitter.com/shawn_cqx" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://t.me/koushiro" target="_blank" title="Telegram"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
                   
                 </span>
               
@@ -866,7 +889,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -878,9 +901,9 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">站点总字数：</span>
+      <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="站点总字数">80k</span>
+    <span title="Symbols count total">79k</span>
   
 
   
@@ -889,16 +912,16 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+      <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="站点阅读时长">1:false</span>
+    <span title="Reading time total">2:24</span>
   
 </div>
 
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.2.2</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -906,7 +929,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
 
 
 
@@ -916,14 +939,14 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv" title="总访客量">
+    <span class="site-uv" title="Total Visitors">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
     </span>
   
 
   
-    <span class="site-pv" title="总访问量">
+    <span class="site-pv" title="Total Views">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
     </span>
@@ -950,13 +973,10 @@
     
 
     
-      <div id="needsharebutton-float">
-        <span class="btn">
-          <i class="fa fa-share-alt" aria-hidden="true"></i>
-        </span>
-      </div>
+	
     
 
+    
   </div>
 
   
@@ -1044,18 +1064,6 @@
 
 
 
-	
-
-
-
-
-
-  
-
-
-
-
-
   
 
 
@@ -1077,7 +1085,7 @@
       <script type="text/javascript">
       function renderGitment(){
         var gitment = new Gitmint({
-            id: '1531893607000',
+            id: window.location.pathname,
             owner: 'koushiro',
             repo: 'koushiro.github.io',
             
@@ -1440,27 +1448,6 @@
 
   
   
-  
-  <script src="/lib/needsharebutton/needsharebutton.js"></script>
-
-  <script>
-    
-    
-      flOptions = {};
-      
-          flOptions.iconStyle = "box";
-      
-          flOptions.boxForm = "horizontal";
-      
-          flOptions.position = "middleRight";
-      
-          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      
-      new needShareButton('#needsharebutton-float', flOptions);
-    
-  </script>
-
-  
 
   
   
@@ -1479,7 +1466,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.scrollToMark('auto', "#更多");
+    bookmark.scrollToMark('auto', "#more");
   
   </script>
 
@@ -1526,7 +1513,7 @@
     $('.highlight').each(function (i, e) {
       var $wrap = $('<div>').addClass('highlight-wrap')
       $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+      $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function (e) {
         var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
           return $(e).text()
         }).toArray().join('\n')
@@ -1541,11 +1528,14 @@
         var result = document.execCommand('copy')
         document.body.removeChild(ta)
         
+          if(result)$(this).text('Copied')
+          else $(this).text('Copy failed')
+        
         $(this).blur()
       })).on('mouseleave', function (e) {
         var $b = $(this).find('.copy-btn')
         setTimeout(function () {
-          $b.text('复制')
+          $b.text('Copy')
         }, 300)
       }).append(e)
     })
