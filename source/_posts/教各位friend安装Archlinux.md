@@ -47,7 +47,7 @@ ls: cannot access '/sys/firmware/efi/efivars': No such file or directory
 
 咱是直接使用 fdisk 命令来进行分区的，fdisk 命令自带有简洁说明，对命令内容还有问题的 friend 可以问问搜索引擎。
 
-这是咱的分区结果（东芝那块 SSD 就是nvme1n1），总共分了四个 partition，都是 GPT 格式的：
+这是咱的分区结果（东芝那块 SSD 就是nvme1n1），总共分了三个 partition，都是 GPT 格式的：
 
 ```bash
 /dev/nvme1n1p1  512M        EFI System

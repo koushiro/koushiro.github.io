@@ -117,7 +117,7 @@
 <meta property="og:description" content="最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 Archlinux，尽管是咱第二次装 Archlinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://koushiro.me/2018/08/02/教各位friend安装Archlinux/rufus.png">
-<meta property="og:updated_time" content="2018-08-21T13:47:14.480Z">
+<meta property="og:updated_time" content="2018-08-29T06:53:53.689Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="教各位friend安装Archlinux">
 <meta name="twitter:description" content="最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 Archlinux，尽管是咱第二次装 Archlinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。">
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-21 21:47:14" itemprop="dateModified" datetime="2018-08-21T21:47:14+08:00">2018-08-21</time>
+                <time title="Modified: 2018-08-29 14:53:53" itemprop="dateModified" datetime="2018-08-29T14:53:53+08:00">2018-08-29</time>
               
             
           </span>
@@ -543,7 +543,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls: cannot access <span class="string">'/sys/firmware/efi/efivars'</span>: No such file or directory</span><br></pre></td></tr></table></figure>
 <p>表明 friend 是BIOS方式引导，否则为EFI方式引导。</p>
 <h2 id="硬盘分区和系统挂载"><a href="#硬盘分区和系统挂载" class="headerlink" title="硬盘分区和系统挂载"></a>硬盘分区和系统挂载</h2><p>咱是直接使用 fdisk 命令来进行分区的，fdisk 命令自带有简洁说明，对命令内容还有问题的 friend 可以问问搜索引擎。</p>
-<p>这是咱的分区结果（东芝那块 SSD 就是nvme1n1），总共分了四个 partition，都是 GPT 格式的：</p>
+<p>这是咱的分区结果（东芝那块 SSD 就是nvme1n1），总共分了三个 partition，都是 GPT 格式的：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/dev/nvme1n1p1  512M        EFI System</span><br><span class="line">/dev/nvme1n1p2  16G         Linux swap</span><br><span class="line">/dev/nvme1n1p3  all left    Linux filesystem     <span class="comment"># 剩余空间都留给根分区</span></span><br></pre></td></tr></table></figure>
 <p>分完区后需要格式化：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># EFI</span></span><br><span class="line">mkfs.fat -F32 /dev/nvme1n1p1</span><br><span class="line"><span class="comment"># swap</span></span><br><span class="line">mkswap /dev/nvme1n1p2</span><br><span class="line"><span class="comment"># 根分区</span></span><br><span class="line">mkfs.ext4 /dev/nvme1n1p3</span><br></pre></td></tr></table></figure>
