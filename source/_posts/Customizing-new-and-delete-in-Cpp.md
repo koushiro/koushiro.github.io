@@ -105,7 +105,7 @@ void* operator new(size_t, void *ptr) noexcept { return ptr; }
 
 这个版本可能比你预想的要简单，因为毕竟 `operator new` 函数的目的就是为对象找到一块内存，然后返回一个指针指向这块内存。而这一版本 `placement new` 的调用者显然知道指向内存的指针，因此这一版本 `placement new` 唯一需要做得就是将它获得的指针再返回。
 
-这个常用的版本已经被纳入C++标准库中（只需要 #include\<new\>），它同时也是最早的 `placement new` 版本。
+这个常用的版本已经被纳入C++标准库中（只需要 `#include<new>`)，它同时也是最早的 `placement new` 版本。
 
 大多数时候人们谈到的 `placement new` 就是特指这一版本——即唯一额外参数是个 `void*`。但一般性术语 `placement new` 意味着带任意额外参数的 `operator new` 函数，而且它有相对应的另一个术语 `placement delete`（下面会提到）。
 
@@ -222,7 +222,7 @@ delete pw;
 
 ## Note
 
-1. 当写一个 `placement operator new`，请确定也写出了对应的 `placement operator delete`。若果不这样做，程序可能会发生隐微而时断时续的内存泄漏。
+1. 当写一个 `placement operator new`，请确定也写出了对应的 `placement operator delete`。如果不这样做，程序可能会发生隐微而时断时续的内存泄漏。
 
 2. 当声明 `placement operator new` 和 `placement operator delete` 时，请确定不要无意识地遮掩它们的正常版本。
 
