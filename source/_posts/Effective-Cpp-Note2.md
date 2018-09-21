@@ -1,8 +1,8 @@
 ---
 title: The Note2 of Effective C++
 date: 2017-02-03 12:40:57
-tags: [cpp, tech]
-categories: [Note]
+categories: [C++]
+tags: [tech, C++, note]
 ---
 
 过年好像并没有想象的这么闲，无聊又麻烦的事情比较多【这也是我过年期间中的daikirai】，所以第二部分的整理来的有些迟，这一部分的 Items 相比第一部分要短小简洁，而且这部分 Items 中对我来说绝大多数都是较熟悉的【毕竟构造和析构这种东西写的太多了】，除了 Item 8 ，可能是实际中异常我用的比较少。总之，Let's do it !

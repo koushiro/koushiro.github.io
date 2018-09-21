@@ -1,8 +1,8 @@
 ---
 title: The Note1 of Effective C++
 date: 2017-01-26 15:24:56
-tags: [cpp, tech]
-categories: [Note]
+categories: [C++]
+tags: [tech, C++, note]
 ---
 
 之前买了这本书后只是草草翻过，这半个多月以来，断断续续把这本书从头到尾看了一遍，虽然其中的一些条款内容早就熟记于心，但难免还有晦涩之处，所以打算在过年空闲期间把整本书的每个条款的重点进行系统的整理。

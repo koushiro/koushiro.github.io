@@ -1,8 +1,8 @@
 ---
 title: Cpp中的字符串优化
 date: 2018-06-05 15:52:21
-categories:
-tags: [tech, cpp]
+categories: [C++]
+tags: [tech, C++, note, optimize]
 ---
 
 字符串是程序代码中使用最频繁的几种数据类型之一，在C++中基本是以std::string出现（当然还有C中的字符数组），尽管它被正确和频繁的使用，但多数coder仍然会忽略可以明显改善性能的地方。

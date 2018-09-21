@@ -108,14 +108,14 @@
 
 
 
-  <meta name="keywords" content="gogs">
+  <meta name="keywords" content="tech,config,Gogs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Deploy gogs step by step">
 <meta property="og:url" content="http://koushiro.me/2018/01/01/Deploy-gogs-step-by-step/index.html">
 <meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://koushiro.me/2018/01/01/Deploy-gogs-step-by-step/gogs-large-resize.png">
-<meta property="og:updated_time" content="2018-08-21T12:07:01.897Z">
+<meta property="og:updated_time" content="2018-09-18T15:45:33.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deploy gogs step by step">
 <meta name="twitter:image" content="http://koushiro.me/2018/01/01/Deploy-gogs-step-by-step/gogs-large-resize.png">
@@ -427,7 +427,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-21 20:07:01" itemprop="dateModified" datetime="2018-08-21T20:07:01+08:00">2018-08-21</time>
+                <time title="Modified: 2018-09-18 23:45:33" itemprop="dateModified" datetime="2018-09-18T23:45:33+08:00">2018-09-18</time>
               
             
           </span>
@@ -444,7 +444,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Config/" itemprop="url" rel="index"><span itemprop="name">Config</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Configuration/" itemprop="url" rel="index"><span itemprop="name">Configuration</span></a></span>
 
                 
                 
@@ -543,7 +543,7 @@
 <p>运行成功后，浏览器首次进入 <code>localhost:3000/</code> 会跳转到 <code>/install</code>，进行首次部署基本配置，比如数据库的选择，账号注册等等，由于我是一个人用，数据库使用 sqlite 绰绰有余。</p>
 <h2 id="Step3-Configuration"><a href="#Step3-Configuration" class="headerlink" title="Step3. Configuration"></a>Step3. Configuration</h2><p>默认配置文件从v0.6.0开始就被嵌入了二进制中，若要进行自定义配置，只需要修改 <code>custom/conf/app.ini</code>，比如 Git仓库根目录、数据库配置或者是否支持注册等。</p>
 <p>像我，则是在安装部署和注册账号完成后，禁止了其他人的注册，因为毕竟这只是我个人的 Git 托管服务。若是一个团队协同使用，就不需要关闭注册功能。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">root@Ubuntu16:~/gogs/custom/conf# cat app.ini</span><br><span class="line">APP_NAME = Gogs</span><br><span class="line">RUN_USER = root</span><br><span class="line">RUN_MODE = prod</span><br><span class="line"></span><br><span class="line">[database]</span><br><span class="line">DB_TYPE  = sqlite3</span><br><span class="line"><span class="meta">#</span><span class="bash">...</span></span><br><span class="line"></span><br><span class="line">[repository]</span><br><span class="line">ROOT = /root/gogs-repositories</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">DOMAIN           = localhost</span><br><span class="line">HTTP_PORT        = 3000</span><br><span class="line">ROOT_URL         = http://localhost:3000/</span><br><span class="line">DISABLE_SSH      = false</span><br><span class="line">SSH_PORT         = 22</span><br><span class="line">START_SSH_SERVER = false</span><br><span class="line">OFFLINE_MODE     = false</span><br><span class="line"></span><br><span class="line">[mailer]</span><br><span class="line">ENABLED = false</span><br><span class="line"></span><br><span class="line">[service]</span><br><span class="line">REGISTER_EMAIL_CONFIRM = false</span><br><span class="line">ENABLE_NOTIFY_MAIL     = false</span><br><span class="line">DISABLE_REGISTRATION   = true</span><br><span class="line">ENABLE_CAPTCHA         = true</span><br><span class="line">REQUIRE_SIGNIN_VIEW    = false</span><br><span class="line"></span><br><span class="line">[picture]</span><br><span class="line">DISABLE_GRAVATAR        = false</span><br><span class="line">ENABLE_FEDERATED_AVATAR = true</span><br><span class="line"></span><br><span class="line">[session]</span><br><span class="line">PROVIDER = file</span><br><span class="line"></span><br><span class="line">[log]</span><br><span class="line">MODE      = file</span><br><span class="line">LEVEL     = Info</span><br><span class="line">ROOT_PATH = /root/gogs/log</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">root@Ubuntu16:~/gogs/custom/conf# cat app.ini</span><br><span class="line">APP_NAME = Gogs</span><br><span class="line">RUN_USER = root</span><br><span class="line">RUN_MODE = prod</span><br><span class="line"></span><br><span class="line">[database]</span><br><span class="line">DB_TYPE  = sqlite3</span><br><span class="line"><span class="meta">#</span>...</span><br><span class="line"></span><br><span class="line">[repository]</span><br><span class="line">ROOT = /root/gogs-repositories</span><br><span class="line"></span><br><span class="line">[server]</span><br><span class="line">DOMAIN           = localhost</span><br><span class="line">HTTP_PORT        = 3000</span><br><span class="line">ROOT_URL         = http://localhost:3000/</span><br><span class="line">DISABLE_SSH      = false</span><br><span class="line">SSH_PORT         = 22</span><br><span class="line">START_SSH_SERVER = false</span><br><span class="line">OFFLINE_MODE     = false</span><br><span class="line"></span><br><span class="line">[mailer]</span><br><span class="line">ENABLED = false</span><br><span class="line"></span><br><span class="line">[service]</span><br><span class="line">REGISTER_EMAIL_CONFIRM = false</span><br><span class="line">ENABLE_NOTIFY_MAIL     = false</span><br><span class="line">DISABLE_REGISTRATION   = true</span><br><span class="line">ENABLE_CAPTCHA         = true</span><br><span class="line">REQUIRE_SIGNIN_VIEW    = false</span><br><span class="line"></span><br><span class="line">[picture]</span><br><span class="line">DISABLE_GRAVATAR        = false</span><br><span class="line">ENABLE_FEDERATED_AVATAR = true</span><br><span class="line"></span><br><span class="line">[session]</span><br><span class="line">PROVIDER = file</span><br><span class="line"></span><br><span class="line">[log]</span><br><span class="line">MODE      = file</span><br><span class="line">LEVEL     = Info</span><br><span class="line">ROOT_PATH = /root/gogs/log</span><br></pre></td></tr></table></figure>
 <h2 id="Step4-Forward-port"><a href="#Step4-Forward-port" class="headerlink" title="Step4. Forward port"></a>Step4. Forward port</h2><p>在部署和配置完成后，其实就已经可以很好的使用Gogs的自助Git服务了，但是在浏览器敲ip地址和端口号太麻烦了，所以我就利用我现有的域名，在DNSPOD上再加了一条二级域名解析，直接取个好记的域名 <a href="http://git.koushiro.me" target="_blank" rel="noopener">git.koushiro.me</a>。当然如果你是在狗爹上买的域名并且用得狗爹自己的域名解析，那添加二级域名就更简单了，而且也不需要自己配置端口转发，狗爹的域名解析和跳转支持二级域名直接转发到某个ip地址的端口，但如果你也是和我一样使用DNSPOD来进行域名解析的，那还得多做一步，就是用 nginx 进行 3000 端口的转发。</p>
 <p>这一步实际也很简单：</p>
 <p>通过包管理安装 Nginx：</p>
@@ -591,7 +591,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/gogs/" rel="tag"># gogs</a>
+            <a href="/tags/tech/" rel="tag"># tech</a>
+          
+            <a href="/tags/config/" rel="tag"># config</a>
+          
+            <a href="/tags/Gogs/" rel="tag"># Gogs</a>
           
         </div>
       
@@ -697,7 +701,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -718,7 +722,13 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -743,7 +753,33 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
@@ -855,7 +891,7 @@
     
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">79k</span>
+    <span title="Symbols count total">90k</span>
   
 
   
@@ -866,7 +902,7 @@
     
       <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="Reading time total">2:24</span>
+    <span title="Reading time total">2:44</span>
   
 </div>
 

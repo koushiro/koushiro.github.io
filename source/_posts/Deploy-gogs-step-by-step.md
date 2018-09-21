@@ -1,8 +1,8 @@
 ---
 title: Deploy gogs step by step
 date: 2018-01-01 22:08:27
-tags: [gogs]
-categories: [Config]
+categories: [Configuration]
+tags: [tech, config, Gogs]
 ---
 
 {% asset_img gogs-large-resize.png %}

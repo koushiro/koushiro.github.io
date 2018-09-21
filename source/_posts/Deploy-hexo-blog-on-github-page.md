@@ -1,7 +1,8 @@
 ---
 title: Deploy Hexo blog on Github Page
 date: 2017-01-02 22:56:05
-tags: [tech, hexo]
+categories: [Configuration]
+tags: [tech, config, Hexo, Github]
 ---
 
 <center>This is a simple tutorial to deploy your hexo blog on Github Page. </center>
