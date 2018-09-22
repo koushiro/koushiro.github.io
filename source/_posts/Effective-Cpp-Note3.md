@@ -1,8 +1,8 @@
 ---
 title: The Note3 of Effective C++
 date: 2017-02-11 14:27:39
-categories: [C++]
-tags: [tech, C++, note]
+categories: [Cpp]
+tags: [tech, Cpp, note]
 ---
 
 书中第三部分是讲资源管理（Resource Management），只有不足20页，尽管不是专门讲动态内存（dynamical memory）和智能指针（smart pointer），但还是占较大篇幅的，我会结合 C++11 新标准对其进行一些扩充。今日も顽张りましょう。

@@ -1,8 +1,8 @@
 ---
 title: Customizing new and delete in C++
 date: 2018-07-18 14:00:07
-categories: [C++]
-tags: [tech, C++, note]
+categories: [Cpp]
+tags: [tech, Cpp, note]
 ---
 
 这部分主要涉及 `new` 和 `delete` 这两个 keyword，它们的一些高级用法在课堂上或者一些 C++ 初学者书籍中很难见到，对于编码者也很少用到这部分内容，当然我对此也不是了解得特别透彻，文中如有错误，请在评论指出。

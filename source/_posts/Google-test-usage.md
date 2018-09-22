@@ -1,8 +1,8 @@
 ---
 title: Google test usage
 date: 2018-02-10 14:22:06
-categories: [C++]
-tags: [C++, google, test]
+categories: [Cpp]
+tags: [Cpp, Google, test]
 ---
 
 <center>记录下 googletest 和 googlemock 框架的使用。</center>
