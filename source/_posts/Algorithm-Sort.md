@@ -36,15 +36,19 @@ tags: [tech, algorithm]
 
 ### Version1
 
-原始的最简单的版本，不考虑任何优化。
+最原始的版本应该是个学CS都应该会写，这里就稍微优化一部分算法，
+根据某轮排序过程中是否存在元素交换来判断数列是否有序，减少无谓的比较。
 
 ```c++
 template<typename T>
-void BubbleSort(std::vector<T> array) {
-    for (size_t i = 0; i < array.size(); ++i) {
-        for (size_t j = 0; j < array.size() - i - 1; ++j) {
-            if (array[j] < array[j+1]) {
-                std::swap(array[j], array[j+1]);
+void BubbleSort(std::vector<T> array, int len) {
+    assert(array.size() >= len);
+
+    for (bool sorted = false; sorted = !sorted; --len) {
+        for (size_t i = 0; i < len - 1; ++i) {
+            if (array[i] > array[i+1]) {
+                std::swap(array[i], array[i+1]);
+                sorted = false;
             }
         }
     }
@@ -53,47 +57,26 @@ void BubbleSort(std::vector<T> array) {
 
 ### Version2
 
-根据某轮排序过程中是否存在元素交换来判断数列是否有序，减少无谓的比较。
-
-```c++
-template<typename T>
-void BubbleSort(std::vector<T> array) {
-    for (size_t i = 0; i < array.size(); ++i) {
-        bool isSorted = true;
-        for (size_t j = 0; j < array.size() - i - 1; ++j) {
-            if (array[j] < array[j+1]) {
-                std::swap(array[j], array[j+1]);
-                isSorted = false;
-            }
-        }
-
-        if (isSorted) break;
-    }
-}
-```
-
-### Version3
-
 按照之前代码逻辑，冒泡排序中数列有序区长度与排序轮数是相等的（即都为 i）。
 但实际上，数列真正有序区长度可能会大于排序轮数，所以可以通过在每轮排序的最后记录下最后一个元素交换的位置（即无序数列的边界，该位置之后就都是有序区），从而再减少无谓的比较。
 
 ```c++
 template<typename T>
-void BubbleSort(std::vector<T> array) {
-    int lastExchangeIndex = 0;
-    int border = array.size() - 1;
+void BubbleSort(std::vector<T> array， int len) {
+    assert(array.size() >= len);
 
-    for (size_t i = 0; i < array.size(); ++i) {
-        bool isSorted = true;
-        for (size_t j = 0; j < border; ++j) {
-            if (array[j] < array[j+1]) {
-                std::swap(array[j], array[j+1]);
-                isSorted = false;
-                lastExchangeIndex = j;
+    int lastExchangeIndex = 0;
+    int border = len - 1;
+
+    for (bool sorted = false; sorted = !sorted; --len) {
+        for (size_t i = 0; i < border; ++i) {
+            if (array[i] > array[i+1]) {
+                std::swap(array[i], array[i+1]);
+                sorted = false;
+                lastExchangeIndex = i;
             }
         }
         border = lastExchangeIndex;
-        if (isSorted) break;
     }
 }
 ```
@@ -106,13 +89,15 @@ void BubbleSort(std::vector<T> array) {
 
 ```c++
 template<typename T>
-void CockTailSort(std::vector<T> array) {
+void CockTailSort(std::vector<T> array, int len) {
+    assert(array.size() >= len);
+
     int lastRightExchangeIndex = 0;
-    int rightBorder = array.size() - 1;
+    int rightBorder = len - 1;
     int lastLeftExchangeIndex = 0;
     int leftBorder = 0;
 
-    for（size_t i = 0; i < array.size() / 2; ++i) {
+    for（size_t i = 0; i < len / 2; ++i) {
         bool isSorted = true;
         for (size_t j = leftBorder; j < rightBorder; ++j) {
             if (array[j] > array[j+1]) {

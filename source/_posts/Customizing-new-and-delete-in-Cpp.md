@@ -1,5 +1,5 @@
 ---
-title: Customizing new and delete in Cpp
+title: Customizing new and delete in C++
 date: 2018-07-18 14:00:07
 categories: [C++]
 tags: [tech, C++, note]

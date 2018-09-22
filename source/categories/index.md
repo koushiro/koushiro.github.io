@@ -19,7 +19,6 @@ type: "categories"
 - [Optimize string in C++](http://koushiro.me/2018/06/05/Cpp%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BC%98%E5%8C%96/)
 - [Customizing new and delete in C++](http://koushiro.me/2018/07/18/Customizing-new-and-delete-in-Cpp/)
 
-
 ## Configuration
 
 - [Deploy Hexo blog on Github Page](http://koushiro.me/2017/01/02/Deploy-hexo-blog-on-github-page/)
@@ -27,7 +26,7 @@ type: "categories"
 
 ## Git
 
-- [Learn Git](http://koushiro.me/2018/09/17/Learn-Git/)
+- [Learn Git](http://koushiro.me/2018/03/15/Learn-Git/)
 
 
 ## Linux
