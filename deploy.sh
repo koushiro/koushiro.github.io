@@ -9,6 +9,14 @@
 # ├── source
 # └── themes
 
+# clean 2017/ 2018/ archives/ categories/ tags/ source/ directory
+rm -rf 2017/*
+rm -rf 2018/*
+rm -rf archives/*
+rm -rf categories/*
+rm -rf tags/*
+rm -rf source/*
+
 # change directory to repo's parent directory
 cd ..
 
