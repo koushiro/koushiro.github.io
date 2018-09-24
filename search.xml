@@ -71,9 +71,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Google test usage]]></title>
-    <url>%2F2018%2F02%2F10%2FGoogle-test-usage%2F</url>
-    <content type="text"><![CDATA[记录下 googletest 和 googlemock 框架的使用。 从蚂蚁笔记的博客导入，还需重新排版]]></content>
+    <title><![CDATA[The usage of googletest]]></title>
+    <url>%2F2018%2F02%2F10%2FThe-usage-of-googletest%2F</url>
+    <content type="text"><![CDATA[记录下 googletest 和 googlemock 框架的使用。 The usage of googletestGoogletest Primer Advanced googletest Topics Google Mock Google Mock for Dummies]]></content>
       <categories>
         <category>Cpp</category>
       </categories>

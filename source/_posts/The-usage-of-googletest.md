@@ -9,7 +9,7 @@ tags: [Cpp, Google, test]
 
 <!-- more -->
 
-# googletest usage
+# The usage of googletest
 
 [Googletest Primer](https://github.com/google/googletest/blob/master/googletest/docs/primer.md)
 
