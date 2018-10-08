@@ -116,10 +116,17 @@
 <meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:description" content="This blog records how Git is used and some of the problems I encountered while using Git.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-22T17:40:45.989Z">
+<meta property="og:image" content="http://koushiro.me/2018/03/15/Learn-Git/git-log-origin.png">
+<meta property="og:image" content="http://koushiro.me/2018/03/15/Learn-Git/rebase-i-origin.png">
+<meta property="og:image" content="http://koushiro.me/2018/03/15/Learn-Git/rebase-i-modified.png">
+<meta property="og:image" content="http://koushiro.me/2018/03/15/Learn-Git/commit-message-origin.png">
+<meta property="og:image" content="http://koushiro.me/2018/03/15/Learn-Git/commit-message-modified.png">
+<meta property="og:image" content="http://koushiro.me/2018/03/15/Learn-Git/git-log-modified.png">
+<meta property="og:updated_time" content="2018-10-08T10:22:55.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learn Git">
 <meta name="twitter:description" content="This blog records how Git is used and some of the problems I encountered while using Git.">
+<meta name="twitter:image" content="http://koushiro.me/2018/03/15/Learn-Git/git-log-origin.png">
 
 
 
@@ -428,7 +435,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-23 01:40:45" itemprop="dateModified" datetime="2018-09-23T01:40:45+08:00">2018-09-23</time>
+                <time title="Modified: 2018-10-08 18:22:55" itemprop="dateModified" datetime="2018-10-08T18:22:55+08:00">2018-10-08</time>
               
             
           </span>
@@ -491,7 +498,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">9.9k</span>
+                <span title="Symbols count in article">11k</span>
               
 
               
@@ -505,7 +512,7 @@
                 
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="Reading time">18 mins.</span>
+                <span title="Reading time">19 mins.</span>
               
             </div>
           
@@ -622,6 +629,25 @@
 <p>标签的检出和删除类似于分支:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检出 v1.3.0 标签指定的版本节点到工作区</span></span><br><span class="line">git checkout v1.3.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在特定的标签上创建一个新分支，</span></span><br><span class="line"><span class="comment"># 如果在这之后又进行了提交，新分支会因为改动向前移动，</span></span><br><span class="line"><span class="comment"># 那么新分支就会和 v1.3.0 标签稍微有些不同，这时就应该当心</span></span><br><span class="line">git checkout -b &lt;branch-name&gt; v1.3.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除特定标签</span></span><br><span class="line">git tag -d v1.4.0-lw</span><br></pre></td></tr></table></figure>
 <hr>
+<h2 id="合并多个commit"><a href="#合并多个commit" class="headerlink" title="合并多个commit"></a>合并多个commit</h2><p>在实际开发中，一般有 <code>master</code> (功能稳定的分支) 和 <code>develop</code> (正在开发的分支， 或者属于自己的fork仓库)。</p>
+<p>在 <code>develop</code> 分支(或者fork仓库)中常常会有对某几个特定文件琐碎的 <code>commit</code> 记录，为了 <code>commit</code> 记录的整洁，往往需要将这些琐碎记录整合为一个 <code>commit</code>。</p>
+<p>假设有 3 个 <code>commit</code> 记录:</p>
+<p><img src="git-log-origin.png" alt=""></p>
+<p>需要将 <code>913d903</code> 和 <code>eca4dfe</code> 记录合并为一个 <code>commit</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -i 参数是不需要合并的 commit 的 hash 值，这里指的是 `Add README` 那条 commit</span></span><br><span class="line"><span class="comment"># 然后进入编辑模式</span></span><br><span class="line">git rebase -i 07f4138</span><br></pre></td></tr></table></figure>
+<p><img src="rebase-i-origin.png" alt=""></p>
+<p>很明显，上方未注释的是要执行的命令，下方是命令的说明，要是看不懂这种程度的英文那我也没办法。</p>
+<p>直接修改 <code>eca4dfe</code> 前的命令为 <code>squash</code>, 使其被合并到前一个 <code>commit</code>，然后输入<code>:wq</code> 保存并退出:</p>
+<p><img src="rebase-i-modified.png" alt=""></p>
+<p>进入 <code>commit message</code> 的编辑界面:</p>
+<p><img src="commit-message-origin.png" alt=""></p>
+<p>将这两次 <code>commit message</code> 修改为新的 <code>commit message</code>，然后输入 <code>:wq</code> 保存并退出:</p>
+<p><img src="commit-message-modified.png" alt=""></p>
+<p>再次输入 <code>git log</code> 查看，发现这两个 <code>commit</code> 记录已经合并未一个了:</p>
+<p><img src="git-log-modified.png" alt=""></p>
+<p>然后可以将其强制推送到远程仓库 <code>develop</code> 分支或者远程 <code>fork</code> 仓库的特定分支中:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin develop -f</span><br></pre></td></tr></table></figure>
+<p>如果本次修改的代码达到稳定，就可以将 <code>develop</code> 分支的 <code>commit</code> 合并入 <code>master</code> 分支或者通过 <code>PR</code> 合并入 <code>fork</code> 仓库的上游仓库。</p>
 <h1 id="Updating…"><a href="#Updating…" class="headerlink" title="Updating…"></a>Updating…</h1>
       
     </div>
@@ -924,7 +950,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Learn-Git"><span class="nav-number">1.</span> <span class="nav-text">Learn Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git流程"><span class="nav-number">1.1.</span> <span class="nav-text">Git流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的Git命令列表"><span class="nav-number">1.2.</span> <span class="nav-text">常用的Git命令列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库的关联和管理"><span class="nav-number">1.3.</span> <span class="nav-text">远程仓库的关联和管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销更改"><span class="nav-number">1.4.</span> <span class="nav-text">撤销更改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支的管理"><span class="nav-number">1.5.</span> <span class="nav-text">分支的管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-config"><span class="nav-number">1.6.</span> <span class="nav-text">git config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-log"><span class="nav-number">1.7.</span> <span class="nav-text">git log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-tag"><span class="nav-number">1.8.</span> <span class="nav-text">git tag</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Updating…"><span class="nav-number">2.</span> <span class="nav-text">Updating…</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Learn-Git"><span class="nav-number">1.</span> <span class="nav-text">Learn Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git流程"><span class="nav-number">1.1.</span> <span class="nav-text">Git流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的Git命令列表"><span class="nav-number">1.2.</span> <span class="nav-text">常用的Git命令列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库的关联和管理"><span class="nav-number">1.3.</span> <span class="nav-text">远程仓库的关联和管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销更改"><span class="nav-number">1.4.</span> <span class="nav-text">撤销更改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支的管理"><span class="nav-number">1.5.</span> <span class="nav-text">分支的管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-config"><span class="nav-number">1.6.</span> <span class="nav-text">git config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-log"><span class="nav-number">1.7.</span> <span class="nav-text">git log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-tag"><span class="nav-number">1.8.</span> <span class="nav-text">git tag</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#合并多个commit"><span class="nav-number">1.9.</span> <span class="nav-text">合并多个commit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Updating…"><span class="nav-number">2.</span> <span class="nav-text">Updating…</span></a></li></ol></div>
             
 
           </div>
@@ -958,7 +984,7 @@
     
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">93k</span>
+    <span title="Symbols count total">94k</span>
   
 
   
@@ -969,7 +995,7 @@
     
       <span class="post-meta-item-text">Reading time total &asymp;</span>
     
-    <span title="Reading time total">2:50</span>
+    <span title="Reading time total">2:51</span>
   
 </div>
 

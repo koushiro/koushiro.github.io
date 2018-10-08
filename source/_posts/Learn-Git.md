@@ -456,7 +456,7 @@ git tag -d v1.4.0-lw
 
 假设有 3 个 `commit` 记录:
 
-![](Learn-Git/git-log-origin.png)
+![](git-log-origin.png)
 
 需要将 `913d903` 和 `eca4dfe` 记录合并为一个 `commit`:
 
@@ -466,25 +466,25 @@ git tag -d v1.4.0-lw
 git rebase -i 07f4138
 ```
 
-![](Learn-Git/rebase-i-origin.png)
+![](rebase-i-origin.png)
 
 很明显，上方未注释的是要执行的命令，下方是命令的说明，要是看不懂这种程度的英文那我也没办法。
 
 直接修改 `eca4dfe` 前的命令为 `squash`, 使其被合并到前一个 `commit`，然后输入`:wq` 保存并退出:
 
-![](Learn-Git/rebase-i-modified.png)
+![](rebase-i-modified.png)
 
 进入 `commit message` 的编辑界面:
 
-![](Learn-Git/commit-message-origin.png)
+![](commit-message-origin.png)
 
 将这两次 `commit message` 修改为新的 `commit message`，然后输入 `:wq` 保存并退出:
 
-![](Learn-Git/commit-message-modified.png)
+![](commit-message-modified.png)
 
 再次输入 `git log` 查看，发现这两个 `commit` 记录已经合并未一个了:
 
-![](Learn-Git/git-log-modified.png)
+![](git-log-modified.png)
 
 然后可以将其强制推送到远程仓库 `develop` 分支或者远程 `fork` 仓库的特定分支中:
 
