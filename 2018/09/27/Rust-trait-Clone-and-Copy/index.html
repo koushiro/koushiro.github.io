@@ -109,14 +109,15 @@
 
 
   <meta name="description" content="Stay hungry, stay foolish.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Koushiro&#39;s Blog">
-<meta property="og:url" content="http://koushiro.me/tags/Cpp/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rust trait: Clone and Copy">
+<meta property="og:url" content="http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/index.html">
 <meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:description" content="Stay hungry, stay foolish.">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-27T04:10:12.879Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Koushiro&#39;s Blog">
+<meta name="twitter:title" content="Rust trait: Clone and Copy">
 <meta name="twitter:description" content="Stay hungry, stay foolish.">
 
 
@@ -124,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://koushiro.me/tags/Cpp/"/>
+  <link rel="canonical" href="http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/"/>
 
 
 
@@ -134,7 +135,7 @@
   };
 </script>
 
-  <title>Tag: Cpp | Koushiro's Blog</title>
+  <title>Rust trait: Clone and Copy | Koushiro's Blog</title>
   
 
 
@@ -181,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,7 +247,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
   </li>
@@ -290,34 +291,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -377,198 +350,231 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Cpp<small>Tag</small>
-        </h1>
-      </div>
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="koushiro">
+      <meta itemprop="description" content="Stay hungry, stay foolish.">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Koushiro's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Rust trait: Clone and Copy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-27 12:09:31 / Modified: 12:10:12" itemprop="dateCreated datePublished" datetime="2018-09-27T12:09:31+08:00">2018-09-27</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/27/Rust-trait-Clone-and-Copy/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/27/Rust-trait-Clone-and-Copy/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Symbols count in article: </span>
+                
+                <span title="Symbols count in article">0</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">1 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
 
       
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/07/18/Customizing-new-and-delete-in-Cpp/" itemprop="url">
-              
-                <span itemprop="name">Customizing new and delete in C++</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-07-18T14:00:07+08:00"
-              content="2018-07-18" >
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/06/05/Optimize-string-in-Cpp/" itemprop="url">
-              
-                <span itemprop="name">Optimize string in C++</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-06-05T15:52:21+08:00"
-              content="2018-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/10/The-usage-of-googletest/" itemprop="url">
-              
-                <span itemprop="name">The usage of googletest</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-10T14:22:06+08:00"
-              content="2018-02-10" >
-          02-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/11/Effective-Cpp-Note3/" itemprop="url">
-              
-                <span itemprop="name">The Note3 of Effective C++</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-11T14:27:39+08:00"
-              content="2017-02-11" >
-          02-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/03/Effective-Cpp-Note2/" itemprop="url">
-              
-                <span itemprop="name">The Note2 of Effective C++</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-03T12:40:57+08:00"
-              content="2017-02-03" >
-          02-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/26/Effective-Cpp-Note1/" itemprop="url">
-              
-                <span itemprop="name">The Note1 of Effective C++</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-26T15:24:56+08:00"
-              content="2017-01-26" >
-          01-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>koushiro</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/" title="Rust trait: Clone and Copy">http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/02/教各位friend安装ArchLinux/" rel="next" title="教各位friend安装ArchLinux">
+                <i class="fa fa-chevron-left"></i> 教各位friend安装ArchLinux
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -928,6 +934,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
 
   
 
@@ -957,6 +967,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname,
+            owner: 'koushiro',
+            repo: 'koushiro.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '67b4ee22c6f0dc684b0d2c60847f6eb0a62da3de',
+            
+                client_id: '427e7235a71b33e01a0c'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
@@ -1318,7 +1352,7 @@
   <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
   <script type="text/javascript">
   
-    bookmark.loadBookmark();
+    bookmark.scrollToMark('auto', "#more");
   
   </script>
 
