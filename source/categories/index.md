@@ -9,7 +9,7 @@ type: "categories"
 ## Algorithm
 
 - [Sort](http://koushiro.me/2018/09/11/Algorithm-Sort/)
-
+- [Graph](http://koushiro.me/2018/10/17/Algorithm-Graph/)
 
 ## C++/C
 
@@ -46,6 +46,8 @@ type: "categories"
 - [RPC procotol]()
 
 ## Rust
+
+- [trait Copy/Clone](http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/)   
 
 ---
 

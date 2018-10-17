@@ -5,19 +5,19 @@ categories: [Linux]
 tags: [tech, Linux, ArchLinux, config]
 ---
 
-最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 Archlinux，尽管是咱第二次装 Archlinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。
+最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 ArchlLinux，尽管是咱第二次装 ArchLinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。
 
 <!--more-->
 
 ---
 
-# 教各位friend安装Archlinux
+# 教各位friend安装ArchLinux
 
 ## 制作启动U盘
 
 由于咱是在 windows 上做的安装介质（也是多数 friends 的情况），所以在此就只针对 windwos 系统给出说明，其他平台可以参考 [ArchWiki](https://wiki.archlinux.org/index.php/USB_flash_installation_media)。
 
-windows 上咱使用 [rufus](https://rufus.akeo.ie/?locale=zh_CN/) 来制作U盘驱动器，rufus也是 Archlinux 官方推荐的哦。
+windows 上咱使用 [rufus](https://rufus.akeo.ie/?locale=zh_CN/) 来制作U盘驱动器，rufus也是 ArchLinux 官方推荐的哦。
 
 当然制作之前要先[下载 archlinux](https://www.archlinux.org/download/)，friend 可以自己选择源来下载，咱是直接用了 [ustc 源](https://mirrors.ustc.edu.cn/archlinux/iso/2018.08.01/) ，rufus 的具体设置如图：
 
@@ -25,7 +25,7 @@ windows 上咱使用 [rufus](https://rufus.akeo.ie/?locale=zh_CN/) 来制作U盘
 
 **注意**：目前的引导方式主要分为 **EFI 引导 + GPT 分区表** 与 **BIOS(LEGACY) 引导 + MBR 分区表** 两种，几乎比较新的机器都采用了EFI/GPT引导的方式（也是咱选择的方式）。
 
-安装U盘制作完成后，插入电脑，调整硬盘的启动顺序从U盘启动 Archlinux。
+安装U盘制作完成后，插入电脑，调整硬盘的启动顺序从U盘启动 ArchLinux。
 
 拿咱的 ThinkPad X1C 具体举例，ThinkPad X1C 还需要在 BIOS 里将 Security Boot 选项设置为 Disabled，然后在 Startup 栏把 UEFI/Legacy Boot 选项设置为 Both / UEFI First / Yes。这样才能调整启动顺序从U盘启动 archlinux 系统。
 
@@ -135,7 +135,7 @@ hwclock --systohc
 
 ## 连接网络
 
-Archlinux 并不能离线安装，因此需要联网来下载需要的组件。
+ArchLinux 并不能离线安装，因此需要联网来下载需要的组件。
 
 - 有线网并且路由器支持DHCP的话插上网线后先执行以下命令获取IP地址：
 
@@ -276,7 +276,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## 安装后检查
 
-如果 friend 是多系统（咱是在一块全新 SSD 上装的 Archlinux），请注意上面一节中对 `os-prober` 这个包的安装。
+如果 friend 是多系统（咱是在一块全新 SSD 上装的 ArchLinux），请注意上面一节中对 `os-prober` 这个包的安装。
 
 强烈建议使用如下命令检查是否成功生成各系统的入口，如果没有正常生成会出现开机没有系统入口的情况：
 
@@ -299,7 +299,7 @@ vim /boot/grub/grub.cfg
 
 ---
 
-## 安装完 Archlinux 后的基础配置
+## 安装完 ArchLinux 后的基础配置
 
 ### 还是要连接网络
 
