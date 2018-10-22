@@ -33,7 +33,8 @@ type: "categories"
 
 - [Install ArchLinux from scratch](http://koushiro.me/2018/08/02/%E6%95%99%E5%90%84%E4%BD%8Dfriend%E5%AE%89%E8%A3%85Archlinux/)
 
-## Miscellaneous
+## Misc
+
 
 
 ## Network
@@ -48,6 +49,8 @@ type: "categories"
 ## Rust
 
 - [trait Copy/Clone](http://koushiro.me/2018/09/27/Rust-trait-Clone-and-Copy/)   
+## Water
+
 
 ---
 

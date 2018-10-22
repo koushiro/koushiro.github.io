@@ -15,7 +15,7 @@ tags: [tech, Linux, ArchLinux, config]
 
 ## 制作启动U盘
 
-由于咱是在 windows 上做的安装介质（也是多数 friends 的情况），所以在此就只针对 windwos 系统给出说明，其他平台可以参考 [ArchWiki](https://wiki.archlinux.org/index.php/USB_flash_installation_media)。
+由于咱是在 windows 上做的安装介质（也是多数 friends 的情况），所以在此就只针对 windows 系统给出说明，其他平台可以参考 [ArchWiki](https://wiki.archlinux.org/index.php/USB_flash_installation_media)。
 
 windows 上咱使用 [rufus](https://rufus.akeo.ie/?locale=zh_CN/) 来制作U盘驱动器，rufus也是 ArchLinux 官方推荐的哦。
 
@@ -27,7 +27,7 @@ windows 上咱使用 [rufus](https://rufus.akeo.ie/?locale=zh_CN/) 来制作U盘
 
 安装U盘制作完成后，插入电脑，调整硬盘的启动顺序从U盘启动 ArchLinux。
 
-拿咱的 ThinkPad X1C 具体举例，ThinkPad X1C 还需要在 BIOS 里将 Security Boot 选项设置为 Disabled，然后在 Startup 栏把 UEFI/Legacy Boot 选项设置为 Both / UEFI First / Yes。这样才能调整启动顺序从U盘启动 archlinux 系统。
+拿咱的 ThinkPad X1C 具体举例，ThinkPad X1C 还需要在 BIOS 里将 Security Boot 选项设置为 Disabled，然后在 Startup 栏把 UEFI/Legacy Boot 选项设置为 Both / UEFI First / Yes。这样才能调整启动顺序从U盘启动 ArchLinux 系统。
 
 如果 friend 不确定自己的引导方式，U盘启动成功后请在命令提示符下执行以下命令：
 

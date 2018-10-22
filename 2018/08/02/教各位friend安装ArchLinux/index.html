@@ -117,7 +117,7 @@
 <meta property="og:description" content="最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 ArchlLinux，尽管是咱第二次装 ArchLinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://koushiro.me/2018/08/02/教各位friend安装ArchLinux/rufus.png">
-<meta property="og:updated_time" content="2018-10-17T13:35:57.700Z">
+<meta property="og:updated_time" content="2018-10-22T14:22:37.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="教各位friend安装ArchLinux">
 <meta name="twitter:description" content="最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 ArchlLinux，尽管是咱第二次装 ArchLinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。">
@@ -261,6 +261,14 @@
           <li class="menu-item menu-item-projects">
     <a href="/projects/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-database"></i> <br />Projects</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-contributions">
+    <a href="/contributions/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-code-branch"></i> <br />PRs</a>
   </li>
         
         
@@ -430,7 +438,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-10-17 21:35:57" itemprop="dateModified" datetime="2018-10-17T21:35:57+08:00">2018-10-17</time>
+                <time title="Modified: 2018-10-22 22:22:37" itemprop="dateModified" datetime="2018-10-22T22:22:37+08:00">2018-10-22</time>
               
             
           </span>
@@ -530,13 +538,13 @@
         <p>最近新买了 ThinkPad X1C，顺便又买了块 SSD （ 东芝 RC100 2242 规格，PCIe/NVMe）来装 ArchlLinux，尽管是咱第二次装 ArchLinux，还是遇到了不少坑，因此根据 ArchWiki 和网上的几篇博客整理了一篇可以让各位 friends 都能上手的安装教程。</p>
 <a id="more"></a>
 <hr>
-<h1 id="教各位friend安装ArchLinux"><a href="#教各位friend安装ArchLinux" class="headerlink" title="教各位friend安装ArchLinux"></a>教各位friend安装ArchLinux</h1><h2 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h2><p>由于咱是在 windows 上做的安装介质（也是多数 friends 的情况），所以在此就只针对 windwos 系统给出说明，其他平台可以参考 <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media" target="_blank" rel="noopener">ArchWiki</a>。</p>
+<h1 id="教各位friend安装ArchLinux"><a href="#教各位friend安装ArchLinux" class="headerlink" title="教各位friend安装ArchLinux"></a>教各位friend安装ArchLinux</h1><h2 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h2><p>由于咱是在 windows 上做的安装介质（也是多数 friends 的情况），所以在此就只针对 windows 系统给出说明，其他平台可以参考 <a href="https://wiki.archlinux.org/index.php/USB_flash_installation_media" target="_blank" rel="noopener">ArchWiki</a>。</p>
 <p>windows 上咱使用 <a href="https://rufus.akeo.ie/?locale=zh_CN/" target="_blank" rel="noopener">rufus</a> 来制作U盘驱动器，rufus也是 ArchLinux 官方推荐的哦。</p>
 <p>当然制作之前要先<a href="https://www.archlinux.org/download/" target="_blank" rel="noopener">下载 archlinux</a>，friend 可以自己选择源来下载，咱是直接用了 <a href="https://mirrors.ustc.edu.cn/archlinux/iso/2018.08.01/" target="_blank" rel="noopener">ustc 源</a> ，rufus 的具体设置如图：</p>
 <p><img src="rufus.png" alt="rufus"></p>
 <p><strong>注意</strong>：目前的引导方式主要分为 <strong>EFI 引导 + GPT 分区表</strong> 与 <strong>BIOS(LEGACY) 引导 + MBR 分区表</strong> 两种，几乎比较新的机器都采用了EFI/GPT引导的方式（也是咱选择的方式）。</p>
 <p>安装U盘制作完成后，插入电脑，调整硬盘的启动顺序从U盘启动 ArchLinux。</p>
-<p>拿咱的 ThinkPad X1C 具体举例，ThinkPad X1C 还需要在 BIOS 里将 Security Boot 选项设置为 Disabled，然后在 Startup 栏把 UEFI/Legacy Boot 选项设置为 Both / UEFI First / Yes。这样才能调整启动顺序从U盘启动 archlinux 系统。</p>
+<p>拿咱的 ThinkPad X1C 具体举例，ThinkPad X1C 还需要在 BIOS 里将 Security Boot 选项设置为 Disabled，然后在 Startup 栏把 UEFI/Legacy Boot 选项设置为 Both / UEFI First / Yes。这样才能调整启动顺序从U盘启动 ArchLinux 系统。</p>
 <p>如果 friend 不确定自己的引导方式，U盘启动成功后请在命令提示符下执行以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /sys/firmware/efi/efivars</span><br></pre></td></tr></table></figure>
 <p>如果提示</p>
