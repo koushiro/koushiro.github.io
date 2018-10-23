@@ -10,6 +10,7 @@ type: "categories"
 
 - [Sort](http://koushiro.me/2018/09/11/Algorithm-Sort/)
 - [Graph](http://koushiro.me/2018/10/17/Algorithm-Graph/)
+- [SkipList](https://koushiro.me/2018/10/23/Algorithm-SkipList/)
 
 ## C++/C
 

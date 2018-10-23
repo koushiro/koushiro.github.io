@@ -4,11 +4,13 @@ date: 2016-12-30 23:07:32
 type: "about"
 ---
 
-# 关于我 / About me
+# 关于博客 / About blog
 
 Welcome to my blog.
 
 This blog was, is and will be the window, which used to present the scenery of my life and work.
+
+# 关于我 / About me
 
 My name is Qinxuan Chen(陈钦轩).
 
