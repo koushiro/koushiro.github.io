@@ -23,7 +23,7 @@ cd ..
 # You could change the script to suit your needs.
 cp -R public/* koushiro.github.io/
 cp -R source/* koushiro.github.io/source/
-cp __config.yml koushiro.github.io/site_config.yml
+cp _config.yml koushiro.github.io/site_config.yml
 cp themes/next/_config.yml koushiro.github.io/theme_next_config.yml
 cd koushiro.github.io
 git add .
