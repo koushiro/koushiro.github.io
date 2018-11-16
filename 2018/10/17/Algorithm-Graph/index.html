@@ -116,12 +116,14 @@
 <meta property="og:site_name" content="Koushiro&#39;s Blog">
 <meta property="og:description" content="Implementation of common graph algorithm.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T13:31:57.439Z">
+<meta property="og:updated_time" content="2018-10-26T14:28:13.543Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Algorithm-Graph">
 <meta name="twitter:description" content="Implementation of common graph algorithm.">
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Koushiro's Blog" type="application/atom+xml" />
 
 
 
@@ -419,12 +421,24 @@
                 
               
 
-              <time title="Created: 2018-10-17 20:54:04 / Modified: 21:31:57" itemprop="dateCreated datePublished" datetime="2018-10-17T20:54:04+08:00">2018-10-17</time>
+              <time title="Created: 2018-10-17 20:54:04" itemprop="dateCreated datePublished" datetime="2018-10-17T20:54:04+08:00">2018-10-17</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-10-26 22:28:13" itemprop="dateModified" datetime="2018-10-26T22:28:13+08:00">2018-10-26</time>
               
             
           </span>
@@ -487,7 +501,7 @@
                 
                   <span class="post-meta-item-text">Symbols count in article: </span>
                 
-                <span title="Symbols count in article">3.3k</span>
+                <span title="Symbols count in article">3.4k</span>
               
 
               
@@ -524,12 +538,17 @@
         <center> Implementation of common graph algorithm. </center>
 
 <a id="more"></a>
+<hr>
 <h1 id="Algorithm-Graph"><a href="#Algorithm-Graph" class="headerlink" title="Algorithm-Graph"></a>Algorithm-Graph</h1><p>图结构的常用表示无非<strong>邻接矩阵</strong>（用于稠密图，更直观易懂）和<strong>邻接表</strong>（用于稀疏图，更为常用）。<br>这篇博客里将会使用邻接表结构。</p>
 <h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><p>广度优先搜索通过给定图和一个源点 s 可以生成一棵广度优先搜索树，s 为该树根结点。<br>在该树中从结点 s 到结点 v 的简单路径所对应的就是图中两结点的最短路径。</p>
 <p>实现方式很简单，只需要通过一个先进先出的队列来管理搜索过程中发现的结点（即代码中 <code>status</code> 为 <code>DISCOVERED</code> 的结点）。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> Graph = <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">size_t</span>&gt;&gt;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> VertexStatus &#123; UNDISCOVERED, DISCOVERED, VISITED &#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vertex</span> &#123;</span></span><br><span class="line">    VertexStatus status;</span><br><span class="line">    pair&lt;<span class="keyword">size_t</span>, <span class="keyword">size_t</span>&gt; time;</span><br><span class="line">    <span class="keyword">size_t</span> parent;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(<span class="keyword">const</span> Graph&amp; G, <span class="built_in">vector</span>&lt;Vertex&gt;&amp; A, <span class="keyword">size_t</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s &gt; G.size()) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; A.size(); ++i) &#123;</span><br><span class="line">        A[i] = &#123; UNDISCOVERED, &#123;&#125;, i &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    A[s].status = DISCOVERED;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">size_t</span>&gt; Q;</span><br><span class="line">    Q.push(s);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!Q.empty()) &#123;</span><br><span class="line">        <span class="keyword">size_t</span> u = Q.front();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v : G[u]) &#123; <span class="comment">// 处理 u 的邻接表</span></span><br><span class="line">            <span class="keyword">if</span> (A[v].status == UNDISCOVERED) &#123;</span><br><span class="line">                A[v] = &#123; UNDISCOVERED, &#123;&#125;, u &#125;;</span><br><span class="line">                Q.push(v);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Q.pop();</span><br><span class="line">        A[u].status = VISITED;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"BFS:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    Graph G1 = &#123;&#123;&#125;, &#123;<span class="number">0</span>, <span class="number">2</span>&#125;, &#123;<span class="number">0</span>, <span class="number">4</span>&#125;, &#123;<span class="number">2</span>&#125;, &#123;<span class="number">2</span>, <span class="number">3</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">vector</span>&lt;Vertex&gt; A1(G1.size());</span><br><span class="line">    BFS(G1, A1, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; A1.size(); ++i) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">"-&gt;"</span> &lt;&lt; A1[i].parent &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BFS:</span><br><span class="line">0-&gt;1</span><br><span class="line">1-&gt;1</span><br><span class="line">2-&gt;1</span><br><span class="line">3-&gt;4</span><br><span class="line">4-&gt;2</span><br></pre></td></tr></table></figure>
 <h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><p>不像广度优先搜索，深度优先搜索会形成一个由多棵深度优先树组成的深度优先森林。<br>此外，深度优先搜索在每个结点上记录两个时间戳，即 <code>Vertex</code> 结构体中的 <code>time.first</code> 和 <code>time.second</code>。<br><code>time.first</code> 用于记录该结点被发现的时间，<code>time.second</code> 用于记录该结点搜索完其邻接表的时间。<br>此处具体实现使用了递归。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//...</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">depth_first_search</span><span class="params">(<span class="keyword">const</span> Graph&amp; G, <span class="built_in">vector</span>&lt;Vertex&gt;&amp; A, <span class="keyword">size_t</span> u, <span class="keyword">size_t</span>&amp; counter)</span> </span>&#123;</span><br><span class="line">    A[u].time.first = counter++;</span><br><span class="line">    A[u].status = DISCOVERED;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; v : G[u]) &#123;  <span class="comment">// 处理 u 的邻接表</span></span><br><span class="line">        <span class="keyword">if</span> (A[v].status == UNDISCOVERED) &#123;</span><br><span class="line">            A[v].parent = u;</span><br><span class="line">            depth_first_search(G, A, v, counter);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    A[u].time.second = counter++;</span><br><span class="line">    A[u].status = VISITED;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">const</span> Graph&amp; G, <span class="built_in">vector</span>&lt;Vertex&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">size_t</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; A.size(); ++i) &#123;</span><br><span class="line">        A[i] = &#123; UNDISCOVERED, &#123;&#125;, i &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> u = <span class="number">0</span>; u &lt; G.size(); ++u) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A[u].status == UNDISCOVERED) &#123;</span><br><span class="line">            depth_first_search(G, A, u, counter);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"DFS:"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    Graph G2 = &#123;&#123;<span class="number">1</span>, <span class="number">3</span>&#125;, &#123;<span class="number">2</span>&#125;, &#123;<span class="number">3</span>&#125;, &#123;<span class="number">1</span>&#125;, &#123;<span class="number">2</span>, <span class="number">5</span>&#125;, &#123;<span class="number">5</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">vector</span>&lt;Vertex&gt; A2(G2.size());</span><br><span class="line">    DFS(G2, A2);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; A2.size(); ++i) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"("</span> &lt;&lt; A2[i].time.first &lt;&lt; <span class="string">"/"</span> &lt;&lt; A2[<span class="number">2</span>].time.second &lt;&lt; <span class="string">")"</span></span><br><span class="line">            &lt;&lt;  i &lt;&lt; <span class="string">"-&gt;"</span> &lt;&lt; A2[i].parent &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">DFS:</span><br><span class="line">(0/5)0-&gt;0</span><br><span class="line">(1/5)1-&gt;0</span><br><span class="line">(2/5)2-&gt;1</span><br><span class="line">(3/5)3-&gt;2</span><br><span class="line">(8/5)4-&gt;4</span><br><span class="line">(9/5)5-&gt;4</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -672,7 +691,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -764,6 +783,13 @@
             </nav>
           
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -868,7 +894,7 @@
     
       <span class="post-meta-item-text">Symbols count total: </span>
     
-    <span title="Symbols count total">97k</span>
+    <span title="Symbols count total">98k</span>
   
 
   
