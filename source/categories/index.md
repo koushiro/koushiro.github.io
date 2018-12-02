@@ -17,7 +17,7 @@ type: "categories"
 - [Effective C++ Note1](https://koushiro.github.io/2017/01/26/Effective-Cpp-Note1/)
 - [Effective C++ Note2](https://koushiro.github.io/2017/02/03/Effective-Cpp-Note2/)
 - [Effective C++ Note3](https://koushiro.github.io/2017/02/11/Effective-Cpp-Note3/)
-- [Optimize string in C++](https://koushiro.github.io/2018/06/05/Cpp%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BC%98%E5%8C%96/)
+- [Optimize string in C++](https://koushiro.github.io/2018/06/05/Optimize-string-in-Cpp/)
 - [Customizing new and delete in C++](https://koushiro.github.io/2018/07/18/Customizing-new-and-delete-in-Cpp/)
 
 ## Configuration
@@ -30,7 +30,7 @@ type: "categories"
 
 ## Linux
 
-- [Install ArchLinux from scratch](https://koushiro.github.io/2018/08/02/%E6%95%99%E5%90%84%E4%BD%8Dfriend%E5%AE%89%E8%A3%85Archlinux/)
+- [Install ArchLinux from scratch](https://koushiro.github.io/2018/08/02/%E6%95%99%E5%90%84%E4%BD%8Dfriend%E5%AE%89%E8%A3%85ArchLinux/)
 
 ## Misc
 
