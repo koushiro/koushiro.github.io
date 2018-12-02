@@ -29,5 +29,5 @@ cp _config.yml koushiro.github.io/site_config.yml
 cp themes/hexo-theme-next/_config.yml koushiro.github.io/theme_next_config.yml
 cd koushiro.github.io
 git add .
-git commit -m "update blog"
-git push origin master
+#git commit -m "update blog"
+#git push origin master
