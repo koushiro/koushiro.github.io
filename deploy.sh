@@ -20,6 +20,8 @@ rm -rf source/*
 # change directory to repo's parent directory
 cd ..
 
+hexo g
+
 # You could change the script to suit your needs.
 cp -R public/* koushiro.github.io/
 cp -R source/* koushiro.github.io/source/
