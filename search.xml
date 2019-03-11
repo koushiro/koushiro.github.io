@@ -14,7 +14,7 @@
   <entry>
     <title><![CDATA[Algorithm-SkipList]]></title>
     <url>%2F2018%2F10%2F23%2FAlgorithm-SkipList%2F</url>
-    <content type="text"><![CDATA[An extended data structure based on ordered linked list. Algorithm-SkipList]]></content>
+    <content type="text"><![CDATA[An extended data structure based on ordered linked list. Algorithm-SkipListPlease see the specific C implementation of skiplist.]]></content>
   </entry>
   <entry>
     <title><![CDATA[Algorithm-Graph]]></title>

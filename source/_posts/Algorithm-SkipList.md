@@ -12,4 +12,5 @@ tags:
 
 # Algorithm-SkipList
 
+Please see the specific C implementation of [skiplist](https://github.com/koushiro/xlib/blob/master/src/xskiplist.h).
 

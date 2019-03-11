@@ -39,9 +39,9 @@
     <link href="http://koushiro.me/2018/10/23/Algorithm-SkipList/"/>
     <id>http://koushiro.me/2018/10/23/Algorithm-SkipList/</id>
     <published>2018-10-23T09:05:16.000Z</published>
-    <updated>2018-10-26T14:33:32.192Z</updated>
+    <updated>2019-03-11T10:24:16.619Z</updated>
     
-    <content type="html"><![CDATA[<center> An extended data structure based on ordered linked list. </center><a id="more"></a><hr><h1 id="Algorithm-SkipList"><a href="#Algorithm-SkipList" class="headerlink" title="Algorithm-SkipList"></a>Algorithm-SkipList</h1>]]></content>
+    <content type="html"><![CDATA[<center> An extended data structure based on ordered linked list. </center><a id="more"></a><hr><h1 id="Algorithm-SkipList"><a href="#Algorithm-SkipList" class="headerlink" title="Algorithm-SkipList"></a>Algorithm-SkipList</h1><p>Please see the specific C implementation of <a href="https://github.com/koushiro/xlib/blob/master/src/xskiplist.h" target="_blank" rel="noopener">skiplist</a>.</p>]]></content>
     
     <summary type="html">
     

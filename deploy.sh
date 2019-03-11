@@ -9,9 +9,10 @@
 # ├── source
 # └── themes
 
-# clean 2017/ 2018/ archives/ categories/ tags/ source/ directory
+# clean 2017/ 2018/ 2019/ archives/ categories/ tags/ source/ directory
 rm -rf 2017/*
 rm -rf 2018/*
+rm -rf 2019/*
 rm -rf archives/*
 rm -rf categories/*
 rm -rf tags/*
