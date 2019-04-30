@@ -22,7 +22,7 @@ See the link below for the full usage of Git.
 流程分为4个区域：
 
 - 工作区 (Workspace)
-- 暂存去 (Staging Area)
+- 暂存区 (Staging Area)
 - 本地仓库 (Local Repository)
 - 远程仓库 (Remote Repository)
 
