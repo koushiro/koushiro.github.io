@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Building and Testing Rust projects on CircleCI]]></title>
+    <url>%2F2019%2F04%2F30%2FBuilding-and-Testing-Rust-projects-on-CircleCI%2F</url>
+    <content type="text"><![CDATA[Configure CircleCI for Rust projects. Building and Testing Rust projects on CircleCISteps Setup build environment (Use docker(image: ubuntu 18.04) and rustup) Check code format (Use rustfmt) Check a collection of lints to catch common mistakes and improve your code (Use rust-clippy) Build and Test Code coverage measurement (Use kcov and Codecov) Full CircleCI configuration123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869version: 2.1jobs: build: docker: - image: ubuntu:18.04 working_directory: ~/rust-demo-ci steps: - checkout - run: name: Setup build environment command: | apt update apt install -y curl wget build-essential zlib1g-dev python libcurl4-openssl-dev libelf-dev libdw-dev cmake binutils-dev libiberty-dev # if there is no `rust-toolchain` file in the rust project, please specify the default toolchain. # example: `--default-tolchain stable` or `--default-toolchain nightly` curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain none -y; source $HOME/.cargo/env no_output_timeout: 1800s - run: name: Format command: | export PATH=~/.cargo/bin:$PATH rustup component add rustfmt cargo fmt -- --check - run: name: Clippy command: | export PATH=~/.cargo/bin:$PATH rustup component add clippy cargo clippy --all - run: name: Test command: | export PATH=~/.cargo/bin:$PATH export RUST_BACKTRACE=1 cargo test - run: name: Coverage command: | # install kcov export KCOV_VERSION=36 wget https://github.com/SimonKagstrom/kcov/archive/v$KCOV_VERSION.tar.gz tar xzf v$KCOV_VERSION.tar.gz &amp;&amp; rm v$KCOV_VERSION.tar.gz cd kcov-$KCOV_VERSION mkdir build &amp;&amp; cd build cmake .. &amp;&amp; make &amp;&amp; make install DESTDIR=../../kcov-build cd ../.. &amp;&amp; rm -rf kcov-$KCOV_VERSION # generate and upload code coverage for file in $(find target/debug -maxdepth 1 -name '*-*' -a ! -name '*.d' ! -name '.*'); do [ -x "$&#123;file&#125;" ] || continue mkdir -p "target/cov/$(basename $file)" ./kcov-build/usr/local/bin/kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file" done bash &lt;(curl -s https://codecov.io/bash) echo "Uploaded code coverage"workflows: version: 2.1 build: jobs: - build ReferenceCircle CI Document]]></content>
+      <tags>
+        <tag>tech</tag>
+        <tag>CI</tag>
+        <tag>Rust</tag>
+        <tag>config</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Rust trait: Drop]]></title>
     <url>%2F2018%2F10%2F29%2FRust-trait-Drop%2F</url>
     <content type="text"></content>
