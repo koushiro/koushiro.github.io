@@ -27,45 +27,37 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: ubuntu:18.04
+      - image: circleci/rust:latest
 
     working_directory: ~/rust-demo-ci
 
     steps:
       - checkout
-
+      - run:
+          name: Version information
+          command: |
+            rustc --version
+            cargo --version
+            rustup --version
       - run:
           name: Setup build environment
           command: |
-            apt update
-            apt install -y curl wget build-essential zlib1g-dev python libcurl4-openssl-dev libelf-dev libdw-dev cmake binutils-dev libiberty-dev
-            # if there is no `rust-toolchain` file in the rust project, please specify the default toolchain.
-            # example: `--default-tolchain stable` or `--default-toolchain nightly`
-            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain none -y;
-            source $HOME/.cargo/env
+            sudo apt-get update
+            sudo apt-get install -y cmake binutils-dev libiberty-dev libelf-dev libdw-dev
           no_output_timeout: 1800s
-
       - run:
           name: Format
           command: |
-            export PATH=~/.cargo/bin:$PATH
             rustup component add rustfmt
             cargo fmt -- --check
-
       - run:
           name: Clippy
           command: |
-            export PATH=~/.cargo/bin:$PATH
             rustup component add clippy
             cargo clippy --all
-
       - run:
           name: Test
-          command: |
-            export PATH=~/.cargo/bin:$PATH
-            export RUST_BACKTRACE=1
-            cargo test
-
+          command: RUST_BACKTRACE=1 cargo test
       - run:
           name: Coverage
           command: |
@@ -86,7 +78,7 @@ jobs:
             done
             bash <(curl -s https://codecov.io/bash)
             echo "Uploaded code coverage"
-
+      
 workflows:
   version: 2.1
   build:
@@ -95,7 +87,13 @@ workflows:
 
 ```
 
+## Update (2019-05-07)
+
+The `personality` syscall required by `kcov` is **DISABLED** by Docker, so test coverage cannot be measured... (Not fix yet, may be you can use a Machine executor instead of a Docker executor)
+
+[kcov issue #151](https://github.com/SimonKagstrom/kcov/issues/151)
+[circleci discuss link](https://discuss.circleci.com/t/cargo-tarpaulin-fails/30215)
+
 ## Reference
 
 [Circle CI Document](https://circleci.com/docs/)
-
