@@ -53,13 +53,13 @@ jobs:
       - run:
           name: Test
           command: |
-          	export PATH=~/.cargo/bin:$PATH
+            export PATH=~/.cargo/bin:$PATH
             export RUST_BACKTRACE=1
-          	cargo test
+            cargo test
       - run:
           name: Coverage
           command: |
-          	export PATH=~/.cargo/bin:$PATH
+            export PATH=~/.cargo/bin:$PATH
             # install kcov
             cargo install cargo-kcov
             cargo kcov --print-install-kcov-sh | sh
