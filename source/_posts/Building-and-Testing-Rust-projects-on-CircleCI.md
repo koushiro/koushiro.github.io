@@ -5,7 +5,6 @@ date: 2019-04-30 15:32:38
 ---
 
 <center>Configure CircleCI for Rust projects.</center>
-
 <!-- more -->
 
 ---
@@ -14,7 +13,7 @@ date: 2019-04-30 15:32:38
 
 ## Steps
 
-- Setup build environment (Use docker(image: ubuntu 18.04) and [rustup](https://rustup.rs/))
+- Setup build environment (Use ~~docker(image: ubuntu 18.04) and~~ [rustup](https://rustup.rs/))
 - Check code format (Use [rustfmt](https://github.com/rust-lang/rustfmt))
 - Check a collection of lints to catch common mistakes and improve your code (Use [rust-clippy](https://github.com/rust-lang/rust-clippy))
 - Build and Test
@@ -26,58 +25,49 @@ date: 2019-04-30 15:32:38
 version: 2.1
 jobs:
   build:
-    docker:
-      - image: circleci/rust:latest
+    machine: true
 
-    working_directory: ~/rust-demo-ci
+    working_directory: ~/rust-demo
 
     steps:
       - checkout
       - run:
-          name: Version information
-          command: |
-            rustc --version
-            cargo --version
-            rustup --version
-      - run:
           name: Setup build environment
           command: |
             sudo apt-get update
-            sudo apt-get install -y cmake binutils-dev libiberty-dev libelf-dev libdw-dev
+            sudo apt-get install -y cmake binutils-dev libcurl4-openssl-dev libiberty-dev libelf-dev libdw-dev
+            curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain none -y;
           no_output_timeout: 1800s
       - run:
           name: Format
           command: |
+            export PATH=~/.cargo/bin:$PATH
             rustup component add rustfmt
-            cargo fmt -- --check
+            cargo fmt --all -- --check
       - run:
           name: Clippy
           command: |
+            export PATH=~/.cargo/bin:$PATH
             rustup component add clippy
-            cargo clippy --all
+            cargo clippy --all -- -D warnings
       - run:
           name: Test
-          command: RUST_BACKTRACE=1 cargo test
+          command: |
+          	export PATH=~/.cargo/bin:$PATH
+            export RUST_BACKTRACE=1
+          	cargo test
       - run:
           name: Coverage
           command: |
+          	export PATH=~/.cargo/bin:$PATH
             # install kcov
-            export KCOV_VERSION=36
-            wget https://github.com/SimonKagstrom/kcov/archive/v$KCOV_VERSION.tar.gz
-            tar xzf v$KCOV_VERSION.tar.gz && rm v$KCOV_VERSION.tar.gz
-            cd kcov-$KCOV_VERSION
-            mkdir build && cd build
-            cmake .. && make && make install DESTDIR=../../kcov-build
-            cd ../.. && rm -rf kcov-$KCOV_VERSION
-
-            # generate and upload code coverage
-            for file in $(find target/debug -maxdepth 1 -name '*-*' -a ! -name '*.d' ! -name '.*'); do
-              [ -x "${file}" ] || continue
-              mkdir -p "target/cov/$(basename $file)"
-              ./kcov-build/usr/local/bin/kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file"
-            done
+            cargo install cargo-kcov
+            cargo kcov --print-install-kcov-sh | sh
+            echo "Install kcov successfully"
+            # coverage
+            cargo kcov --all
             bash <(curl -s https://codecov.io/bash)
-            echo "Uploaded code coverage"
+            echo "Upload code coverage successfully"
       
 workflows:
   version: 2.1
@@ -93,6 +83,12 @@ The `personality` syscall required by `kcov` is **DISABLED** by Docker, so test 
 
 [kcov issue #151](https://github.com/SimonKagstrom/kcov/issues/151)
 [circleci discuss link](https://discuss.circleci.com/t/cargo-tarpaulin-fails/30215)
+
+## Update (2019-09-11)
+
+Using **machine** instead of **docker** to repair code coverage (`kcov`) failed.
+
+Use `cargo-kcov` subcommand to measure code coverage.
 
 ## Reference
 

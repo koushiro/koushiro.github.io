@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Building and Testing Rust projects on CircleCI]]></title>
     <url>%2F2019%2F04%2F30%2FBuilding-and-Testing-Rust-projects-on-CircleCI%2F</url>
-    <content type="text"><![CDATA[Configure CircleCI for Rust projects. Building and Testing Rust projects on CircleCISteps Setup build environment (Use docker(image: ubuntu 18.04) and rustup) Check code format (Use rustfmt) Check a collection of lints to catch common mistakes and improve your code (Use rust-clippy) Build and Test Code coverage measurement (Use kcov and Codecov) Full CircleCI configuration12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061version: 2.1jobs: build: docker: - image: circleci/rust:latest working_directory: ~/rust-demo-ci steps: - checkout - run: name: Version information command: | rustc --version cargo --version rustup --version - run: name: Setup build environment command: | sudo apt-get update sudo apt-get install -y cmake binutils-dev libiberty-dev libelf-dev libdw-dev no_output_timeout: 1800s - run: name: Format command: | rustup component add rustfmt cargo fmt -- --check - run: name: Clippy command: | rustup component add clippy cargo clippy --all - run: name: Test command: RUST_BACKTRACE=1 cargo test - run: name: Coverage command: | # install kcov export KCOV_VERSION=36 wget https://github.com/SimonKagstrom/kcov/archive/v$KCOV_VERSION.tar.gz tar xzf v$KCOV_VERSION.tar.gz &amp;&amp; rm v$KCOV_VERSION.tar.gz cd kcov-$KCOV_VERSION mkdir build &amp;&amp; cd build cmake .. &amp;&amp; make &amp;&amp; make install DESTDIR=../../kcov-build cd ../.. &amp;&amp; rm -rf kcov-$KCOV_VERSION # generate and upload code coverage for file in $(find target/debug -maxdepth 1 -name '*-*' -a ! -name '*.d' ! -name '.*'); do [ -x "$&#123;file&#125;" ] || continue mkdir -p "target/cov/$(basename $file)" ./kcov-build/usr/local/bin/kcov --exclude-pattern=/.cargo,/usr/lib --verify "target/cov/$(basename $file)" "$file" done bash &lt;(curl -s https://codecov.io/bash) echo "Uploaded code coverage" workflows: version: 2.1 build: jobs: - build Update (2019-05-07)The personality syscall required by kcov is DISABLED by Docker, so test coverage cannot be measured… (Not fix yet, may be you can use a Machine executor instead of a Docker executor) kcov issue #151circleci discuss link ReferenceCircle CI Document]]></content>
+    <content type="text"><![CDATA[Configure CircleCI for Rust projects. Building and Testing Rust projects on CircleCISteps Setup build environment (Use docker(image: ubuntu 18.04) and rustup) Check code format (Use rustfmt) Check a collection of lints to catch common mistakes and improve your code (Use rust-clippy) Build and Test Code coverage measurement (Use kcov and Codecov) Full CircleCI configuration12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152version: 2.1jobs: build: machine: true working_directory: ~/rust-demo steps: - checkout - run: name: Setup build environment command: | sudo apt-get update sudo apt-get install -y cmake binutils-dev libcurl4-openssl-dev libiberty-dev libelf-dev libdw-dev curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path --default-toolchain none -y; no_output_timeout: 1800s - run: name: Format command: | export PATH=~/.cargo/bin:$PATH rustup component add rustfmt cargo fmt --all -- --check - run: name: Clippy command: | export PATH=~/.cargo/bin:$PATH rustup component add clippy cargo clippy --all -- -D warnings - run: name: Test command: | export PATH=~/.cargo/bin:$PATH export RUST_BACKTRACE=1 cargo test - run: name: Coverage command: | export PATH=~/.cargo/bin:$PATH # install kcov cargo install cargo-kcov cargo kcov --print-install-kcov-sh | sh echo "Install kcov successfully" # coverage cargo kcov --all bash &lt;(curl -s https://codecov.io/bash) echo "Upload code coverage successfully" workflows: version: 2.1 build: jobs: - build Update (2019-05-07)The personality syscall required by kcov is DISABLED by Docker, so test coverage cannot be measured… (Not fix yet, may be you can use a Machine executor instead of a Docker executor) kcov issue #151circleci discuss link Update (2019-09-11)Using machine instead of docker to repair code coverage (kcov) failed. Use cargo-kcov subcommand to measure code coverage. ReferenceCircle CI Document]]></content>
       <tags>
         <tag>tech</tag>
         <tag>CI</tag>
@@ -19,6 +19,7 @@
         <category>Rust</category>
       </categories>
       <tags>
+        <tag>tech</tag>
         <tag>rust</tag>
         <tag>trait</tag>
       </tags>
@@ -48,6 +49,7 @@
         <category>Rust</category>
       </categories>
       <tags>
+        <tag>tech</tag>
         <tag>rust</tag>
         <tag>trait</tag>
       </tags>
@@ -82,7 +84,7 @@
   <entry>
     <title><![CDATA[Network I/O Model]]></title>
     <url>%2F2018%2F06%2F16%2FNetwork-IO-Model%2F</url>
-    <content type="text"><![CDATA[学习一些开源的网络库源码时，需要了解的网络I/O模型。 从蚂蚁笔记的博客导入，还需重新排版]]></content>
+    <content type="text"><![CDATA[学习一些开源的网络库源码时，需要了解的网络I/O模型。]]></content>
       <categories>
         <category>Network</category>
       </categories>
